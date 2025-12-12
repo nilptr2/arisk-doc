@@ -1,23 +1,23 @@
 ---
-title: "快速入门指南"
-description: "5 分钟内开始使用 Arisk"
+title: "Quick Start Guide"
+description: "5 minutes to start using Arisk"
 ---
 
-## 获取 API 密钥
+## Get API Key
 
-要开始使用 Arisk，您需要一个 API 密钥。
+To start using Arisk, you need an API key.
 
 <Steps>
-  <Step title="创建账户">
-    访问 [dashboard.arisk.com](https://dashboard.arisk.com) 并注册免费账户。
+  <Step title="Create Account">
+    Visit [dashboard.arisk.com](https://dashboard.arisk.com) and register for a free account.
   </Step>
   
-  <Step title="生成 API 密钥">
-    导航到 **设置 > API 密钥** 并点击"创建新密钥"。请安全保存此密钥 - 您将无法再次查看。
+  <Step title="Generate API Key">
+    Navigate to **Settings > API Keys** and click "Create New Key". Please securely save this key - you will not be able to view it again.
   </Step>
   
-  <Step title="设置身份验证">
-    在所有请求中使用 `X-API-Key` 头包含您的 API 密钥：
+  <Step title="Set Authentication">
+    Include your API key in all requests using the `X-API-Key` header:
     
     ```bash
     curl https://api.arisk.com/v1/analyze \
@@ -26,11 +26,11 @@ description: "5 分钟内开始使用 Arisk"
   </Step>
 </Steps>
 
-## 第一次风险分析
+## First Risk Analysis
 
-让我们分析一个钱包地址以评估其风险等级。
+Let's analyze a wallet address to evaluate its risk level.
 
-### 分析钱包地址
+### Analyze Wallet Address
 
 <CodeGroup>
 
@@ -182,23 +182,29 @@ const response = await fetch('https://api.arisk.com/v1/monitor/create', {
   </Card>
   <Card
     title="开发设置"
+    href="/en/api-reference/introduction"
+  >
+    Learn about all available endpoints and features.
+  </Card>
+  <Card
+    title="Development Setup"
     icon="code"
-    href="/zh/development"
+    href="/en/development"
   >
-    设置本地开发环境。
+    Set up your local development environment.
   </Card>
   <Card
-    title="最佳实践"
+    title="Best Practices"
     icon="lightbulb"
-    href="/zh/essentials/settings"
+    href="/en/essentials/settings"
   >
-    学习安全最佳实践和优化技巧。
+    Learn security best practices and optimization tips.
   </Card>
   <Card
-    title="加入社区"
+    title="Join Community"
     icon="users"
     href="https://discord.gg/arisk"
   >
-    从我们的社区和团队获得帮助。
+    Get help from our community and team.
   </Card>
 </Columns>
