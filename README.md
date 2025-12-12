@@ -36,6 +36,9 @@ mint dev
 
 这将在 `http://localhost:3000` 启动本地开发服务器。服务器支持热重载，对文档的更改会立即反映。
 
+### 3. 部署文档
+
+推荐使用 Mintlify 托管文档，只需要在个人账号下创建一个项目，绑定对应的github仓库，后续对于仓库的提交都将自动更新文档。关于如何绑定github仓库，可以参考 [Mintlify 文档](https://www.mintlify.com/docs/zh/deploy/github)。
 
 ## 项目结构
 
@@ -210,6 +213,7 @@ description: "页面描述"
 icon: "rocket"                # 导航图标
 iconType: "solid"             # 图标样式：solid, regular, brands
 sidebarTitle: "简短标题"      # 覆盖侧边栏显示名称
+keywords: ["关键词1", "关键词2"] # 搜索关键词
 ---
 ```
 
@@ -432,20 +436,46 @@ openapi: <OpenAPI-JSON-路径> <HTTP-方法> <端点路径>
 
 ### OpenAPI 最佳实践
 
+- **Gozero支持导出openapi.json，可以使用goctl openapi init命令生成openapi.json**
 - **使用描述性的摘要和说明** 以获得更好的文档
 - **在 `components.schemas` 中定义可重用的模式** 以避免重复
 - **在请求/响应体中包含示例**
 - **记录所有状态码** 并提供适当的描述
 - **使用标签** 按类别组织端点
 - **对不同语言保持单独的 OpenAPI 规范**（如果翻译有所不同）
+- **对于部分接口，完全使用openapi.json中的描述可能不够，可以在mdx中单独添加组件说明，例如**
+
+  ```mdx
+  ---
+  openapi: /zh/admin-openapi.json GET /agent/{projectId}/job/{id}
+  keywords: [ "代理作业", "状态", "检索", "详情" ]
+  ---
+
+  <div id="usage">
+    ## 用法
+  </div>
+
+  此端点通过代理任务的唯一标识符获取该任务的详细信息和状态。可用于查看先前创建的代理任务的进度、状态和结果。
+
+  <div id="job-details">
+    ## 作业详情
+  </div>
+
+  响应包含以下信息：
+
+  - 作业执行状态与完成情况
+  - branch 信息和拉取请求（PR；亦称“合并请求”/Merge Request）详情
+  - 会话 metadata 与时间戳
+  ```
+- 也可以完全不依赖openapi.json，直接完全编写mdx文件定义端点，这需要自己定义请求参数、响应参数、状态码以及Playground（try it out，参考[Mintlify api-playground](https://mintlify.com/docs/api-playground/)）组件, 这种方式不易维护，但灵活性较高。
 
 更多关于 OpenAPI 的信息，请参阅：
-- [Mintlify API 组件](https://mintlify.com/docs/api-playground/openapi)
+- [Mintlify API 组件](https://www.mintlify.com/docs/zh/api-playground/openapi-setup)
 - [OpenAPI 规范](https://spec.openapis.org/oas/latest.html)
 
 ## 多语言支持
 
-本文档支持中文（`zh`）和英文（`en`）。
+本文档支持中文（`zh`）和英文（`en`）, 可按照目录结构进行其他语言扩展。
 
 ### 文件组织
 
@@ -604,32 +634,21 @@ openapi: /zh/api-reference/openapi.json post /new/endpoint
 
 在 Mintlify 仪表板的设置 > 域名中配置自定义域名。
 
-### 环境变量
-
-如果需要特定于环境的配置，请使用 Mintlify 的环境变量支持。详见 [Mintlify 部署](https://mintlify.com/docs/settings/versioning)。
 
 ## 资源链接
 
 ### Mintlify 官方文档
 
 - [Mintlify 快速入门](https://mintlify.com/docs/quickstart)
-- [MDX 内容](https://mintlify.com/docs/content/text)
-- [组件](https://mintlify.com/docs/content/components/accordions)
-- [API 文档](https://mintlify.com/docs/api-playground/openapi)
-- [配置](https://mintlify.com/docs/settings/global)
-- [导航](https://mintlify.com/docs/settings/navigation)
-- [多语言](https://mintlify.com/docs/settings/internationalization)
+
 
 ### 实用工具
 
 - [OpenAPI 编辑器](https://editor.swagger.io/) - 编辑和验证 OpenAPI 规范
-- [MDX Playground](https://mdxjs.com/playground/) - 测试 MDX 语法
-- [Mintlify CLI](https://www.npmjs.com/package/mintlify) - 本地开发
 
 ### 获取帮助
 
-- [Mintlify Discord](https://mintlify.com/community)
-- [Mintlify GitHub](https://github.com/mintlify)
+- [Mintlify 官方文档GitHub仓库](https://github.com/mintlify/docs)
 - [Mintlify 支持](mailto:support@mintlify.com)
 
 ## 贡献
