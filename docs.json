@@ -20,8 +20,7 @@
                 "group": "快速开始",
                 "pages": [
                   "index",
-                  "quickstart",
-                  "development"
+                  "quickstart"
                 ]
               }
             ]
@@ -30,7 +29,7 @@
             "tab": "API 参考",
             "groups": [
               {
-                "group": "API Reference",
+                "group": "API 参考",
                 "pages": [
                   "api-reference/endpoint/analyze-address",
                   "api-reference/endpoint/batch-analyze",
@@ -63,9 +62,8 @@
               {
                 "group": "Quick Start",
                 "pages": [
-                  "i18n/en/index",
-                  "i18n/en/quickstart",
-                  "i18n/en/development"
+                  "en/index",
+                  "en/quickstart"
                 ]
               }
             ]
@@ -76,10 +74,10 @@
               {
                 "group": "API Reference",
                 "pages": [
-                  "i18n/en/api-reference/endpoint/analyze-address",
-                  "i18n/en/api-reference/endpoint/batch-analyze",
-                  "i18n/en/api-reference/endpoint/create-monitor",
-                  "i18n/en/api-reference/endpoint/delete-monitor"
+                  "en/api-reference/endpoint/analyze-address",
+                  "en/api-reference/endpoint/batch-analyze",
+                  "en/api-reference/endpoint/create-monitor",
+                  "en/api-reference/endpoint/delete-monitor"
                 ]
               }
             ]
@@ -90,8 +88,8 @@
               {
                 "group": "Version Release",
                 "pages": [
-                  "i18n/en/updatelog/overview",
-                  "i18n/en/updatelog/latest"
+                  "en/updatelog/overview",
+                  "en/updatelog/latest"
                 ]
               }
             ]
@@ -116,6 +114,16 @@
       "vscode"
     ]
   },
+  "redirects": [
+    {
+      "source": "/api-reference/endpoint/*",
+      "destination": "/api/*"
+    },
+    {
+      "source": "/i18n/en/api-reference/endpoint/*",
+      "destination": "/en/api/*"
+    }
+  ],
   "footer": {
     "socials": {
       "x": "https://x.com/mintlify",
