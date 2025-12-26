@@ -33,15 +33,22 @@
                 "tab": "API 参考",
                 "groups": [
                   {
-                    "group": "风险分析",
+                    "group": "分析任务",
                     "pages": [
-                      "zh/api-reference/v2/analyze-address"
+                      "zh/api-reference/v2/endpoint/openanalysistasklist",
+                      "zh/api-reference/v2/endpoint/openanalysistaskcreate",
+                      "zh/api-reference/v2/endpoint/openanalysistaskstatusget",
+                      "zh/api-reference/v2/endpoint/openanalysistaskresultget"
                     ]
                   },
                   {
-                    "group": "用户管理",
+                    "group": "地址监控",
                     "pages": [
-                      "zh/api-reference/v2/user-profile"
+                      "zh/api-reference/v2/endpoint/openmonitoraddresseslist",
+                      "zh/api-reference/v2/endpoint/openmonitoraddressesadd",
+                      "zh/api-reference/v2/endpoint/openmonitoraddressupdate",
+                      "zh/api-reference/v2/endpoint/openmonitoraddressesdelete",
+                      "zh/api-reference/v2/endpoint/openmonitoralertslist"
                     ]
                   }
                 ]
