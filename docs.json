@@ -35,20 +35,20 @@
                   {
                     "group": "分析任务",
                     "pages": [
-                      "zh/api-reference/v2/endpoint/openanalysistasklist",
-                      "zh/api-reference/v2/endpoint/openanalysistaskcreate",
-                      "zh/api-reference/v2/endpoint/openanalysistaskstatusget",
-                      "zh/api-reference/v2/endpoint/openanalysistaskresultget"
+                      "zh/api-reference/v2/endpoint/analysistasklist",
+                      "zh/api-reference/v2/endpoint/analysistaskcreate",
+                      "zh/api-reference/v2/endpoint/analysistaskstatusget",
+                      "zh/api-reference/v2/endpoint/analysistaskresultget"
                     ]
                   },
                   {
                     "group": "地址监控",
                     "pages": [
-                      "zh/api-reference/v2/endpoint/openmonitoraddresseslist",
-                      "zh/api-reference/v2/endpoint/openmonitoraddressesadd",
-                      "zh/api-reference/v2/endpoint/openmonitoraddressupdate",
-                      "zh/api-reference/v2/endpoint/openmonitoraddressesdelete",
-                      "zh/api-reference/v2/endpoint/openmonitoralertslist"
+                      "zh/api-reference/v2/endpoint/monitoraddresseslist",
+                      "zh/api-reference/v2/endpoint/monitoraddressesadd",
+                      "zh/api-reference/v2/endpoint/monitoraddressupdate",
+                      "zh/api-reference/v2/endpoint/monitoraddressesdelete",
+                      "zh/api-reference/v2/endpoint/monitoralertslist"
                     ]
                   }
                 ]

@@ -1,49 +1,36 @@
 {
-  "openapi": "3.1.0",
+  "openapi": "3.0.1",
   "info": {
-    "title": "Arisk API v2 (中文)",
-    "description": "Arisk API v2 - 链上交易风险分析平台",
-    "version": "2.0.0"
+    "title": "默认模块",
+    "description": "",
+    "version": "1.0.0"
   },
-  "servers": [
-    {
-      "url": "https://api.arisk.com",
-      "description": "生产环境服务器"
-    }
-  ],
-  "security": [
-    {
-      "ApiKeyAuth": []
-    }
-  ],
   "tags": [],
   "paths": {
-    "/v2/open/analysis/tasks": {
+    "/v2/analysis/tasks": {
       "get": {
-        "summary": "OpenAnalysisTaskList",
+        "summary": "AnalysisTaskList",
         "deprecated": false,
         "description": "",
-        "operationId": "open/V2/AnalysisOpenAnalysisTaskList",
+        "operationId": "open/V2/AnalysisAnalysisTaskList",
         "tags": [],
         "parameters": [
           {
             "name": "page",
             "in": "query",
-            "description": "页码(从1开始)",
-            "required": true,
+            "description": "页码(从1开始，默认1)",
+            "required": false,
             "schema": {
-              "type": "integer",
-              "default": 1
+              "type": "integer"
             }
           },
           {
             "name": "page_size",
             "in": "query",
-            "description": "每页数量(最大100)",
-            "required": true,
+            "description": "每页数量(默认20，最大100)",
+            "required": false,
             "schema": {
-              "type": "integer",
-              "default": 20
+              "type": "integer"
             }
           }
         ],
@@ -145,10 +132,10 @@
         "security": []
       },
       "post": {
-        "summary": "OpenAnalysisTaskCreate",
+        "summary": "AnalysisTaskCreate",
         "deprecated": false,
         "description": "",
-        "operationId": "open/V2/AnalysisOpenAnalysisTaskCreate",
+        "operationId": "open/V2/AnalysisAnalysisTaskCreate",
         "tags": [],
         "parameters": [],
         "requestBody": {
@@ -175,11 +162,18 @@
                     "type": "integer"
                   },
                   "end_time": {
-                    "description": "结束时间(RFC3339，选填)",
+                    "description": "结束时间(RFC3339，选填，默认自动推导)",
                     "type": "string"
                   },
+                  "metrics": {
+                    "description": "分析指标列表，空或缺省表示全部",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
                   "start_time": {
-                    "description": "开始时间(RFC3339，选填)",
+                    "description": "开始时间(RFC3339，选填，默认自动推导)",
                     "type": "string"
                   },
                   "token": {
@@ -204,6 +198,13 @@
                       "description": "预估消耗积分",
                       "type": "integer"
                     },
+                    "metrics": {
+                      "description": "实际分析的指标列表",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
                     "task_id": {
                       "description": "任务ID",
                       "type": "string"
@@ -222,12 +223,12 @@
         "security": []
       }
     },
-    "/v2/open/analysis/tasks/{taskId}/result": {
+    "/v2/analysis/tasks/{taskId}/result": {
       "get": {
-        "summary": "OpenAnalysisTaskResultGet",
+        "summary": "AnalysisTaskResultGet",
         "deprecated": false,
         "description": "",
-        "operationId": "open/V2/AnalysisOpenAnalysisTaskResultGet",
+        "operationId": "open/V2/AnalysisAnalysisTaskResultGet",
         "tags": [],
         "parameters": [
           {
@@ -766,12 +767,12 @@
         "security": []
       }
     },
-    "/v2/open/analysis/tasks/{taskId}/status": {
+    "/v2/analysis/tasks/{taskId}/status": {
       "get": {
-        "summary": "OpenAnalysisTaskStatusGet",
+        "summary": "AnalysisTaskStatusGet",
         "deprecated": false,
         "description": "",
-        "operationId": "open/V2/AnalysisOpenAnalysisTaskStatusGet",
+        "operationId": "open/V2/AnalysisAnalysisTaskStatusGet",
         "tags": [],
         "parameters": [
           {
@@ -801,6 +802,13 @@
                       "description": "状态描述或错误信息",
                       "type": "string"
                     },
+                    "metrics": {
+                      "description": "本次任务分析的指标列表",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
                     "status": {
                       "description": "任务状态: 0-待处理, 1-处理中, 2-完成, 3-失败",
                       "type": "integer"
@@ -819,12 +827,12 @@
         "security": []
       }
     },
-    "/v2/open/monitor/addresses": {
+    "/v2/monitor/addresses": {
       "get": {
-        "summary": "OpenMonitorAddressesList",
+        "summary": "MonitorAddressesList",
         "deprecated": false,
         "description": "",
-        "operationId": "open/V2/MonitorOpenMonitorAddressesList",
+        "operationId": "open/V2/MonitorMonitorAddressesList",
         "tags": [],
         "parameters": [
           {
@@ -895,6 +903,7 @@
                           "address",
                           "name",
                           "status",
+                          "user_id",
                           "created_at",
                           "updated_at",
                           "alert_count",
@@ -940,6 +949,10 @@
                           "updated_at": {
                             "description": "更新时间(RFC3339)",
                             "type": "string"
+                          },
+                          "user_id": {
+                            "description": "创建用户",
+                            "type": "string"
                           }
                         }
                       }
@@ -958,10 +971,10 @@
         "security": []
       },
       "post": {
-        "summary": "OpenMonitorAddressesAdd",
+        "summary": "MonitorAddressesAdd",
         "deprecated": false,
         "description": "",
-        "operationId": "open/V2/MonitorOpenMonitorAddressesAdd",
+        "operationId": "open/V2/MonitorMonitorAddressesAdd",
         "tags": [],
         "parameters": [],
         "requestBody": {
@@ -1033,6 +1046,7 @@
                           "address",
                           "name",
                           "status",
+                          "user_id",
                           "created_at",
                           "updated_at",
                           "alert_count",
@@ -1078,6 +1092,10 @@
                           "updated_at": {
                             "description": "更新时间(RFC3339)",
                             "type": "string"
+                          },
+                          "user_id": {
+                            "description": "创建用户",
+                            "type": "string"
                           }
                         }
                       }
@@ -1103,12 +1121,12 @@
         "security": []
       }
     },
-    "/v2/open/monitor/addresses/delete": {
+    "/v2/monitor/addresses/delete": {
       "post": {
-        "summary": "OpenMonitorAddressesDelete",
+        "summary": "MonitorAddressesDelete",
         "deprecated": false,
         "description": "",
-        "operationId": "open/V2/MonitorOpenMonitorAddressesDelete",
+        "operationId": "open/V2/MonitorMonitorAddressesDelete",
         "tags": [],
         "parameters": [],
         "requestBody": {
@@ -1155,12 +1173,12 @@
         "security": []
       }
     },
-    "/v2/open/monitor/addresses/{addressId}": {
+    "/v2/monitor/addresses/{addressId}": {
       "put": {
-        "summary": "OpenMonitorAddressUpdate",
+        "summary": "MonitorAddressUpdate",
         "deprecated": false,
         "description": "",
-        "operationId": "open/V2/MonitorOpenMonitorAddressUpdate",
+        "operationId": "open/V2/MonitorMonitorAddressUpdate",
         "tags": [],
         "parameters": [
           {
@@ -1216,12 +1234,12 @@
         "security": []
       }
     },
-    "/v2/open/monitor/alerts": {
+    "/v2/monitor/alerts": {
       "get": {
-        "summary": "OpenMonitorAlertsList",
+        "summary": "MonitorAlertsList",
         "deprecated": false,
         "description": "",
-        "operationId": "open/V2/MonitorOpenMonitorAlertsList",
+        "operationId": "open/V2/MonitorMonitorAlertsList",
         "tags": [],
         "parameters": [
           {
@@ -1301,6 +1319,7 @@
                           "token",
                           "monitored_address",
                           "event_type",
+                          "event_id",
                           "details",
                           "monitor_label",
                           "push_results",
@@ -1324,7 +1343,7 @@
                             "type": "string"
                           },
                           "details": {
-                            "description": "事件详情",
+                            "description": "事件详情（结构化 JSON，无纯文案）",
                             "type": "object",
                             "required": [
                               "type",
@@ -1348,8 +1367,12 @@
                               }
                             }
                           },
+                          "event_id": {
+                            "description": "事件唯一标识",
+                            "type": "string"
+                          },
                           "event_type": {
-                            "description": "事件类型",
+                            "description": "事件类型: TRANSACTION_IN/TRANSACTION_OUT/TRANSACTION_RISK/ADDRESS_RISK_CHANGE",
                             "type": "string"
                           },
                           "monitor_label": {
@@ -1407,12 +1430,8 @@
   "components": {
     "schemas": {},
     "responses": {},
-    "securitySchemes": {
-      "ApiKeyAuth": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "X-API-Key"
-      }
-    }
-  }
+    "securitySchemes": {}
+  },
+  "servers": [],
+  "security": []
 }
