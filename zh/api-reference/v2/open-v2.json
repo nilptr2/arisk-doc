@@ -9,7 +9,7 @@
   "paths": {
     "/v2/analysis/tasks": {
       "get": {
-        "summary": "AnalysisTaskList",
+        "summary": "分析任务列表",
         "deprecated": false,
         "description": "",
         "operationId": "open/V2/AnalysisAnalysisTaskList",
@@ -132,7 +132,7 @@
         "security": []
       },
       "post": {
-        "summary": "AnalysisTaskCreate",
+        "summary": "创建分析任务",
         "deprecated": false,
         "description": "",
         "operationId": "open/V2/AnalysisAnalysisTaskCreate",
@@ -225,7 +225,7 @@
     },
     "/v2/analysis/tasks/{taskId}/result": {
       "get": {
-        "summary": "AnalysisTaskResultGet",
+        "summary": "获取分析任务结果",
         "deprecated": false,
         "description": "",
         "operationId": "open/V2/AnalysisAnalysisTaskResultGet",
@@ -769,7 +769,7 @@
     },
     "/v2/analysis/tasks/{taskId}/status": {
       "get": {
-        "summary": "AnalysisTaskStatusGet",
+        "summary": "获取分析任务状态",
         "deprecated": false,
         "description": "",
         "operationId": "open/V2/AnalysisAnalysisTaskStatusGet",
@@ -829,7 +829,7 @@
     },
     "/v2/monitor/addresses": {
       "get": {
-        "summary": "MonitorAddressesList",
+        "summary": "监控地址列表",
         "deprecated": false,
         "description": "",
         "operationId": "open/V2/MonitorMonitorAddressesList",
@@ -971,7 +971,7 @@
         "security": []
       },
       "post": {
-        "summary": "MonitorAddressesAdd",
+        "summary": "添加监控地址",
         "deprecated": false,
         "description": "",
         "operationId": "open/V2/MonitorMonitorAddressesAdd",
@@ -1123,7 +1123,7 @@
     },
     "/v2/monitor/addresses/delete": {
       "post": {
-        "summary": "MonitorAddressesDelete",
+        "summary": "删除监控地址",
         "deprecated": false,
         "description": "",
         "operationId": "open/V2/MonitorMonitorAddressesDelete",
@@ -1175,7 +1175,7 @@
     },
     "/v2/monitor/addresses/{addressId}": {
       "put": {
-        "summary": "MonitorAddressUpdate",
+        "summary": "更新监控地址",
         "deprecated": false,
         "description": "",
         "operationId": "open/V2/MonitorMonitorAddressUpdate",
@@ -1236,7 +1236,7 @@
     },
     "/v2/monitor/alerts": {
       "get": {
-        "summary": "MonitorAlertsList",
+        "summary": "获取监控告警列表",
         "deprecated": false,
         "description": "",
         "operationId": "open/V2/MonitorMonitorAlertsList",
