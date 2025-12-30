@@ -86,9 +86,26 @@
                 "tab": "API 参考",
                 "groups": [
                   {
-                    "group": "风险分析",
+                    "group": "地址监控",
                     "pages": [
-                      "zh/api-reference/v1/analyze-address"
+                      "zh/api-reference/v1/endpoint/monitoraddresslist",
+                      "zh/api-reference/v1/endpoint/monitoraddressadd",
+                      "zh/api-reference/v1/endpoint/monitoraddressstatusupdate",
+                      "zh/api-reference/v1/endpoint/monitoraddressremove",
+                      "zh/api-reference/v1/endpoint/monitoralerts",
+                      "zh/api-reference/v1/endpoint/riskchangealerts",
+                      "zh/api-reference/v1/endpoint/monitorconfigget",
+                      "zh/api-reference/v1/endpoint/monitorconfigset",
+                      "zh/api-reference/v1/endpoint/monitorconfigupdate"
+                    ]
+                  },
+                  {
+                    "group": "分析任务",
+                    "pages": [
+                      "zh/api-reference/v1/endpoint/querycreate",
+                      "zh/api-reference/v1/endpoint/queryhistories",
+                      "zh/api-reference/v1/endpoint/queryresult",
+                      "zh/api-reference/v1/endpoint/querystatus"
                     ]
                   },
                   {
@@ -191,9 +208,26 @@
                 "tab": "API Reference",
                 "groups": [
                   {
-                    "group": "Risk Analysis",
+                    "group": "Address Monitoring",
                     "pages": [
-                      "en/api-reference/v1/analyze-address"
+                      "en/api-reference/v1/endpoint/monitoraddresslist",
+                      "en/api-reference/v1/endpoint/monitoraddressadd",
+                      "en/api-reference/v1/endpoint/monitoraddressstatusupdate",
+                      "en/api-reference/v1/endpoint/monitoraddressremove",
+                      "en/api-reference/v1/endpoint/monitoralerts",
+                      "en/api-reference/v1/endpoint/riskchangealerts",
+                      "en/api-reference/v1/endpoint/monitorconfigget",
+                      "en/api-reference/v1/endpoint/monitorconfigset",
+                      "en/api-reference/v1/endpoint/monitorconfigupdate"
+                    ]
+                  },
+                  {
+                    "group": "Analysis Tasks",
+                    "pages": [
+                      "en/api-reference/v1/endpoint/querycreate",
+                      "en/api-reference/v1/endpoint/queryhistories",
+                      "en/api-reference/v1/endpoint/queryresult",
+                      "en/api-reference/v1/endpoint/querystatus"
                     ]
                   },
                   {

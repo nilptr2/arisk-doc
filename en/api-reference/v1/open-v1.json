@@ -1,0 +1,1590 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Default Module",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [],
+  "paths": {
+    "/v1/monitor/address/add": {
+      "post": {
+        "summary": "Add Monitored Address",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V1/MonitorOpenV1MonitorAddressAdd",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/open_V1_MonitorOpenV1MonitorAddressAddBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "Address ID (UUID)",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/monitor/address/list": {
+      "get": {
+        "summary": "Monitored Address List",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V1/MonitorOpenV1MonitorAddressList",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Status filter, -1 means no filter",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "default": -1
+            }
+          },
+          {
+            "name": "chain",
+            "in": "query",
+            "description": "Chain filter",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Token filter",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Page size",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "addresses": {
+                      "description": "Address list",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "address",
+                          "chain",
+                          "token",
+                          "status",
+                          "created_at",
+                          "updated_at"
+                        ],
+                        "properties": {
+                          "address": {
+                            "description": "地址",
+                            "type": "string"
+                          },
+                          "chain": {
+                            "description": "链标识",
+                            "type": "string"
+                          },
+                          "created_at": {
+                            "description": "创建时间",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Address ID",
+                            "type": "string"
+                          },
+                          "status": {
+                            "description": "状态",
+                            "type": "integer"
+                          },
+                          "token": {
+                            "description": "代币符号",
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "description": "更新时间",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "page": {
+                      "description": "当前页",
+                      "type": "integer"
+                    },
+                    "page_size": {
+                      "description": "每页大小",
+                      "type": "integer"
+                    },
+                    "total": {
+                      "description": "总数",
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/monitor/address/remove": {
+      "post": {
+        "summary": "Remove Monitored Address",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V1/MonitorOpenV1MonitorAddressRemove",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/open_V1_MonitorOpenV1MonitorAddressAddBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "地址 ID",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/monitor/address/status/update": {
+      "post": {
+        "summary": "Update Monitored Address Status",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V1/MonitorOpenV1MonitorAddressStatusUpdate",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "address",
+                  "chain",
+                  "token",
+                  "status"
+                ],
+                "properties": {
+                  "address": {
+                    "description": "地址",
+                    "type": "string"
+                  },
+                  "chain": {
+                    "description": "链标识",
+                    "type": "string"
+                  },
+                  "status": {
+                    "description": "Status: 0=Disabled, 1=Enabled",
+                    "type": "integer"
+                  },
+                  "token": {
+                    "description": "代币符号",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "地址 ID",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/monitor/alerts": {
+      "get": {
+        "summary": "Alert List",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V1/MonitorOpenV1MonitorAlerts",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "monitor_type",
+            "in": "query",
+            "description": "Event type filter: normal_transaction/known_risk/risk_change",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "页码",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "每页数量",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "alerts": {
+                      "description": "Alert list",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "user_id",
+                          "monitoring_address_id",
+                          "monitoring_address",
+                          "counterparty_address",
+                          "chain",
+                          "token",
+                          "amount",
+                          "tx_hash",
+                          "monitor_type",
+                          "details",
+                          "created_at"
+                        ],
+                        "properties": {
+                          "amount": {
+                            "description": "交易金额",
+                            "type": "string"
+                          },
+                          "chain": {
+                            "description": "链标识",
+                            "type": "string"
+                          },
+                          "counterparty_address": {
+                            "description": "对手方地址",
+                            "type": "string"
+                          },
+                          "created_at": {
+                            "description": "创建时间",
+                            "type": "string"
+                          },
+                          "details": {
+                            "description": "详情 JSON",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "告警 ID",
+                            "type": "string"
+                          },
+                          "monitor_type": {
+                            "description": "告警类型",
+                            "type": "string"
+                          },
+                          "monitoring_address": {
+                            "description": "监控地址",
+                            "type": "string"
+                          },
+                          "monitoring_address_id": {
+                            "description": "监控地址 ID",
+                            "type": "string"
+                          },
+                          "token": {
+                            "description": "代币符号",
+                            "type": "string"
+                          },
+                          "tx_hash": {
+                            "description": "交易哈希",
+                            "type": "string"
+                          },
+                          "user_id": {
+                            "description": "用户 ID（无数据则为空）",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "page": {
+                      "description": "当前页",
+                      "type": "integer"
+                    },
+                    "page_size": {
+                      "description": "每页大小",
+                      "type": "integer"
+                    },
+                    "total": {
+                      "description": "总数",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/monitor/config/default": {
+      "get": {
+        "summary": "Get Default Monitoring Config",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V1/MonitorOpenV1MonitorConfigGet",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "config": {
+                      "description": "Current configuration",
+                      "type": "object",
+                      "required": [
+                        "detection",
+                        "notification"
+                      ],
+                      "properties": {
+                        "detection": {
+                          "description": "监控检测配置",
+                          "type": "object",
+                          "properties": {
+                            "known_risk": {
+                              "description": "是否订阅风险交易",
+                              "type": "boolean"
+                            },
+                            "normal_transaction": {
+                              "description": "是否订阅转入/转出",
+                              "type": "boolean"
+                            },
+                            "risk_change": {
+                              "description": "是否订阅风险变动",
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "notification": {
+                          "description": "通知配置",
+                          "type": "object",
+                          "required": [
+                            "webhook",
+                            "email"
+                          ],
+                          "properties": {
+                            "email": {
+                              "description": "邮件配置",
+                              "type": "object",
+                              "required": [
+                                "enabled",
+                                "recipients"
+                              ],
+                              "properties": {
+                                "enabled": {
+                                  "description": "是否启用",
+                                  "type": "boolean"
+                                },
+                                "recipients": {
+                                  "description": "收件人列表（仅保存首个）",
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "webhook": {
+                              "description": "Webhook 配置",
+                              "type": "object",
+                              "required": [
+                                "enabled",
+                                "urls",
+                                "auth_key"
+                              ],
+                              "properties": {
+                                "auth_key": {
+                                  "description": "鉴权 Key（兼容字段）",
+                                  "type": "string"
+                                },
+                                "enabled": {
+                                  "description": "是否启用",
+                                  "type": "boolean"
+                                },
+                                "urls": {
+                                  "description": "Webhook 地址列表（仅保存首个）",
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "Set Default Monitoring Config",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V1/MonitorOpenV1MonitorConfigSet",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "config"
+                ],
+                "properties": {
+                  "config": {
+                    "description": "要更新的配置",
+                    "type": "object",
+                    "required": [
+                      "detection",
+                      "notification"
+                    ],
+                    "properties": {
+                      "detection": {
+                        "description": "监控检测配置",
+                        "type": "object",
+                        "properties": {
+                          "known_risk": {
+                            "description": "是否订阅风险交易",
+                            "type": "boolean"
+                          },
+                          "normal_transaction": {
+                            "description": "是否订阅转入/转出",
+                            "type": "boolean"
+                          },
+                          "risk_change": {
+                            "description": "是否订阅风险变动",
+                            "type": "boolean"
+                          }
+                        }
+                      },
+                      "notification": {
+                        "description": "通知配置",
+                        "type": "object",
+                        "required": [
+                          "webhook",
+                          "email"
+                        ],
+                        "properties": {
+                          "email": {
+                            "description": "邮件配置",
+                            "type": "object",
+                            "required": [
+                              "enabled",
+                              "recipients"
+                            ],
+                            "properties": {
+                              "enabled": {
+                                "description": "是否启用",
+                                "type": "boolean"
+                              },
+                              "recipients": {
+                                "description": "收件人列表（仅保存首个）",
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "webhook": {
+                            "description": "Webhook 配置",
+                            "type": "object",
+                            "required": [
+                              "enabled",
+                              "urls",
+                              "auth_key"
+                            ],
+                            "properties": {
+                              "auth_key": {
+                                "description": "鉴权 Key（兼容字段）",
+                                "type": "string"
+                              },
+                              "enabled": {
+                                "description": "是否启用",
+                                "type": "boolean"
+                              },
+                              "urls": {
+                                "description": "Webhook 地址列表（仅保存首个）",
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "config": {
+                      "description": "更新后的配置",
+                      "type": "object",
+                      "required": [
+                        "detection",
+                        "notification"
+                      ],
+                      "properties": {
+                        "detection": {
+                          "description": "监控检测配置",
+                          "type": "object",
+                          "properties": {
+                            "known_risk": {
+                              "description": "是否订阅风险交易",
+                              "type": "boolean"
+                            },
+                            "normal_transaction": {
+                              "description": "是否订阅转入/转出",
+                              "type": "boolean"
+                            },
+                            "risk_change": {
+                              "description": "是否订阅风险变动",
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "notification": {
+                          "description": "通知配置",
+                          "type": "object",
+                          "required": [
+                            "webhook",
+                            "email"
+                          ],
+                          "properties": {
+                            "email": {
+                              "description": "邮件配置",
+                              "type": "object",
+                              "required": [
+                                "enabled",
+                                "recipients"
+                              ],
+                              "properties": {
+                                "enabled": {
+                                  "description": "是否启用",
+                                  "type": "boolean"
+                                },
+                                "recipients": {
+                                  "description": "收件人列表（仅保存首个）",
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "webhook": {
+                              "description": "Webhook 配置",
+                              "type": "object",
+                              "required": [
+                                "enabled",
+                                "urls",
+                                "auth_key"
+                              ],
+                              "properties": {
+                                "auth_key": {
+                                  "description": "鉴权 Key（兼容字段）",
+                                  "type": "string"
+                                },
+                                "enabled": {
+                                  "description": "是否启用",
+                                  "type": "boolean"
+                                },
+                                "urls": {
+                                  "description": "Webhook 地址列表（仅保存首个）",
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/monitor/config/update": {
+      "post": {
+        "summary": "Update Monitoring Config",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V1/MonitorOpenV1MonitorConfigUpdate",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "description": "监控地址 ID（兼容字段）",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "监控地址 ID",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/monitor/risk-change-alerts": {
+      "get": {
+        "summary": "Risk Change Alerts",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V1/MonitorOpenV1RiskChangeAlerts",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "页码",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "每页数量",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "alerts": {
+                      "description": "告警列表",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "monitoring_address_id",
+                          "monitoring_address",
+                          "chain",
+                          "token",
+                          "risk_types",
+                          "created_at",
+                          "risk_level"
+                        ],
+                        "properties": {
+                          "chain": {
+                            "description": "链标识",
+                            "type": "string"
+                          },
+                          "created_at": {
+                            "description": "创建时间",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "告警 ID",
+                            "type": "string"
+                          },
+                          "monitoring_address": {
+                            "description": "监控地址",
+                            "type": "string"
+                          },
+                          "monitoring_address_id": {
+                            "description": "监控地址 ID",
+                            "type": "string"
+                          },
+                          "risk_level": {
+                            "description": "风险等级",
+                            "type": "integer"
+                          },
+                          "risk_types": {
+                            "description": "风险类型",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "token": {
+                            "description": "代币符号",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "page": {
+                      "description": "当前页",
+                      "type": "integer"
+                    },
+                    "page_size": {
+                      "description": "每页大小",
+                      "type": "integer"
+                    },
+                    "total": {
+                      "description": "总数",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/query/create": {
+      "post": {
+        "summary": "Create Query Task",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V1/QueryOpenV1QueryCreate",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chain",
+                  "token",
+                  "address"
+                ],
+                "properties": {
+                  "address": {
+                    "description": "查询地址",
+                    "type": "string"
+                  },
+                  "chain": {
+                    "description": "链标识",
+                    "type": "string"
+                  },
+                  "end_at": {
+                    "description": "截止时间（Unix 秒，可选）",
+                    "type": "integer"
+                  },
+                  "limit": {
+                    "description": "交易条数限制（可选，0 表示不限制）",
+                    "type": "integer"
+                  },
+                  "start_at": {
+                    "description": "起始时间（Unix 秒，可选）",
+                    "type": "integer"
+                  },
+                  "token": {
+                    "description": "代币符号",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_hash": {
+                      "description": "任务唯一标识",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/query/histories": {
+      "get": {
+        "summary": "Query History",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V1/QueryOpenV1QueryHistories",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "页码",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Items per page",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "description": "地址过滤（可选）",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_histories": {
+                      "description": "历史记录",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "chain",
+                          "token",
+                          "address",
+                          "start_time",
+                          "end_time",
+                          "query_hash",
+                          "risk_level",
+                          "status",
+                          "created_at",
+                          "updated_at",
+                          "cost_quota",
+                          "api_key_id"
+                        ],
+                        "properties": {
+                          "address": {
+                            "description": "地址",
+                            "type": "string"
+                          },
+                          "api_key_id": {
+                            "description": "API Key ID",
+                            "type": "string"
+                          },
+                          "chain": {
+                            "description": "链标识",
+                            "type": "string"
+                          },
+                          "cost_quota": {
+                            "description": "消耗额度（兼容字段，无数据则为 0）",
+                            "type": "integer"
+                          },
+                          "created_at": {
+                            "description": "创建时间(RFC3339)",
+                            "type": "string"
+                          },
+                          "end_time": {
+                            "description": "截止时间(RFC3339)",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "任务 ID（兼容 UUID）",
+                            "type": "string"
+                          },
+                          "query_hash": {
+                            "description": "查询哈希",
+                            "type": "string"
+                          },
+                          "risk_level": {
+                            "description": "风险等级",
+                            "type": "integer"
+                          },
+                          "start_time": {
+                            "description": "起始时间(RFC3339)",
+                            "type": "string"
+                          },
+                          "status": {
+                            "description": "状态",
+                            "type": "integer"
+                          },
+                          "token": {
+                            "description": "代币符号",
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "description": "更新时间(RFC3339)",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "total_count": {
+                      "description": "总数",
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/query/result": {
+      "get": {
+        "summary": "Get Query Result",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V1/QueryOpenV1QueryResult",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "query_hash",
+            "in": "query",
+            "description": "查询哈希（任务 ID）",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "description": "查询地址",
+                      "type": "string"
+                    },
+                    "chain": {
+                      "description": "链标识",
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "description": "创建时间",
+                      "type": "string"
+                    },
+                    "end_time": {
+                      "description": "结束时间",
+                      "type": "string"
+                    },
+                    "habit": {
+                      "description": "交易习惯",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "hour",
+                          "inflow_amount",
+                          "inflow_count",
+                          "outflow_amount",
+                          "outflow_count"
+                        ],
+                        "properties": {
+                          "hour": {
+                            "description": "小时(0-23)",
+                            "type": "string"
+                          },
+                          "inflow_amount": {
+                            "description": "流入金额",
+                            "type": "string"
+                          },
+                          "inflow_count": {
+                            "description": "流入笔数",
+                            "type": "integer"
+                          },
+                          "outflow_amount": {
+                            "description": "流出金额",
+                            "type": "string"
+                          },
+                          "outflow_count": {
+                            "description": "流出笔数",
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "historical_balance": {
+                      "description": "历史余额",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "date",
+                          "balance"
+                        ],
+                        "properties": {
+                          "balance": {
+                            "description": "余额",
+                            "type": "string"
+                          },
+                          "date": {
+                            "description": "日期",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "overview": {
+                      "description": "地址概览",
+                      "type": "object",
+                      "required": [
+                        "address",
+                        "balance",
+                        "balance_coin",
+                        "active",
+                        "in_info",
+                        "out_info",
+                        "total_info",
+                        "type",
+                        "exchange_name",
+                        "first_transfer_time",
+                        "first_transfer_address",
+                        "is_frozen"
+                      ],
+                      "properties": {
+                        "active": {
+                          "description": "是否活跃",
+                          "type": "boolean"
+                        },
+                        "address": {
+                          "description": "地址",
+                          "type": "string"
+                        },
+                        "balance": {
+                          "description": "余额",
+                          "type": "string"
+                        },
+                        "balance_coin": {
+                          "description": "币种",
+                          "type": "string"
+                        },
+                        "exchange_name": {
+                          "description": "交易所名称",
+                          "type": "string"
+                        },
+                        "first_transfer_address": {
+                          "description": "首次转账对手",
+                          "type": "string"
+                        },
+                        "first_transfer_time": {
+                          "description": "首次转账时间",
+                          "type": "string"
+                        },
+                        "in_info": {
+                          "description": "流入信息",
+                          "type": "object",
+                          "required": [
+                            "count",
+                            "amount",
+                            "latest"
+                          ],
+                          "properties": {
+                            "amount": {
+                              "description": "金额",
+                              "type": "string"
+                            },
+                            "count": {
+                              "description": "交易笔数",
+                              "type": "integer"
+                            },
+                            "latest": {
+                              "description": "最近交易时间(RFC3339)",
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "is_frozen": {
+                          "description": "是否冻结（暂无数据时为 false）",
+                          "type": "boolean"
+                        },
+                        "out_info": {
+                          "description": "流出信息",
+                          "type": "object",
+                          "required": [
+                            "count",
+                            "amount",
+                            "latest"
+                          ],
+                          "properties": {
+                            "amount": {
+                              "description": "金额",
+                              "type": "string"
+                            },
+                            "count": {
+                              "description": "交易笔数",
+                              "type": "integer"
+                            },
+                            "latest": {
+                              "description": "最近交易时间(RFC3339)",
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "total_info": {
+                          "description": "汇总信息",
+                          "type": "object",
+                          "required": [
+                            "count",
+                            "amount",
+                            "latest"
+                          ],
+                          "properties": {
+                            "amount": {
+                              "description": "金额",
+                              "type": "string"
+                            },
+                            "count": {
+                              "description": "交易笔数",
+                              "type": "integer"
+                            },
+                            "latest": {
+                              "description": "最近交易时间(RFC3339)",
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "type": {
+                          "description": "地址类型",
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "query_hash": {
+                      "description": "查询哈希",
+                      "type": "string"
+                    },
+                    "risk_address_total": {
+                      "description": "风险地址统计",
+                      "type": "object",
+                      "required": [
+                        "amount",
+                        "address_count",
+                        "amount_count"
+                      ],
+                      "properties": {
+                        "address_count": {
+                          "description": "风险地址数",
+                          "type": "integer"
+                        },
+                        "amount": {
+                          "description": "总金额",
+                          "type": "string"
+                        },
+                        "amount_count": {
+                          "description": "涉及交易笔数",
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "risk_level": {
+                      "description": "风险等级",
+                      "type": "integer"
+                    },
+                    "risk_type": {
+                      "description": "风险类型列表",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "amount",
+                          "count"
+                        ],
+                        "properties": {
+                          "amount": {
+                            "description": "涉及金额",
+                            "type": "string"
+                          },
+                          "count": {
+                            "description": "涉及笔数",
+                            "type": "integer"
+                          },
+                          "type": {
+                            "description": "风险类型",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "start_time": {
+                      "description": "起始时间",
+                      "type": "string"
+                    },
+                    "token": {
+                      "description": "代币符号",
+                      "type": "string"
+                    },
+                    "top_transaction": {
+                      "description": "主要交易对手",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "own_address",
+                          "counterparty_address",
+                          "total_amount",
+                          "total_count",
+                          "last_transaction_time"
+                        ],
+                        "properties": {
+                          "counterparty_address": {
+                            "description": "对手方地址",
+                            "type": "string"
+                          },
+                          "last_transaction_time": {
+                            "description": "最近交易时间",
+                            "type": "string"
+                          },
+                          "own_address": {
+                            "description": "本地址",
+                            "type": "string"
+                          },
+                          "total_amount": {
+                            "description": "累计金额",
+                            "type": "string"
+                          },
+                          "total_count": {
+                            "description": "累计笔数",
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "tx_flow": {
+                      "description": "资金流向",
+                      "type": "object",
+                      "required": [
+                        "nodes",
+                        "links"
+                      ],
+                      "properties": {
+                        "links": {
+                          "description": "边",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "required": [
+                              "source",
+                              "target",
+                              "value"
+                            ],
+                            "properties": {
+                              "source": {
+                                "description": "源节点",
+                                "type": "string"
+                              },
+                              "target": {
+                                "description": "目标节点",
+                                "type": "string"
+                              },
+                              "value": {
+                                "description": "金额",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "nodes": {
+                          "description": "节点",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "required": [
+                              "id",
+                              "label"
+                            ],
+                            "properties": {
+                              "id": {
+                                "description": "节点 ID",
+                                "type": "string"
+                              },
+                              "label": {
+                                "description": "标签",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/query/status": {
+      "get": {
+        "summary": "Get Query Status",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V1/QueryOpenV1QueryStatus",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "query_hash",
+            "in": "query",
+            "description": "查询哈希（任务 ID）",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "created_at": {
+                      "description": "创建时间",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "说明信息",
+                      "type": "string"
+                    },
+                    "query_hash": {
+                      "description": "查询哈希",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "状态",
+                      "type": "integer"
+                    },
+                    "status_text": {
+                      "description": "状态文本",
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "description": "更新时间",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "open_V1_MonitorOpenV1MonitorAddressAddBody": {
+        "type": "object",
+        "required": [
+          "address",
+          "chain",
+          "token"
+        ],
+        "properties": {
+          "address": {
+            "description": "地址",
+            "type": "string"
+          },
+          "chain": {
+            "description": "链标识",
+            "type": "string"
+          },
+          "token": {
+            "description": "代币符号",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "responses": {},
+    "securitySchemes": {}
+  },
+  "servers": [],
+  "security": []
+}
