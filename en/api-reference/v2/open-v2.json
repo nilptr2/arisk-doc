@@ -5,6 +5,27 @@
         "description": "",
         "version": "1.0.0"
     },
+    "components": {
+        "schemas": {},
+        "responses": {},
+        "securitySchemes": {
+            "api_key": {
+                "type": "apiKey",
+                "name": "X-API-Key",
+                "in": "header"
+            }
+        }
+    },
+    "servers": [
+        {
+            "url": "https://api.arisk.io"
+        }
+    ],
+    "security": [
+        {
+            "api_key": []
+        }
+    ],
     "tags": [],
     "paths": {
         "/v2/analysis/tasks": {
@@ -1426,16 +1447,5 @@
                 "security": []
             }
         }
-    },
-    "components": {
-        "schemas": {},
-        "responses": {},
-        "securitySchemes": {}
-    },
-    "servers": [
-        {
-            "url": "https://api.arisk.io"
-        }
-    ],
-    "security": []
+    }
 }

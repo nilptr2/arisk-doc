@@ -5,6 +5,50 @@
     "description": "",
     "version": "1.0.0"
   },
+  "components": {
+    "schemas": {
+      "open_V1_MonitorOpenV1MonitorAddressAddBody": {
+        "type": "object",
+        "required": [
+          "address",
+          "chain",
+          "token"
+        ],
+        "properties": {
+          "address": {
+            "description": "地址",
+            "type": "string"
+          },
+          "chain": {
+            "description": "链标识",
+            "type": "string"
+          },
+          "token": {
+            "description": "代币符号",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "responses": {},
+    "securitySchemes": {
+      "api_key": {
+        "type": "apiKey",
+        "name": "X-API-Key",
+        "in": "header"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.arisk.io"
+    }
+  ],
+  "security": [
+    {
+      "api_key": []
+    }
+  ],
   "tags": [],
   "paths": {
     "/v1/monitor/address/add": {
@@ -1556,39 +1600,5 @@
         "security": []
       }
     }
-  },
-  "components": {
-    "schemas": {
-      "open_V1_MonitorOpenV1MonitorAddressAddBody": {
-        "type": "object",
-        "required": [
-          "address",
-          "chain",
-          "token"
-        ],
-        "properties": {
-          "address": {
-            "description": "地址",
-            "type": "string"
-          },
-          "chain": {
-            "description": "链标识",
-            "type": "string"
-          },
-          "token": {
-            "description": "代币符号",
-            "type": "string"
-          }
-        }
-      }
-    },
-    "responses": {},
-    "securitySchemes": {}
-  },
-  "servers": [
-    {
-      "url": "https://api.arisk.io"
-    }
-  ],
-  "security": []
+  }
 }
