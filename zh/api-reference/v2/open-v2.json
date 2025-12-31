@@ -18,7 +18,7 @@
   },
   "servers": [
     {
-      "url": "https://api.arisk.io"
+      "url": "https://192.168.193.203:7777"
     }
   ],
   "security": [
