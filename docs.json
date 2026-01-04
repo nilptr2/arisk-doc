@@ -44,7 +44,7 @@
                     "pages": [
                       "zh/api-reference/v2/webhooks/overview",
                       "zh/api-reference/v2/webhooks/address-risk-change",
-                      "zh/api-reference/v2/webhooks/transaction-risk"
+                      "zh/api-reference/v2/webhooks/transaction-detection"
                     ]
                   }
                 ]
@@ -152,7 +152,7 @@
                     "pages": [
                       "en/api-reference/v2/webhooks/overview",
                       "en/api-reference/v2/webhooks/address-risk-change",
-                      "en/api-reference/v2/webhooks/transaction-risk"
+                      "en/api-reference/v2/webhooks/transaction-detection"
                     ]
                   }
                 ]

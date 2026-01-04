@@ -1,0 +1,75 @@
+---
+title: "Transaction Detection"
+description: "Webhook notification triggered when a monitored address has a transaction or a risk transaction is detected."
+---
+
+Arisk monitors the transaction activity of monitored addresses in real-time. When an inflow/outflow transaction occurs, or an interaction with a known risk address is detected, this alert is pushed.
+
+### Push Type
+Supports the following three types:
+- `transaction_risk`: Risk transaction detected.
+- `transaction_in`: Normal inflow transaction detected.
+- `transaction_out`: Normal outflow transaction detected.
+
+### Request Parameters
+
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `type` | `string` | Push type: `transaction_risk`, `transaction_in`, `transaction_out` |
+| `timestamp` | `number` | Unix timestamp (seconds) when pushed |
+| `alert` | `object` | Alert details object |
+| `alert.id` | `string` | Unique alert ID |
+| `alert.chain` | `string` | Chain type |
+| `alert.token` | `string` | Token symbol |
+| `alert.address` | `string` | The monitored address |
+| `alert.counterparty` | `string` | Counterparty address |
+| `alert.tx_hash` | `string` | Transaction hash |
+| `alert.amount` | `string` | Transaction amount (string format) |
+| `alert.direction` | `number` | `0`: Inflow to monitored address, `1`: Outflow from monitored address |
+| `alert.block_number` | `number` | Block height |
+| `alert.block_time` | `string` | Block time (ISO 8601 format) |
+| `alert.risk_types` | `array` | Counterparty risk types. **Note**: When the type is `transaction_in` or `transaction_out`, this field is an empty array. |
+
+### Request Body Example
+
+<CodeGroup>
+```json Risk Transaction (transaction_risk)
+{
+  "type": "transaction_risk",
+  "timestamp": 1767514410,
+  "alert": {
+    "id": "019b8811-8e96-750c-9009-c195386aa19a",
+    "chain": "tron",
+    "token": "usdt",
+    "address": "TUjKn1jon1t3V1cM8hKNg9ERxswXipQ2KG",
+    "tx_hash": "00000000000000000000000000000000000000000000000000000000001e8481",
+    "counterparty": "TWWCH84pZJgxXtrVqbjm3614gnuWp2RGHD",
+    "amount": "500000000",
+    "direction": 0,
+    "block_number": 2000,
+    "block_time": "2026-01-04T08:13:30Z",
+    "risk_types": ["black_industry"]
+  }
+}
+```
+
+```json Normal Inflow (transaction_in)
+{
+  "type": "transaction_in",
+  "timestamp": 1767514410,
+  "alert": {
+    "id": "019b8811-8e96-750c-9009-c195386aa19b",
+    "chain": "tron",
+    "token": "usdt",
+    "address": "TUjKn1jon1t3V1cM8hKNg9ERxswXipQ2KG",
+    "tx_hash": "00000000000000000000000000000000000000000000000000000000001e8482",
+    "counterparty": "TWWCH84pZJgxXtrVqbjm3614gnuWp2RGHE",
+    "amount": "100000000",
+    "direction": 0,
+    "block_number": 2001,
+    "block_time": "2026-01-04T08:15:30Z",
+    "risk_types": []
+  }
+}
+```
+</CodeGroup>
