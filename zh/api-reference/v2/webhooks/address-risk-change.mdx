@@ -1,0 +1,42 @@
+---
+title: "地址风险等级变动"
+description: "当监控地址的风险等级发生变化时触发的 Webhook 通知。"
+---
+
+当您监控的地址的风险等级发生改变时（例如从低风险变为中风险），Arisk 会发送此通知。
+
+### 推送类型
+`type`: `address_risk_change`
+
+### 请求参数
+
+| 参数名 | 类型 | 说明 |
+| :--- | :--- | :--- |
+| `type` | `string` | 推送类型，固定为 `address_risk_change` |
+| `timestamp` | `number` | 推送时的 Unix 时间戳（秒） |
+| `alert` | `object` | 告警详情对象 |
+| `alert.id` | `string` | 告警唯一标识 ID |
+| `alert.chain` | `string` | 链类型（如：`bsc`, `ethereum`, `tron`） |
+| `alert.token` | `string` | 代币符号（如：`usdt`, `usdc`） |
+| `alert.address` | `string` | 被监控的地址 |
+| `alert.previous_level` | `number` | **[新增]** 上次变动的风险等级。第一次推送时没有此字段。 |
+| `alert.new_level` | `number` | **[新增]** 本次变动的风险等级。 |
+| `alert.risk_types` | `array` | 风险类型标签数组 |
+
+### 请求体示例
+
+```json
+{
+  "type": "address_risk_change",
+  "timestamp": 1767514470,
+  "alert": {
+    "id": "019b8812-790b-7f32-a169-686d605f45c3",
+    "chain": "tron",
+    "token": "usdt",
+    "address": "TUjKn1jon1t3V1cM8hKNg9ERxswXipQ2KG",
+    "previous_level": 2,
+    "new_level": 2,
+    "risk_types": ["black_industry"]
+  }
+}
+```

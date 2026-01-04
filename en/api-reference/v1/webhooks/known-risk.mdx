@@ -1,0 +1,49 @@
+---
+title: "Known Risk Transaction"
+description: "Webhook notification triggered when a monitored address interacts with a known risk address."
+---
+
+This alert is pushed in real-time when a monitored address interacts with a known risk address (e.g., money laundering, fraud, etc.).
+
+### Push Type
+`type`: `known_risk`
+
+### Request Parameters
+
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `type` | `string` | Push type, fixed as `known_risk` |
+| `timestamp` | `number` | Unix timestamp (seconds) when pushed |
+| `alert` | `object` | Alert details object |
+| `alert.id` | `string` | Unique alert ID |
+| `alert.chain` | `string` | Chain type |
+| `alert.token` | `string` | Token symbol |
+| `alert.monitoring_address` | `string` | The monitored address |
+| `alert.counterparty_address` | `string` | Counterparty address |
+| `alert.tx_hash` | `string` | Transaction hash |
+| `alert.amount` | `string` | Transaction amount (string format) |
+| `alert.direction` | `number` | `0`: Inflow to monitored address, `1`: Outflow from monitored address |
+| `alert.details` | `object` | Counterparty risk details |
+| `alert.details.risk_type` | `array` | Array of risk type labels for the counterparty |
+
+### Request Body Example
+
+```json
+{
+  "type": "known_risk",
+  "timestamp": 1767513676,
+  "alert": {
+    "id": "019b8806-5953-7cd9-aade-8598b0f968d2",
+    "chain": "tron",
+    "token": "usdt",
+    "monitoring_address": "TUjKn1jon1t3V1cM8hKNg9ERxswXipQ2KG",
+    "counterparty_address": "TWWCH84pZJgxXtrVqbjm3614gnuWp2RGHD",
+    "tx_hash": "0000000000000000000000000000000000000000000000000000000005f711b1",
+    "amount": "500000000",
+    "direction": 0,
+    "details": {
+      "risk_type": ["black_industry"]
+    }
+  }
+}
+```

@@ -38,6 +38,14 @@
                       "zh/api-reference/v2/endpoint/monitoraddressesdelete",
                       "zh/api-reference/v2/endpoint/monitoralertslist"
                     ]
+                  },
+                  {
+                    "group": "Webhook 推送",
+                    "pages": [
+                      "zh/api-reference/v2/webhooks/overview",
+                      "zh/api-reference/v2/webhooks/address-risk-change",
+                      "zh/api-reference/v2/webhooks/transaction-risk"
+                    ]
                   }
                 ]
               },
@@ -83,6 +91,14 @@
                       "zh/api-reference/v1/endpoint/queryresult",
                       "zh/api-reference/v1/endpoint/querystatus"
                     ]
+                  },
+                  {
+                    "group": "Webhook 推送",
+                    "pages": [
+                      "zh/api-reference/v1/webhooks/overview",
+                      "zh/api-reference/v1/webhooks/risk-change",
+                      "zh/api-reference/v1/webhooks/known-risk"
+                    ]
                   }
                 ]
               },
@@ -121,73 +137,70 @@
                       "en/api-reference/v2/endpoint/analysistaskresultget"
                     ]
                   },
-                  {
-                    "group": "Address Monitoring",
-                    "pages": [
-                      "en/api-reference/v2/endpoint/monitoraddresseslist",
-                      "en/api-reference/v2/endpoint/monitoraddressesadd",
-                      "en/api-reference/v2/endpoint/monitoraddressupdate",
-                      "en/api-reference/v2/endpoint/monitoraddressesdelete",
-                      "en/api-reference/v2/endpoint/monitoralertslist"
-                    ]
-                  }
-                ]
+                },
+                {
+                  "group": "Webhook Push",
+                  "pages": [
+                    "en/api-reference/v2/webhooks/overview",
+                    "en/api-reference/v2/webhooks/address-risk-change",
+                    "en/api-reference/v2/webhooks/transaction-risk"
+                  ]
+                }
+              ]
+            },
+            {
+              "tab": "Update Log",
+              "groups": [
+                {
+                  "group": "Version Release",
+                  "pages": [
+                    "en/updatelog/overview",
+                    "en/updatelog/latest"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "version": "v1 (Maintenance)",
+          "tabs": [
+            {
+              "tab": "API Reference",
+              "groups": [
+                {
+                  "group": "Address Monitoring",
+                  "pages": [
+                    "en/api-reference/v1/endpoint/monitoraddresslist",
+                    "en/api-reference/v1/endpoint/monitoraddressadd",
+                    "en/api-reference/v1/endpoint/monitoraddressstatusupdate",
+                    "en/api-reference/v1/endpoint/monitoraddressremove",
+                    "en/api-reference/v1/endpoint/monitoralerts",
+                    "en/api-reference/v1/endpoint/riskchangealerts",
+                    "en/api-reference/v1/endpoint/monitorconfigget",
+                    "en/api-reference/v1/endpoint/monitorconfigset",
+                    "en/api-reference/v1/endpoint/monitorconfigupdate"
+                  ]
+                },
               },
               {
-                "tab": "Update Log",
-                "groups": [
-                  {
-                    "group": "Version Release",
-                    "pages": [
-                      "en/updatelog/overview",
-                      "en/updatelog/latest"
-                    ]
-                  }
+                "group": "Webhook Push",
+                "pages": [
+                  "en/api-reference/v1/webhooks/overview",
+                  "en/api-reference/v1/webhooks/risk-change",
+                  "en/api-reference/v1/webhooks/known-risk"
                 ]
               }
             ]
           },
           {
-            "version": "v1 (Maintenance)",
-            "tabs": [
+            "tab": "Update Log",
+            "groups": [
               {
-                "tab": "API Reference",
-                "groups": [
-                  {
-                    "group": "Address Monitoring",
-                    "pages": [
-                      "en/api-reference/v1/endpoint/monitoraddresslist",
-                      "en/api-reference/v1/endpoint/monitoraddressadd",
-                      "en/api-reference/v1/endpoint/monitoraddressstatusupdate",
-                      "en/api-reference/v1/endpoint/monitoraddressremove",
-                      "en/api-reference/v1/endpoint/monitoralerts",
-                      "en/api-reference/v1/endpoint/riskchangealerts",
-                      "en/api-reference/v1/endpoint/monitorconfigget",
-                      "en/api-reference/v1/endpoint/monitorconfigset",
-                      "en/api-reference/v1/endpoint/monitorconfigupdate"
-                    ]
-                  },
-                  {
-                    "group": "Analysis Tasks",
-                    "pages": [
-                      "en/api-reference/v1/endpoint/querycreate",
-                      "en/api-reference/v1/endpoint/queryhistories",
-                      "en/api-reference/v1/endpoint/queryresult",
-                      "en/api-reference/v1/endpoint/querystatus"
-                    ]
-                  }
-                ]
-              },
-              {
-                "tab": "Update Log",
-                "groups": [
-                  {
-                    "group": "Version Release",
-                    "pages": [
-                      "en/updatelog/overview",
-                      "en/updatelog/latest"
-                    ]
-                  }
+                "group": "Version Release",
+                "pages": [
+                  "en/updatelog/overview",
+                  "en/updatelog/latest"
                 ]
               }
             ]
@@ -195,27 +208,29 @@
         ]
       }
     ]
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
-    ]
-  },
-  "footer": {
-    "socials": {
-      "telegram": "https://t.me/arisk_cs",
-      "x": "https://x.com/Arisk_io"
-    }
   }
+]
+},
+"logo": {
+"light": "/logo/light.svg",
+"dark": "/logo/dark.svg"
+},
+"contextual": {
+"options": [
+  "copy",
+  "view",
+  "chatgpt",
+  "claude",
+  "perplexity",
+  "mcp",
+  "cursor",
+  "vscode"
+]
+},
+"footer": {
+"socials": {
+  "telegram": "https://t.me/arisk_cs",
+  "x": "https://x.com/Arisk_io"
+}
+}
 }

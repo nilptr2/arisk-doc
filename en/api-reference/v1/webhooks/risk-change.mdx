@@ -1,0 +1,43 @@
+---
+title: "Risk Change Notification"
+description: "Webhook notification triggered when the risk status of a monitored address changes."
+---
+
+This notification is sent when the risk status of an address you are monitoring changes (e.g., marked as high risk, associated with a blacklist, etc.).
+
+### Push Type
+`type`: `risk_change`
+
+### Request Parameters
+
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `type` | `string` | Push type, fixed as `risk_change` |
+| `timestamp` | `number` | Unix timestamp (seconds) when pushed |
+| `alert` | `object` | Alert details object |
+| `alert.chain` | `string` | Chain type (e.g., `bsc`, `ethereum`, `tron`) |
+| `alert.token` | `string` | Token symbol (e.g., `usdt`, `usdc`) |
+| `alert.monitoring_address` | `string` | The monitored address |
+| `alert.details` | `array` | List of risk details |
+| `alert.details[].risk_level` | `number` | Risk level: `0`-Low, `1`-Mid-Low, `2`-Medium, `3`-Mid-High, `4`-High |
+| `alert.details[].risk_type` | `array` | Array of risk type labels |
+
+### Request Body Example
+
+```json
+{
+  "type": "risk_change",
+  "timestamp": 1767513871,
+  "alert": {
+    "chain": "bsc",
+    "token": "usdt",
+    "monitoring_address": "0xa49195f82885ab741aec6ab62e7e4f6dc1f47ece",
+    "details": [
+      {
+        "risk_level": 4,
+        "risk_type": ["black_industry"]
+      }
+    ]
+  }
+}
+```

@@ -1,0 +1,49 @@
+---
+title: "风险交易检测"
+description: "当监控地址与已知风险地址发生交互时触发的 Webhook 通知。"
+---
+
+当监控地址与已知的风险地址（如洗钱、诈骗等地址）产生交易往来时，Arisk 会实时推送此告警。
+
+### 推送类型
+`type`: `known_risk`
+
+### 请求参数
+
+| 参数名 | 类型 | 说明 |
+| :--- | :--- | :--- |
+| `type` | `string` | 推送类型，固定为 `known_risk` |
+| `timestamp` | `number` | 推送时的 Unix 时间戳（秒） |
+| `alert` | `object` | 告警详情对象 |
+| `alert.id` | `string` | 告警唯一标识 ID |
+| `alert.chain` | `string` | 链类型 |
+| `alert.token` | `string` | 代币符号 |
+| `alert.monitoring_address` | `string` | 被监控的地址 |
+| `alert.counterparty_address` | `string` | 交易对手方地址 |
+| `alert.tx_hash` | `string` | 交易哈希 |
+| `alert.amount` | `string` | 交易金额（字符串形式） |
+| `alert.direction` | `number` | `0`: 流入监控地址, `1`: 流出监控地址 |
+| `alert.details` | `object` | 对手方风险详情 |
+| `alert.details.risk_type` | `array` | 对手方所属的风险类型标签数组 |
+
+### 消息示例
+
+```json
+{
+  "type": "known_risk",
+  "timestamp": 1767513676,
+  "alert": {
+    "id": "019b8806-5953-7cd9-aade-8598b0f968d2",
+    "chain": "tron",
+    "token": "usdt",
+    "monitoring_address": "TUjKn1jon1t3V1cM8hKNg9ERxswXipQ2KG",
+    "counterparty_address": "TWWCH84pZJgxXtrVqbjm3614gnuWp2RGHD",
+    "tx_hash": "0000000000000000000000000000000000000000000000000000000005f711b1",
+    "amount": "500000000",
+    "direction": 0,
+    "details": {
+      "risk_type": ["black_industry"]
+    }
+  }
+}
+```

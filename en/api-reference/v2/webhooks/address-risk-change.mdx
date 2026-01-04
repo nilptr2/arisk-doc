@@ -1,0 +1,42 @@
+---
+title: "Address Risk Level Change"
+description: "Webhook notification triggered when the risk level of a monitored address changes."
+---
+
+This notification is sent when the risk level of an address you are monitoring changes (e.g., from low risk to medium risk), Arisk sends this notification.
+
+### Push Type
+`type`: `address_risk_change`
+
+### Request Parameters
+
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `type` | `string` | Push type, fixed as `address_risk_change` |
+| `timestamp` | `number` | Unix timestamp (seconds) when pushed |
+| `alert` | `object` | Alert details object |
+| `alert.id` | `string` | Unique alert ID |
+| `alert.chain` | `string` | Chain type (e.g., `bsc`, `ethereum`, `tron`) |
+| `alert.token` | `string` | Token symbol (e.g., `usdt`, `usdc`) |
+| `alert.address` | `string` | The monitored address |
+| `alert.previous_level` | `number` | **[New]** The previous risk level. This field is absent for the first push. |
+| `alert.new_level` | `number` | **[New]** The current risk level. |
+| `alert.risk_types` | `array` | Array of risk type labels |
+
+### Request Body Example
+
+```json
+{
+  "type": "address_risk_change",
+  "timestamp": 1767514470,
+  "alert": {
+    "id": "019b8812-790b-7f32-a169-686d605f45c3",
+    "chain": "tron",
+    "token": "usdt",
+    "address": "TUjKn1jon1t3V1cM8hKNg9ERxswXipQ2KG",
+    "previous_level": 2,
+    "new_level": 2,
+    "risk_types": ["black_industry"]
+  }
+}
+```

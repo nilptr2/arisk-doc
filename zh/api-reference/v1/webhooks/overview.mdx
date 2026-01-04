@@ -1,0 +1,52 @@
+---
+title: "概览与安全验证"
+description: "了解 Arisk Webhook 的基本原理以及如何验证推送消息的安全性。"
+---
+
+Arisk 通过 Webhook 向您配置的服务器发送实时 HTTP POST 请求，通知监控地址的风险变动或风险交易。
+
+## 安全性验证
+
+为确保消息来源的真实性和完整性，Arisk 发送的每个 Webhook 请求都包含数字签名。我们强烈建议您在处理请求前进行验证。
+
+### HTTP 请求头
+
+每个 Webhook 请求都会包含以下关键 Header：
+
+| Header | 说明 | 示例 |
+| :--- | :--- | :--- |
+| **X-Arisk-Signature** | RSA-PSS 数字签名（Base64 编码） | `aGVsbG8gd29ybGQ=...` |
+| **Authorization** | Bearer Token（仅在配置了 `auth_key` 时存在） | `Bearer your-secret-token` |
+
+### 验证步骤
+
+1.  **验证签名（必须）**
+    *   **算法**: RSA-PSS with SHA-256
+    *   **签名内容**: 请求 Body 的原始 JSON 字符串
+    *   **公钥**: 使用下方的 Arisk RSA 公钥验证 `X-Arisk-Signature` 中的签名。
+
+<CodeGroup>
+```text 公钥 (PEM)
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAy4SlJTdScP1YAtUqJ1Kz
+vB7isAMYd5oeAUqtraQ2UeLTz8EnPAVgob88NwxnXENd/GWkzas18bjkEbZuPcYA
+P+6cG5l077/zO8WCgUe+NheJUMYdLinvNovXB4oaPZ9EOSUPARyhupH+E5+Kr2Te
+nn+q0wsq62ge6oo705FpJSePbtAQLUnpQYe9GDty50nuXTZ3dZgIMpFkgPI49viY
+R0R72kC0l28BH/Ea9WxibKQuVngVMoK7/kLHNV93AEX5Rk1tUX+W/iKurhwxN1ei
+1N9rBj0d6fupntF8RgDL7vhMa6JtZEnhscTvGZH8bPa2LXMsXVxTdeSZL9+ElFxK
+awIDAQAB
+-----END PUBLIC KEY-----
+```
+</CodeGroup>
+
+2.  **验证 Authorization（可选）**
+    如果您在 Webhook 配置中设置了 `auth_key`，Arisk 会在 Header 中添加：
+    `Authorization: Bearer <您的 auth_key>`
+
+---
+
+## 最佳实践
+
+- **快速响应**：您的服务器应在接收到通知后立即返回 `200 OK`，避免因逻辑耗时导致连接超时。
+- **幂等处理**：由于网络原因，可能会收到重复的通知，请进行幂等检查。
+- **异步处理**：建议在返回 HTTP 响应后，再异步处理后续业务逻辑。
