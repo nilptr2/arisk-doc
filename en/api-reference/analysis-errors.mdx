@@ -1,0 +1,54 @@
+---
+title: "Analysis Service Error Reference"
+description: "Guidance to help you resolve issues encountered during analysis tasks."
+---
+
+We anticipate that you might encounter the following error feedback while using the API. Refer to the information below to help locate the issue and understand handling suggestions.
+
+<ResponseField name="104001" type="InvalidArgument">
+  Invalid request parameters
+</ResponseField>
+
+<ResponseField name="204001" type="NotFound">
+  Analysis task not found
+</ResponseField>
+
+<ResponseField name="204002" type="NotFound">
+  Analysis result not found
+</ResponseField>
+
+<ResponseField name="204003" type="InvalidArgument">
+  Unsupported chain or token combination
+</ResponseField>
+
+<ResponseField name="204004" type="Internal">
+  Failed to fetch transaction data
+</ResponseField>
+
+<ResponseField name="204005" type="Internal">
+  Failed to query risk labels
+</ResponseField>
+
+<ResponseField name="204006" type="Internal">
+  Failed to query exchange labels
+</ResponseField>
+
+<ResponseField name="204007" type="InvalidArgument">
+  Exchange address is not allowed for analysis
+</ResponseField>
+
+<ResponseField name="204008" type="NotFound">
+  No transaction data found
+</ResponseField>
+
+<ResponseField name="304001" type="Unavailable">
+  Failed to enqueue analysis task
+</ResponseField>
+
+<ResponseField name="304002" type="Internal">
+  Failed to create analysis task
+</ResponseField>
+
+<ResponseField name="304003" type="Internal">
+  Internal processing error
+</ResponseField>

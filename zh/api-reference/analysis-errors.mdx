@@ -1,0 +1,54 @@
+---
+title: "分析服务错误反馈"
+description: "帮助您理解并解决在分析任务中遇到的问题。"
+---
+
+我们推测在使用 API 的过程中，您可能会遇到以下错误反馈。您可以参考下述信息帮助您定位问题并了解处理建议。
+
+<ResponseField name="104001" type="InvalidArgument">
+  Invalid request parameters (请求参数无效)
+</ResponseField>
+
+<ResponseField name="204001" type="NotFound">
+  Analysis task not found (未找到分析任务)
+</ResponseField>
+
+<ResponseField name="204002" type="NotFound">
+  Analysis result not found (未找到分析结果)
+</ResponseField>
+
+<ResponseField name="204003" type="InvalidArgument">
+  Unsupported chain or token combination (不支持的链或代币组合)
+</ResponseField>
+
+<ResponseField name="204004" type="Internal">
+  Failed to fetch transaction data (获取交易数据失败)
+</ResponseField>
+
+<ResponseField name="204005" type="Internal">
+  Failed to query risk labels (查询风险标签失败)
+</ResponseField>
+
+<ResponseField name="204006" type="Internal">
+  Failed to query exchange labels (查询交易所标签失败)
+</ResponseField>
+
+<ResponseField name="204007" type="InvalidArgument">
+  Exchange address is not allowed for analysis (该交易所地址不允许进行分析)
+</ResponseField>
+
+<ResponseField name="204008" type="NotFound">
+  No transaction data found (未发现交易数据)
+</ResponseField>
+
+<ResponseField name="304001" type="Unavailable">
+  Failed to enqueue analysis task (提交分析任务失败)
+</ResponseField>
+
+<ResponseField name="304002" type="Internal">
+  Failed to create analysis task (创建分析任务失败)
+</ResponseField>
+
+<ResponseField name="304003" type="Internal">
+  Internal processing error (内部处理错误)
+</ResponseField>

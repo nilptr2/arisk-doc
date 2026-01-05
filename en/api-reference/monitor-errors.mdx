@@ -1,0 +1,130 @@
+---
+title: "Monitor Service Error Reference"
+description: "Guidance to help you resolve issues with address monitoring and alert notifications."
+---
+
+We anticipate that you might encounter the following error feedback while using the API. Refer to the information below to help locate the issue and understand handling suggestions.
+
+<ResponseField name="105001" type="InvalidArgument">
+  Tenant id is required
+</ResponseField>
+
+<ResponseField name="105002" type="InvalidArgument">
+  Chain or token is required
+</ResponseField>
+
+<ResponseField name="105003" type="InvalidArgument">
+  Invalid pagination parameter
+</ResponseField>
+
+<ResponseField name="105004" type="InvalidArgument">
+  Event type is invalid
+</ResponseField>
+
+<ResponseField name="105005" type="InvalidArgument">
+  Addresses cannot be empty
+</ResponseField>
+
+<ResponseField name="105006" type="InvalidArgument">
+  Too many addresses in a single request
+</ResponseField>
+
+<ResponseField name="105007" type="InvalidArgument">
+  Invalid channel type
+</ResponseField>
+
+<ResponseField name="105008" type="InvalidArgument">
+  Channel name is required
+</ResponseField>
+
+<ResponseField name="105009" type="InvalidArgument">
+  Channel configuration is invalid
+</ResponseField>
+
+<ResponseField name="105011" type="InvalidArgument">
+  Notification id is required
+</ResponseField>
+
+<ResponseField name="205001" type="NotFound">
+  Monitor address not found
+</ResponseField>
+
+<ResponseField name="205002" type="NotFound">
+  Alert not found
+</ResponseField>
+
+<ResponseField name="205003" type="AlreadyExists">
+  Monitor address already exists
+</ResponseField>
+
+<ResponseField name="205004" type="NotFound">
+  Tenant monitor config not found
+</ResponseField>
+
+<ResponseField name="205005" type="NotFound">
+  Notification channel not found
+</ResponseField>
+
+<ResponseField name="205006" type="AlreadyExists">
+  Notification channel name already exists
+</ResponseField>
+
+<ResponseField name="205007" type="NotFound">
+  Notification record not found
+</ResponseField>
+
+<ResponseField name="205008" type="AlreadyExists">
+  Event already processed
+</ResponseField>
+
+<ResponseField name="205009" type="FailedPrecondition">
+  Event type is disabled for tenant
+</ResponseField>
+
+<ResponseField name="205010" type="NotFound">
+  No matched monitored address
+</ResponseField>
+
+<ResponseField name="205011" type="FailedPrecondition">
+  Credits insufficient for overage slots
+</ResponseField>
+
+<ResponseField name="305001" type="Unavailable">
+  Risk service unavailable
+</ResponseField>
+
+<ResponseField name="305002" type="Unavailable">
+  Analysis service unavailable
+</ResponseField>
+
+<ResponseField name="305003" type="Unavailable">
+  Failed to publish notification task
+</ResponseField>
+
+<ResponseField name="305004" type="Internal">
+  Data corrupted
+</ResponseField>
+
+<ResponseField name="305005" type="Internal">
+  Analysis task failed
+</ResponseField>
+
+<ResponseField name="305006" type="Unavailable">
+  NATS publish failed
+</ResponseField>
+
+<ResponseField name="305007" type="DeadlineExceeded">
+  NATS consume timeout
+</ResponseField>
+
+<ResponseField name="305008" type="Internal">
+  Cache operation failed
+</ResponseField>
+
+<ResponseField name="305009" type="Unavailable">
+  Subscription service unavailable
+</ResponseField>
+
+<ResponseField name="305010" type="Unavailable">
+  System busy, please try again later
+</ResponseField>

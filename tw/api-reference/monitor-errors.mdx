@@ -1,0 +1,130 @@
+---
+title: "監控服務錯誤回饋"
+description: "幫助您理解並解決監控地址和告警推送中遇到的問題。"
+---
+
+我们推测在使用的过程中，您可能会遇到以下错误回馈。您可以参考下述信息帮助您定位问题。
+
+<ResponseField name="105001" type="InvalidArgument">
+  Tenant id is required (租戶 ID 必填)
+</ResponseField>
+
+<ResponseField name="105002" type="InvalidArgument">
+  Chain or token is required (鏈或代幣必填)
+</ResponseField>
+
+<ResponseField name="105003" type="InvalidArgument">
+  Invalid pagination parameter (分頁參數無效)
+</ResponseField>
+
+<ResponseField name="105004" type="InvalidArgument">
+  Event type is invalid (事件類型無效)
+</ResponseField>
+
+<ResponseField name="105005" type="InvalidArgument">
+  Addresses cannot be empty (地址列表不能為空)
+</ResponseField>
+
+<ResponseField name="105006" type="InvalidArgument">
+  Too many addresses in a single request (單次請求地址過多)
+</ResponseField>
+
+<ResponseField name="105007" type="InvalidArgument">
+  Invalid channel type (通知渠道類型無效)
+</ResponseField>
+
+<ResponseField name="105008" type="InvalidArgument">
+  Channel name is required (渠道名稱必填)
+</ResponseField>
+
+<ResponseField name="105009" type="InvalidArgument">
+  Channel configuration is invalid (渠道配置無效)
+</ResponseField>
+
+<ResponseField name="105011" type="InvalidArgument">
+  Notification id is required (通知 ID 必填)
+</ResponseField>
+
+<ResponseField name="205001" type="NotFound">
+  Monitor address not found (未找到監控地址)
+</ResponseField>
+
+<ResponseField name="205002" type="NotFound">
+  Alert not found (未找到告警記錄)
+</ResponseField>
+
+<ResponseField name="205003" type="AlreadyExists">
+  Monitor address already exists (監控地址已存在)
+</ResponseField>
+
+<ResponseField name="205004" type="NotFound">
+  Tenant monitor config not found (未找到租戶監控配置)
+</ResponseField>
+
+<ResponseField name="205005" type="NotFound">
+  Notification channel not found (未找到通知渠道)
+</ResponseField>
+
+<ResponseField name="205006" type="AlreadyExists">
+  Notification channel name already exists (通知渠道名稱已存在)
+</ResponseField>
+
+<ResponseField name="205007" type="NotFound">
+  Notification record not found (未找到通知記錄)
+</ResponseField>
+
+<ResponseField name="205008" type="AlreadyExists">
+  Event already processed (事件已處理)
+</ResponseField>
+
+<ResponseField name="205009" type="FailedPrecondition">
+  Event type is disabled for tenant (該租戶已禁用此事件類型)
+</ResponseField>
+
+<ResponseField name="205010" type="NotFound">
+  No matched monitored address (未匹配到監控地址)
+</ResponseField>
+
+<ResponseField name="205011" type="FailedPrecondition">
+  Credits insufficient for overage slots (額度不足以支持額外的監控位)
+</ResponseField>
+
+<ResponseField name="305001" type="Unavailable">
+  Risk service unavailable (風險服務不可用)
+</ResponseField>
+
+<ResponseField name="305002" type="Unavailable">
+  Analysis service unavailable (分析服務不可用)
+</ResponseField>
+
+<ResponseField name="305003" type="Unavailable">
+  Failed to publish notification task (發布通知任務失敗)
+</ResponseField>
+
+<ResponseField name="305004" type="Internal">
+  Data corrupted (數據損壞)
+</ResponseField>
+
+<ResponseField name="305005" type="Internal">
+  Analysis task failed (分析任務失敗)
+</ResponseField>
+
+<ResponseField name="305006" type="Unavailable">
+  NATS發布失敗 (NATS 發布失敗)
+</ResponseField>
+
+<ResponseField name="305007" type="DeadlineExceeded">
+  NATS消費超時 (NATS 消費超時)
+</ResponseField>
+
+<ResponseField name="305008" type="Internal">
+  Cache operation failed (緩存操作失敗)
+</ResponseField>
+
+<ResponseField name="305009" type="Unavailable">
+  Subscription service unavailable (訂閱服務不可用)
+</ResponseField>
+
+<ResponseField name="305010" type="Unavailable">
+  System busy, please try again later (系統繁忙，請稍後再試)
+</ResponseField>
