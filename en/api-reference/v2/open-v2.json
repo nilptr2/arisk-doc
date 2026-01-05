@@ -1311,7 +1311,7 @@
             }
         },
         "/v2/monitor/addresses/{addressId}": {
-            "put": {
+            "post": {
                 "summary": "Update Monitored Address",
                 "deprecated": false,
                 "description": "",

@@ -1314,7 +1314,7 @@
       }
     },
     "/v2/monitor/addresses/{addressId}": {
-      "put": {
+      "post": {
         "summary": "更新監控地址",
         "deprecated": false,
         "description": "",
