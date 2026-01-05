@@ -23,12 +23,20 @@
           "chain": {
             "description": "Chain identifier",
             "type": "string",
-            "example": "ethereum"
+            "example": "ethereum",
+            "enum": [
+              "tron",
+              "bsc",
+              "ethereum"
+            ]
           },
           "token": {
             "description": "Token symbol",
             "type": "string",
-            "example": "usdt"
+            "example": "usdt",
+            "enum": [
+              "usdt"
+            ]
           }
         }
       }
@@ -184,7 +192,12 @@
                           "chain": {
                             "description": "链标识",
                             "type": "string",
-                            "example": "ethereum"
+                            "example": "ethereum",
+                            "enum": [
+                              "tron",
+                              "bsc",
+                              "ethereum"
+                            ]
                           },
                           "created_at": {
                             "description": "创建时间",
@@ -204,7 +217,10 @@
                           "token": {
                             "description": "代币符号",
                             "type": "string",
-                            "example": "usdt"
+                            "example": "usdt",
+                            "enum": [
+                              "usdt"
+                            ]
                           },
                           "updated_at": {
                             "description": "更新时间",
@@ -306,7 +322,12 @@
                   "chain": {
                     "description": "Chain identifier",
                     "type": "string",
-                    "example": "ethereum"
+                    "example": "ethereum",
+                    "enum": [
+                      "tron",
+                      "bsc",
+                      "ethereum"
+                    ]
                   },
                   "status": {
                     "description": "Status: 0=Disabled, 1=Enabled",
@@ -316,7 +337,10 @@
                   "token": {
                     "description": "Token symbol",
                     "type": "string",
-                    "example": "usdt"
+                    "example": "usdt",
+                    "enum": [
+                      "usdt"
+                    ]
                   }
                 }
               }
@@ -421,7 +445,12 @@
                           "chain": {
                             "description": "链标识",
                             "type": "string",
-                            "example": "ethereum"
+                            "example": "ethereum",
+                            "enum": [
+                              "tron",
+                              "bsc",
+                              "ethereum"
+                            ]
                           },
                           "counterparty_address": {
                             "description": "对手方地址",
@@ -461,7 +490,10 @@
                           "token": {
                             "description": "代币符号",
                             "type": "string",
-                            "example": "usdt"
+                            "example": "usdt",
+                            "enum": [
+                              "usdt"
+                            ]
                           },
                           "tx_hash": {
                             "description": "交易哈希",
@@ -948,7 +980,12 @@
                           "chain": {
                             "description": "链标识",
                             "type": "string",
-                            "example": "ethereum"
+                            "example": "ethereum",
+                            "enum": [
+                              "tron",
+                              "bsc",
+                              "ethereum"
+                            ]
                           },
                           "created_at": {
                             "description": "创建时间",
@@ -986,7 +1023,10 @@
                           "token": {
                             "description": "代币符号",
                             "type": "string",
-                            "example": "usdt"
+                            "example": "usdt",
+                            "enum": [
+                              "usdt"
+                            ]
                           }
                         }
                       }
@@ -1042,7 +1082,12 @@
                   "chain": {
                     "description": "链标识",
                     "type": "string",
-                    "example": "ethereum"
+                    "example": "ethereum",
+                    "enum": [
+                      "tron",
+                      "bsc",
+                      "ethereum"
+                    ]
                   },
                   "end_at": {
                     "description": "截止时间（Unix 秒，可选）",
@@ -1062,7 +1107,10 @@
                   "token": {
                     "description": "代币符号",
                     "type": "string",
-                    "example": "usdt"
+                    "example": "usdt",
+                    "enum": [
+                      "usdt"
+                    ]
                   }
                 }
               }
@@ -1173,7 +1221,12 @@
                           "chain": {
                             "description": "Chain identifier",
                             "type": "string",
-                            "example": "ethereum"
+                            "example": "ethereum",
+                            "enum": [
+                              "tron",
+                              "bsc",
+                              "ethereum"
+                            ]
                           },
                           "cost_quota": {
                             "description": "Cost quota",
@@ -1218,7 +1271,10 @@
                           "token": {
                             "description": "Token symbol",
                             "type": "string",
-                            "example": "usdt"
+                            "example": "usdt",
+                            "enum": [
+                              "usdt"
+                            ]
                           },
                           "updated_at": {
                             "description": "Update time (RFC3339)",
@@ -1277,7 +1333,12 @@
                     "chain": {
                       "description": "Chain identifier",
                       "type": "string",
-                      "example": "ethereum"
+                      "example": "ethereum",
+                      "enum": [
+                        "tron",
+                        "bsc",
+                        "ethereum"
+                      ]
                     },
                     "created_at": {
                       "description": "Creation time",
@@ -1569,7 +1630,10 @@
                     "token": {
                       "description": "代币符号",
                       "type": "string",
-                      "example": "usdt"
+                      "example": "usdt",
+                      "enum": [
+                        "usdt"
+                      ]
                     },
                     "top_transaction": {
                       "description": "主要交易对手",

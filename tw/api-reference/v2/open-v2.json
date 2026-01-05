@@ -94,7 +94,12 @@
                           "chain": {
                             "description": "鏈標識",
                             "type": "string",
-                            "example": "ethereum"
+                            "example": "ethereum",
+                            "enum": [
+                              "tron",
+                              "bsc",
+                              "ethereum"
+                            ]
                           },
                           "completed_at": {
                             "description": "分析完成時間(RFC3339)",
@@ -144,7 +149,10 @@
                           "token": {
                             "description": "代幣符號",
                             "type": "string",
-                            "example": "usdt"
+                            "example": "usdt",
+                            "enum": [
+                              "usdt"
+                            ]
                           },
                           "updated_at": {
                             "description": "更新時間(RFC3339)",
@@ -198,7 +206,12 @@
                   "chain": {
                     "description": "链标识(如 tron/ethereum)",
                     "type": "string",
-                    "example": "ethereum"
+                    "example": "ethereum",
+                    "enum": [
+                      "tron",
+                      "bsc",
+                      "ethereum"
+                    ]
                   },
                   "count_limit": {
                     "description": "交易数量限制(0 表示不限制)",
@@ -235,7 +248,10 @@
                   "token": {
                     "description": "代幣符號(如 usdt)",
                     "type": "string",
-                    "example": "usdt"
+                    "example": "usdt",
+                    "enum": [
+                      "usdt"
+                    ]
                   }
                 }
               }
@@ -343,7 +359,12 @@
                         "chain": {
                           "description": "鏈標識",
                           "type": "string",
-                          "example": "ethereum"
+                          "example": "ethereum",
+                          "enum": [
+                            "tron",
+                            "bsc",
+                            "ethereum"
+                          ]
                         },
                         "completed_at": {
                           "description": "分析完成時間(RFC3339)",
@@ -746,7 +767,10 @@
                         "token": {
                           "description": "代币符号",
                           "type": "string",
-                          "example": "usdt"
+                          "example": "usdt",
+                          "enum": [
+                            "usdt"
+                          ]
                         },
                         "top_transaction": {
                           "description": "Top 交易对手",
@@ -1048,7 +1072,12 @@
                           "chain": {
                             "description": "链名称",
                             "type": "string",
-                            "example": "ethereum"
+                            "example": "ethereum",
+                            "enum": [
+                              "tron",
+                              "bsc",
+                              "ethereum"
+                            ]
                           },
                           "created_at": {
                             "description": "創建時間(RFC3339)",
@@ -1073,7 +1102,10 @@
                           "token": {
                             "description": "代币符号",
                             "type": "string",
-                            "example": "usdt"
+                            "example": "usdt",
+                            "enum": [
+                              "usdt"
+                            ]
                           },
                           "updated_at": {
                             "description": "更新時間(RFC3339)",
@@ -1144,12 +1176,20 @@
                   "chain": {
                     "description": "链名称",
                     "type": "string",
-                    "example": "ethereum"
+                    "example": "ethereum",
+                    "enum": [
+                      "tron",
+                      "bsc",
+                      "ethereum"
+                    ]
                   },
                   "token": {
                     "description": "代币符号",
                     "type": "string",
-                    "example": "usdt"
+                    "example": "usdt",
+                    "enum": [
+                      "usdt"
+                    ]
                   }
                 }
               }
@@ -1207,7 +1247,12 @@
                           "chain": {
                             "description": "链名称",
                             "type": "string",
-                            "example": "ethereum"
+                            "example": "ethereum",
+                            "enum": [
+                              "tron",
+                              "bsc",
+                              "ethereum"
+                            ]
                           },
                           "created_at": {
                             "description": "創建時間(RFC3339)",
@@ -1232,7 +1277,10 @@
                           "token": {
                             "description": "代币符号",
                             "type": "string",
-                            "example": "usdt"
+                            "example": "usdt",
+                            "enum": [
+                              "usdt"
+                            ]
                           },
                           "updated_at": {
                             "description": "更新時間(RFC3339)",
@@ -1496,7 +1544,12 @@
                           "chain": {
                             "description": "链名称",
                             "type": "string",
-                            "example": "ethereum"
+                            "example": "ethereum",
+                            "enum": [
+                              "tron",
+                              "bsc",
+                              "ethereum"
+                            ]
                           },
                           "created_at": {
                             "description": "創建時間(RFC3339)",
@@ -1579,7 +1632,10 @@
                           "token": {
                             "description": "代币符号",
                             "type": "string",
-                            "example": "usdt"
+                            "example": "usdt",
+                            "enum": [
+                              "usdt"
+                            ]
                           }
                         }
                       }

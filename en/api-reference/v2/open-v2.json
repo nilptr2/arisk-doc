@@ -1,1598 +1,1654 @@
 {
-    "openapi": "3.0.1",
-    "info": {
-        "title": "V2 API Reference",
+  "openapi": "3.0.1",
+  "info": {
+    "title": "V2 API Reference",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "components": {
+    "schemas": {},
+    "responses": {},
+    "securitySchemes": {
+      "apikey-header-X-API-Key": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.arisk.io"
+    }
+  ],
+  "security": [
+    {
+      "apikey-header-X-API-Key": []
+    }
+  ],
+  "tags": [],
+  "paths": {
+    "/v2/analysis/tasks": {
+      "get": {
+        "summary": "List Analysis Tasks",
+        "deprecated": false,
         "description": "",
-        "version": "1.0.0"
-    },
-    "components": {
-        "schemas": {},
-        "responses": {},
-        "securitySchemes": {
-            "apikey-header-X-API-Key": {
-                "type": "apiKey",
-                "in": "header",
-                "name": "X-API-Key"
+        "operationId": "open/V2/AnalysisAnalysisTaskList",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number (starting from 1, default 1)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 1
             }
-        }
-    },
-    "servers": [
-        {
-            "url": "https://api.arisk.io"
-        }
-    ],
-    "security": [
-        {
-            "apikey-header-X-API-Key": []
-        }
-    ],
-    "tags": [],
-    "paths": {
-        "/v2/analysis/tasks": {
-            "get": {
-                "summary": "List Analysis Tasks",
-                "deprecated": false,
-                "description": "",
-                "operationId": "open/V2/AnalysisAnalysisTaskList",
-                "tags": [],
-                "parameters": [
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "description": "Page number (starting from 1, default 1)",
-                        "required": false,
-                        "schema": {
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Page size (default 20, max 100)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "tasks": {
+                      "description": "Task list",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "task_id",
+                          "chain",
+                          "token",
+                          "address",
+                          "status",
+                          "risk_level",
+                          "created_at",
+                          "updated_at",
+                          "start_time",
+                          "end_time",
+                          "count_limit",
+                          "started_at",
+                          "completed_at"
+                        ],
+                        "properties": {
+                          "address": {
+                            "description": "Query address",
+                            "type": "string",
+                            "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+                          },
+                          "chain": {
+                            "description": "Chain identifier",
+                            "type": "string",
+                            "example": "ethereum",
+                            "enum": [
+                              "tron",
+                              "bsc",
+                              "ethereum"
+                            ]
+                          },
+                          "completed_at": {
+                            "description": "Analysis completion time (RFC3339)",
+                            "type": "string",
+                            "example": "2023-10-27T10:00:00Z"
+                          },
+                          "count_limit": {
+                            "description": "Transaction count limit (0 for unlimited)",
                             "type": "integer",
-                            "example": 1
+                            "example": 0
+                          },
+                          "created_at": {
+                            "description": "Creation time (RFC3339)",
+                            "type": "string",
+                            "example": "2023-10-27T10:00:00Z"
+                          },
+                          "end_time": {
+                            "description": "Query end time (RFC3339)",
+                            "type": "string",
+                            "example": "2023-10-27T10:00:00Z"
+                          },
+                          "risk_level": {
+                            "description": "Risk level",
+                            "type": "integer",
+                            "example": 2
+                          },
+                          "start_time": {
+                            "description": "Query start time (RFC3339)",
+                            "type": "string",
+                            "example": "2023-10-27T10:00:00Z"
+                          },
+                          "started_at": {
+                            "description": "Analysis start time (RFC3339)",
+                            "type": "string",
+                            "example": "2023-10-27T10:00:00Z"
+                          },
+                          "status": {
+                            "description": "Task status",
+                            "type": "integer",
+                            "example": 2
+                          },
+                          "task_id": {
+                            "description": "Task ID",
+                            "type": "string",
+                            "example": "550e8400-e29b-41d4-a716-446655440000"
+                          },
+                          "token": {
+                            "description": "Token symbol",
+                            "type": "string",
+                            "example": "usdt",
+                            "enum": [
+                              "usdt"
+                            ]
+                          },
+                          "updated_at": {
+                            "description": "Update time (RFC3339)",
+                            "type": "string",
+                            "example": "2023-10-27T10:00:00Z"
+                          }
                         }
+                      }
                     },
-                    {
-                        "name": "page_size",
-                        "in": "query",
-                        "description": "Page size (default 20, max 100)",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "example": 20
-                        }
+                    "total": {
+                      "description": "Total count",
+                      "type": "integer",
+                      "example": 100
                     }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "tasks": {
-                                            "description": "Task list",
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "required": [
-                                                    "task_id",
-                                                    "chain",
-                                                    "token",
-                                                    "address",
-                                                    "status",
-                                                    "risk_level",
-                                                    "created_at",
-                                                    "updated_at",
-                                                    "start_time",
-                                                    "end_time",
-                                                    "count_limit",
-                                                    "started_at",
-                                                    "completed_at"
-                                                ],
-                                                "properties": {
-                                                    "address": {
-                                                        "description": "Query address",
-                                                        "type": "string",
-                                                        "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
-                                                    },
-                                                    "chain": {
-                                                        "description": "Chain identifier",
-                                                        "type": "string",
-                                                        "example": "ethereum"
-                                                    },
-                                                    "completed_at": {
-                                                        "description": "Analysis completion time (RFC3339)",
-                                                        "type": "string",
-                                                        "example": "2023-10-27T10:00:00Z"
-                                                    },
-                                                    "count_limit": {
-                                                        "description": "Transaction count limit (0 for unlimited)",
-                                                        "type": "integer",
-                                                        "example": 0
-                                                    },
-                                                    "created_at": {
-                                                        "description": "Creation time (RFC3339)",
-                                                        "type": "string",
-                                                        "example": "2023-10-27T10:00:00Z"
-                                                    },
-                                                    "end_time": {
-                                                        "description": "Query end time (RFC3339)",
-                                                        "type": "string",
-                                                        "example": "2023-10-27T10:00:00Z"
-                                                    },
-                                                    "risk_level": {
-                                                        "description": "Risk level",
-                                                        "type": "integer",
-                                                        "example": 2
-                                                    },
-                                                    "start_time": {
-                                                        "description": "Query start time (RFC3339)",
-                                                        "type": "string",
-                                                        "example": "2023-10-27T10:00:00Z"
-                                                    },
-                                                    "started_at": {
-                                                        "description": "Analysis start time (RFC3339)",
-                                                        "type": "string",
-                                                        "example": "2023-10-27T10:00:00Z"
-                                                    },
-                                                    "status": {
-                                                        "description": "Task status",
-                                                        "type": "integer",
-                                                        "example": 2
-                                                    },
-                                                    "task_id": {
-                                                        "description": "Task ID",
-                                                        "type": "string",
-                                                        "example": "550e8400-e29b-41d4-a716-446655440000"
-                                                    },
-                                                    "token": {
-                                                        "description": "Token symbol",
-                                                        "type": "string",
-                                                        "example": "usdt"
-                                                    },
-                                                    "updated_at": {
-                                                        "description": "Update time (RFC3339)",
-                                                        "type": "string",
-                                                        "example": "2023-10-27T10:00:00Z"
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        "total": {
-                                            "description": "Total count",
-                                            "type": "integer",
-                                            "example": 100
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "headers": {}
-                    }
+                  }
                 }
+              }
             },
-            "post": {
-                "summary": "Create Analysis Task",
-                "deprecated": false,
-                "description": "",
-                "operationId": "open/V2/AnalysisAnalysisTaskCreate",
-                "tags": [],
-                "parameters": [],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "chain",
-                                    "token",
-                                    "address"
-                                ],
-                                "properties": {
-                                    "address": {
-                                        "description": "Query address",
-                                        "type": "string",
-                                        "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
-                                    },
-                                    "chain": {
-                                        "description": "Chain identifier (e.g., tron/ethereum)",
-                                        "type": "string",
-                                        "example": "ethereum"
-                                    },
-                                    "count_limit": {
-                                        "description": "Transaction count limit (0 for unlimited)",
-                                        "type": "integer",
-                                        "example": 0
-                                    },
-                                    "end_time": {
-                                        "description": "End time (RFC3339, optional, auto-derived by default)",
-                                        "type": "string",
-                                        "example": "2023-10-27T10:00:00Z"
-                                    },
-                                    "metrics": {
-                                        "description": "Analysis metrics list. If not provided or empty, returns all supported metrics by default. Values must be from the supported list.",
-                                        "type": "array",
-                                        "items": {
-                                            "type": "string",
-                                            "enum": [
-                                                "OVERVIEW",
-                                                "TXFLOW",
-                                                "HABIT",
-                                                "HISTORICAL_BALANCE",
-                                                "RISK_TYPE",
-                                                "TOP_TRANSACTION",
-                                                "RISK_ADDRESS_TOTAL"
-                                            ],
-                                            "example": "OVERVIEW"
-                                        }
-                                    },
-                                    "start_time": {
-                                        "description": "Start time (RFC3339, optional, auto-derived by default)",
-                                        "type": "string",
-                                        "example": "2023-10-27T10:00:00Z"
-                                    },
-                                    "token": {
-                                        "description": "Token symbol (e.g., usdt)",
-                                        "type": "string",
-                                        "example": "usdt"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "required": true
-                },
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "estimated_credits": {
-                                            "description": "Estimated credits to be consumed",
-                                            "type": "integer",
-                                            "example": 10
-                                        },
-                                        "metrics": {
-                                            "description": "List of metrics actually analyzed",
-                                            "type": "array",
-                                            "items": {
-                                                "type": "string",
-                                                "example": "OVERVIEW"
-                                            }
-                                        },
-                                        "task_id": {
-                                            "description": "Task ID",
-                                            "type": "string",
-                                            "example": "550e8400-e29b-41d4-a716-446655440000"
-                                        },
-                                        "tx_count": {
-                                            "description": "Number of transactions",
-                                            "type": "integer",
-                                            "example": 100
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "headers": {}
-                    }
-                }
-            }
-        },
-        "/v2/analysis/tasks/{taskId}/result": {
-            "get": {
-                "summary": "Get Analysis Task Result",
-                "deprecated": false,
-                "description": "",
-                "operationId": "open/V2/AnalysisAnalysisTaskResultGet",
-                "tags": [],
-                "parameters": [
-                    {
-                        "name": "taskId",
-                        "in": "path",
-                        "description": "Task ID",
-                        "required": true,
-                        "example": "",
-                        "schema": {
-                            "type": "string",
-                            "example": "550e8400-e29b-41d4-a716-446655440000"
-                        }
-                    }
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Analysis Task",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V2/AnalysisAnalysisTaskCreate",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chain",
+                  "token",
+                  "address"
                 ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "result": {
-                                            "description": "Analysis result",
-                                            "type": "object",
-                                            "required": [
-                                                "chain",
-                                                "token",
-                                                "address",
-                                                "created_at",
-                                                "start_time",
-                                                "end_time",
-                                                "task_id",
-                                                "count_limit",
-                                                "started_at",
-                                                "completed_at",
-                                                "risk_level",
-                                                "risk_address_data",
-                                                "risk_type",
-                                                "overview",
-                                                "tx_flow",
-                                                "habit",
-                                                "historical_balance",
-                                                "top_transaction"
-                                            ],
-                                            "properties": {
-                                                "address": {
-                                                    "description": "Address",
-                                                    "type": "string",
-                                                    "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
-                                                },
-                                                "chain": {
-                                                    "description": "Chain identifier",
-                                                    "type": "string",
-                                                    "example": "ethereum"
-                                                },
-                                                "completed_at": {
-                                                    "description": "Analysis completion time (RFC3339)",
-                                                    "type": "string",
-                                                    "example": "2023-10-27T10:00:00Z"
-                                                },
-                                                "count_limit": {
-                                                    "description": "Transaction count limit (0 for unlimited)",
-                                                    "type": "integer",
-                                                    "example": 0
-                                                },
-                                                "created_at": {
-                                                    "description": "Creation time (RFC3339)",
-                                                    "type": "string",
-                                                    "example": "2023-10-27T10:00:00Z"
-                                                },
-                                                "end_time": {
-                                                    "description": "Query end time (RFC3339)",
-                                                    "type": "string",
-                                                    "example": "2023-10-27T10:00:00Z"
-                                                },
-                                                "habit": {
-                                                    "description": "Trading habits",
-                                                    "type": "object",
-                                                    "required": [
-                                                        "items"
-                                                    ],
-                                                    "properties": {
-                                                        "items": {
-                                                            "description": "List",
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "object",
-                                                                "required": [
-                                                                    "hour",
-                                                                    "inflow",
-                                                                    "outflow"
-                                                                ],
-                                                                "properties": {
-                                                                    "hour": {
-                                                                        "description": "Hour (0~23)",
-                                                                        "type": "string",
-                                                                        "example": "12"
-                                                                    },
-                                                                    "inflow": {
-                                                                        "description": "Inflow",
-                                                                        "type": "object",
-                                                                        "required": [
-                                                                            "amount",
-                                                                            "count"
-                                                                        ],
-                                                                        "properties": {
-                                                                            "amount": {
-                                                                                "description": "Amount",
-                                                                                "type": "string",
-                                                                                "example": "100.0"
-                                                                            },
-                                                                            "count": {
-                                                                                "description": "Count",
-                                                                                "type": "integer",
-                                                                                "example": 10
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "outflow": {
-                                                                        "description": "Outflow",
-                                                                        "type": "object",
-                                                                        "required": [
-                                                                            "amount",
-                                                                            "count"
-                                                                        ],
-                                                                        "properties": {
-                                                                            "amount": {
-                                                                                "description": "Amount",
-                                                                                "type": "string",
-                                                                                "example": "50.0"
-                                                                            },
-                                                                            "count": {
-                                                                                "description": "Count",
-                                                                                "type": "integer",
-                                                                                "example": 5
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                                "historical_balance": {
-                                                    "description": "Historical balance",
-                                                    "type": "object",
-                                                    "required": [
-                                                        "items"
-                                                    ],
-                                                    "properties": {
-                                                        "items": {
-                                                            "description": "List",
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "object",
-                                                                "required": [
-                                                                    "date",
-                                                                    "balance"
-                                                                ],
-                                                                "properties": {
-                                                                    "balance": {
-                                                                        "description": "Balance",
-                                                                        "type": "string",
-                                                                        "example": "1000.0"
-                                                                    },
-                                                                    "date": {
-                                                                        "description": "Date (RFC3339)",
-                                                                        "type": "string",
-                                                                        "example": "2023-01-01"
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                                "overview": {
-                                                    "description": "Address overview",
-                                                    "type": "object",
-                                                    "required": [
-                                                        "address",
-                                                        "balance",
-                                                        "balance_coin",
-                                                        "active",
-                                                        "in_info",
-                                                        "out_info",
-                                                        "total_info",
-                                                        "type",
-                                                        "exchange_name",
-                                                        "first_transfer_time",
-                                                        "first_transfer_address",
-                                                        "is_blocked",
-                                                        "is_sanction"
-                                                    ],
-                                                    "properties": {
-                                                        "active": {
-                                                            "description": "Whether active",
-                                                            "type": "boolean",
-                                                            "example": true
-                                                        },
-                                                        "address": {
-                                                            "description": "Address",
-                                                            "type": "string",
-                                                            "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
-                                                        },
-                                                        "balance": {
-                                                            "description": "Balance",
-                                                            "type": "string",
-                                                            "example": "1000.0"
-                                                        },
-                                                        "balance_coin": {
-                                                            "description": "Balance currency",
-                                                            "type": "string",
-                                                            "example": "ETH"
-                                                        },
-                                                        "exchange_name": {
-                                                            "description": "Exchange name",
-                                                            "type": "string",
-                                                            "example": "Binance"
-                                                        },
-                                                        "first_transfer_address": {
-                                                            "description": "First counterparty address",
-                                                            "type": "string",
-                                                            "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
-                                                        },
-                                                        "first_transfer_time": {
-                                                            "description": "First transfer time (RFC3339)",
-                                                            "type": "string",
-                                                            "example": "2023-01-01T00:00:00Z"
-                                                        },
-                                                        "in_info": {
-                                                            "description": "Inflow information",
-                                                            "type": "object",
-                                                            "required": [
-                                                                "data",
-                                                                "latest"
-                                                            ],
-                                                            "properties": {
-                                                                "data": {
-                                                                    "description": "Data",
-                                                                    "type": "object",
-                                                                    "required": [
-                                                                        "amount",
-                                                                        "count"
-                                                                    ],
-                                                                    "properties": {
-                                                                        "amount": {
-                                                                            "description": "Amount",
-                                                                            "type": "string",
-                                                                            "example": "100.0"
-                                                                        },
-                                                                        "count": {
-                                                                            "description": "Count",
-                                                                            "type": "integer",
-                                                                            "example": 10
-                                                                        }
-                                                                    }
-                                                                },
-                                                                "latest": {
-                                                                    "description": "Latest time (RFC3339)",
-                                                                    "type": "string",
-                                                                    "example": "2023-10-27T10:00:00Z"
-                                                                }
-                                                            }
-                                                        },
-                                                        "is_blocked": {
-                                                            "description": "Whether blocked",
-                                                            "type": "boolean",
-                                                            "example": true
-                                                        },
-                                                        "is_sanction": {
-                                                            "description": "Whether sanctioned",
-                                                            "type": "boolean",
-                                                            "example": false
-                                                        },
-                                                        "out_info": {
-                                                            "description": "Outflow information",
-                                                            "type": "object",
-                                                            "required": [
-                                                                "data",
-                                                                "latest"
-                                                            ],
-                                                            "properties": {
-                                                                "data": {
-                                                                    "description": "Data",
-                                                                    "type": "object",
-                                                                    "required": [
-                                                                        "amount",
-                                                                        "count"
-                                                                    ],
-                                                                    "properties": {
-                                                                        "amount": {
-                                                                            "description": "Amount",
-                                                                            "type": "string",
-                                                                            "example": "100.0"
-                                                                        },
-                                                                        "count": {
-                                                                            "description": "Count",
-                                                                            "type": "integer",
-                                                                            "example": 10
-                                                                        }
-                                                                    }
-                                                                },
-                                                                "latest": {
-                                                                    "description": "Latest time (RFC3339)",
-                                                                    "type": "string",
-                                                                    "example": "2023-10-27T10:00:00Z"
-                                                                }
-                                                            }
-                                                        },
-                                                        "total_info": {
-                                                            "description": "Summary information",
-                                                            "type": "object",
-                                                            "required": [
-                                                                "data",
-                                                                "latest"
-                                                            ],
-                                                            "properties": {
-                                                                "data": {
-                                                                    "description": "Data",
-                                                                    "type": "object",
-                                                                    "required": [
-                                                                        "amount",
-                                                                        "count"
-                                                                    ],
-                                                                    "properties": {
-                                                                        "amount": {
-                                                                            "description": "Amount",
-                                                                            "type": "string",
-                                                                            "example": "100.0"
-                                                                        },
-                                                                        "count": {
-                                                                            "description": "Count",
-                                                                            "type": "integer",
-                                                                            "example": 10
-                                                                        }
-                                                                    }
-                                                                },
-                                                                "latest": {
-                                                                    "description": "Latest time (RFC3339)",
-                                                                    "type": "string",
-                                                                    "example": "2023-10-27T10:00:00Z"
-                                                                }
-                                                            }
-                                                        },
-                                                        "type": {
-                                                            "description": "Address type",
-                                                            "type": "integer",
-                                                            "example": 1
-                                                        }
-                                                    }
-                                                },
-                                                "risk_address_data": {
-                                                    "description": "Risk address summary",
-                                                    "type": "object",
-                                                    "required": [
-                                                        "data",
-                                                        "address_count"
-                                                    ],
-                                                    "properties": {
-                                                        "address_count": {
-                                                            "description": "Address count",
-                                                            "type": "integer",
-                                                            "example": 5
-                                                        },
-                                                        "data": {
-                                                            "description": "Data",
-                                                            "type": "object",
-                                                            "required": [
-                                                                "amount",
-                                                                "count"
-                                                            ],
-                                                            "properties": {
-                                                                "amount": {
-                                                                    "description": "Amount",
-                                                                    "type": "string",
-                                                                    "example": "200.0"
-                                                                },
-                                                                "count": {
-                                                                    "description": "Count",
-                                                                    "type": "integer",
-                                                                    "example": 20
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                                "risk_level": {
-                                                    "description": "Risk level",
-                                                    "type": "integer",
-                                                    "example": 2
-                                                },
-                                                "risk_type": {
-                                                    "description": "Risk type statistics",
-                                                    "type": "object",
-                                                    "required": [
-                                                        "items"
-                                                    ],
-                                                    "properties": {
-                                                        "items": {
-                                                            "description": "List",
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "object",
-                                                                "required": [
-                                                                    "type",
-                                                                    "data"
-                                                                ],
-                                                                "properties": {
-                                                                    "data": {
-                                                                        "description": "Data",
-                                                                        "type": "object",
-                                                                        "required": [
-                                                                            "amount",
-                                                                            "count"
-                                                                        ],
-                                                                        "properties": {
-                                                                            "amount": {
-                                                                                "description": "Amount",
-                                                                                "type": "string",
-                                                                                "example": "100.0"
-                                                                            },
-                                                                            "count": {
-                                                                                "description": "Count",
-                                                                                "type": "integer",
-                                                                                "example": 10
-                                                                            }
-                                                                        }
-                                                                    },
-                                                                    "type": {
-                                                                        "description": "Risk type",
-                                                                        "type": "string",
-                                                                        "example": "phishing"
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                                "start_time": {
-                                                    "description": "Query start time (RFC3339)",
-                                                    "type": "string",
-                                                    "example": "2023-10-27T10:00:00Z"
-                                                },
-                                                "started_at": {
-                                                    "description": "Analysis start time (RFC3339)",
-                                                    "type": "string",
-                                                    "example": "2023-10-27T10:00:00Z"
-                                                },
-                                                "task_id": {
-                                                    "description": "Task ID",
-                                                    "type": "string",
-                                                    "example": "550e8400-e29b-41d4-a716-446655440000"
-                                                },
-                                                "token": {
-                                                    "description": "Token symbol",
-                                                    "type": "string",
-                                                    "example": "usdt"
-                                                },
-                                                "top_transaction": {
-                                                    "description": "Top counterparties",
-                                                    "type": "object",
-                                                    "required": [
-                                                        "items"
-                                                    ],
-                                                    "properties": {
-                                                        "items": {
-                                                            "description": "List",
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "object",
-                                                                "required": [
-                                                                    "own_address",
-                                                                    "counterparty_address",
-                                                                    "total",
-                                                                    "last_transaction_time"
-                                                                ],
-                                                                "properties": {
-                                                                    "counterparty_address": {
-                                                                        "description": "Counterparty address",
-                                                                        "type": "string",
-                                                                        "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
-                                                                    },
-                                                                    "last_transaction_time": {
-                                                                        "description": "Latest transaction time (RFC3339)",
-                                                                        "type": "string",
-                                                                        "example": "2023-10-27T10:00:00Z"
-                                                                    },
-                                                                    "own_address": {
-                                                                        "description": "Own address",
-                                                                        "type": "string",
-                                                                        "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
-                                                                    },
-                                                                    "total": {
-                                                                        "description": "Summary",
-                                                                        "type": "object",
-                                                                        "required": [
-                                                                            "amount",
-                                                                            "count"
-                                                                        ],
-                                                                        "properties": {
-                                                                            "amount": {
-                                                                                "description": "Amount",
-                                                                                "type": "string",
-                                                                                "example": "300.0"
-                                                                            },
-                                                                            "count": {
-                                                                                "description": "Count",
-                                                                                "type": "integer",
-                                                                                "example": 30
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                                "tx_flow": {
-                                                    "description": "Fund flow",
-                                                    "type": "object",
-                                                    "required": [
-                                                        "nodes",
-                                                        "links"
-                                                    ],
-                                                    "properties": {
-                                                        "links": {
-                                                            "description": "Links",
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "object",
-                                                                "required": [
-                                                                    "source",
-                                                                    "target",
-                                                                    "value"
-                                                                ],
-                                                                "properties": {
-                                                                    "source": {
-                                                                        "description": "Source node",
-                                                                        "type": "string",
-                                                                        "example": "node1"
-                                                                    },
-                                                                    "target": {
-                                                                        "description": "Target node",
-                                                                        "type": "string",
-                                                                        "example": "node2"
-                                                                    },
-                                                                    "value": {
-                                                                        "description": "Amount",
-                                                                        "type": "string",
-                                                                        "example": "50.0"
-                                                                    }
-                                                                }
-                                                            }
-                                                        },
-                                                        "nodes": {
-                                                            "description": "Nodes",
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "object",
-                                                                "required": [
-                                                                    "id",
-                                                                    "label"
-                                                                ],
-                                                                "properties": {
-                                                                    "id": {
-                                                                        "description": "Node ID",
-                                                                        "type": "string",
-                                                                        "example": "node1"
-                                                                    },
-                                                                    "label": {
-                                                                        "description": "Label",
-                                                                        "type": "string",
-                                                                        "example": "Label"
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "headers": {}
+                "properties": {
+                  "address": {
+                    "description": "Query address",
+                    "type": "string",
+                    "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+                  },
+                  "chain": {
+                    "description": "Chain identifier (e.g., tron/ethereum)",
+                    "type": "string",
+                    "example": "ethereum",
+                    "enum": [
+                      "tron",
+                      "bsc",
+                      "ethereum"
+                    ]
+                  },
+                  "count_limit": {
+                    "description": "Transaction count limit (0 for unlimited)",
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "end_time": {
+                    "description": "End time (RFC3339, optional, auto-derived by default)",
+                    "type": "string",
+                    "example": "2023-10-27T10:00:00Z"
+                  },
+                  "metrics": {
+                    "description": "Analysis metrics list. If not provided or empty, returns all supported metrics by default. Values must be from the supported list.",
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "OVERVIEW",
+                        "TXFLOW",
+                        "HABIT",
+                        "HISTORICAL_BALANCE",
+                        "RISK_TYPE",
+                        "TOP_TRANSACTION",
+                        "RISK_ADDRESS_TOTAL"
+                      ],
+                      "example": "OVERVIEW"
                     }
+                  },
+                  "start_time": {
+                    "description": "Start time (RFC3339, optional, auto-derived by default)",
+                    "type": "string",
+                    "example": "2023-10-27T10:00:00Z"
+                  },
+                  "token": {
+                    "description": "Token symbol (e.g., usdt)",
+                    "type": "string",
+                    "example": "usdt",
+                    "enum": [
+                      "usdt"
+                    ]
+                  }
                 }
+              }
             }
+          },
+          "required": true
         },
-        "/v2/analysis/tasks/{taskId}/status": {
-            "get": {
-                "summary": "Get Analysis Task Status",
-                "deprecated": false,
-                "description": "",
-                "operationId": "open/V2/AnalysisAnalysisTaskStatusGet",
-                "tags": [],
-                "parameters": [
-                    {
-                        "name": "taskId",
-                        "in": "path",
-                        "description": "Task ID",
-                        "required": true,
-                        "example": "",
-                        "schema": {
-                            "type": "string",
-                            "example": "550e8400-e29b-41d4-a716-446655440000"
-                        }
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "estimated_credits": {
+                      "description": "Estimated credits to be consumed",
+                      "type": "integer",
+                      "example": 10
+                    },
+                    "metrics": {
+                      "description": "List of metrics actually analyzed",
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "OVERVIEW"
+                      }
+                    },
+                    "task_id": {
+                      "description": "Task ID",
+                      "type": "string",
+                      "example": "550e8400-e29b-41d4-a716-446655440000"
+                    },
+                    "tx_count": {
+                      "description": "Number of transactions",
+                      "type": "integer",
+                      "example": 100
                     }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "created_at": {
-                                            "description": "Creation time (RFC3339)",
-                                            "type": "string",
-                                            "example": "2023-10-27T10:00:00Z"
-                                        },
-                                        "message": {
-                                            "description": "Status description or error message",
-                                            "type": "string",
-                                            "example": "success"
-                                        },
-                                        "metrics": {
-                                            "description": "List of metrics analyzed in this task",
-                                            "type": "array",
-                                            "items": {
-                                                "type": "string",
-                                                "example": "risk"
-                                            }
-                                        },
-                                        "status": {
-                                            "description": "Task status: 0-Pending, 1-Processing, 2-Completed, 3-Failed",
-                                            "type": "integer",
-                                            "example": 2
-                                        },
-                                        "updated_at": {
-                                            "description": "Update time (RFC3339)",
-                                            "type": "string",
-                                            "example": "2023-10-27T10:00:00Z"
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "headers": {}
-                    }
+                  }
                 }
-            }
-        },
-        "/v2/monitor/addresses": {
-            "get": {
-                "summary": "List Monitored Addresses",
-                "deprecated": false,
-                "description": "",
-                "operationId": "open/V2/MonitorMonitorAddressesList",
-                "tags": [],
-                "parameters": [
-                    {
-                        "name": "chain",
-                        "in": "query",
-                        "description": "Chain name",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "example": "ethereum"
-                        }
-                    },
-                    {
-                        "name": "token",
-                        "in": "query",
-                        "description": "Token symbol",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "example": "usdt"
-                        }
-                    },
-                    {
-                        "name": "status",
-                        "in": "query",
-                        "description": "Status filter: 1-Enabled 2-Paused (0 for no filter)",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "example": 1
-                        }
-                    },
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "description": "Page number",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "default": 1,
-                            "example": 1
-                        }
-                    },
-                    {
-                        "name": "page_size",
-                        "in": "query",
-                        "description": "Page size",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "default": 20
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "addresses": {
-                                            "description": "Address list",
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "required": [
-                                                    "address_id",
-                                                    "chain",
-                                                    "token",
-                                                    "address",
-                                                    "name",
-                                                    "status",
-                                                    "user_id",
-                                                    "created_at",
-                                                    "updated_at",
-                                                    "alert_count",
-                                                    "last_alert_at"
-                                                ],
-                                                "properties": {
-                                                    "address": {
-                                                        "description": "Address",
-                                                        "type": "string",
-                                                        "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
-                                                    },
-                                                    "address_id": {
-                                                        "description": "Address ID",
-                                                        "type": "string",
-                                                        "example": "550e8400-e29b-41d4-a716-446655440000"
-                                                    },
-                                                    "alert_count": {
-                                                        "description": "Number of alerts generated",
-                                                        "type": "integer",
-                                                        "example": 0
-                                                    },
-                                                    "chain": {
-                                                        "description": "Chain name",
-                                                        "type": "string",
-                                                        "example": "ethereum"
-                                                    },
-                                                    "created_at": {
-                                                        "description": "Creation time (RFC3339)",
-                                                        "type": "string",
-                                                        "example": "2023-10-27T10:00:00Z"
-                                                    },
-                                                    "last_alert_at": {
-                                                        "description": "Latest alert time (RFC3339, potentially empty)",
-                                                        "type": "string",
-                                                        "example": "2023-10-27T10:00:00Z"
-                                                    },
-                                                    "name": {
-                                                        "description": "Name (Display name)",
-                                                        "type": "string",
-                                                        "example": "Monitor1"
-                                                    },
-                                                    "status": {
-                                                        "description": "Status: 1-Enabled 2-Paused 3-Deleted",
-                                                        "type": "integer",
-                                                        "example": 1
-                                                    },
-                                                    "token": {
-                                                        "description": "Token symbol",
-                                                        "type": "string",
-                                                        "example": "usdt"
-                                                    },
-                                                    "updated_at": {
-                                                        "description": "Update time (RFC3339)",
-                                                        "type": "string",
-                                                        "example": "2023-10-27T10:00:00Z"
-                                                    },
-                                                    "user_id": {
-                                                        "description": "Created user",
-                                                        "type": "string",
-                                                        "example": "User1"
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        "total": {
-                                            "description": "Total count",
-                                            "type": "integer",
-                                            "example": 100
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "headers": {}
-                    }
-                }
+              }
             },
-            "post": {
-                "summary": "Add Monitored Addresses",
-                "deprecated": false,
-                "description": "",
-                "operationId": "open/V2/MonitorMonitorAddressesAdd",
-                "tags": [],
-                "parameters": [],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/v2/analysis/tasks/{taskId}/result": {
+      "get": {
+        "summary": "Get Analysis Task Result",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V2/AnalysisAnalysisTaskResultGet",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "description": "Task ID",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string",
+              "example": "550e8400-e29b-41d4-a716-446655440000"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "description": "Analysis result",
+                      "type": "object",
+                      "required": [
+                        "chain",
+                        "token",
+                        "address",
+                        "created_at",
+                        "start_time",
+                        "end_time",
+                        "task_id",
+                        "count_limit",
+                        "started_at",
+                        "completed_at",
+                        "risk_level",
+                        "risk_address_data",
+                        "risk_type",
+                        "overview",
+                        "tx_flow",
+                        "habit",
+                        "historical_balance",
+                        "top_transaction"
+                      ],
+                      "properties": {
+                        "address": {
+                          "description": "Address",
+                          "type": "string",
+                          "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+                        },
+                        "chain": {
+                          "description": "Chain identifier",
+                          "type": "string",
+                          "example": "ethereum",
+                          "enum": [
+                            "tron",
+                            "bsc",
+                            "ethereum"
+                          ]
+                        },
+                        "completed_at": {
+                          "description": "Analysis completion time (RFC3339)",
+                          "type": "string",
+                          "example": "2023-10-27T10:00:00Z"
+                        },
+                        "count_limit": {
+                          "description": "Transaction count limit (0 for unlimited)",
+                          "type": "integer",
+                          "example": 0
+                        },
+                        "created_at": {
+                          "description": "Creation time (RFC3339)",
+                          "type": "string",
+                          "example": "2023-10-27T10:00:00Z"
+                        },
+                        "end_time": {
+                          "description": "Query end time (RFC3339)",
+                          "type": "string",
+                          "example": "2023-10-27T10:00:00Z"
+                        },
+                        "habit": {
+                          "description": "Trading habits",
+                          "type": "object",
+                          "required": [
+                            "items"
+                          ],
+                          "properties": {
+                            "items": {
+                              "description": "List",
+                              "type": "array",
+                              "items": {
                                 "type": "object",
                                 "required": [
-                                    "chain",
-                                    "token",
-                                    "addresses"
+                                  "hour",
+                                  "inflow",
+                                  "outflow"
                                 ],
                                 "properties": {
-                                    "addresses": {
-                                        "description": "Address list",
-                                        "type": "array",
-                                        "items": {
-                                            "type": "object",
-                                            "required": [
-                                                "address"
-                                            ],
-                                            "properties": {
-                                                "address": {
-                                                    "description": "Address",
-                                                    "type": "string",
-                                                    "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
-                                                },
-                                                "name": {
-                                                    "description": "Name",
-                                                    "type": "string",
-                                                    "example": "Monitor1"
-                                                }
-                                            }
-                                        }
-                                    },
-                                    "chain": {
-                                        "description": "Chain name",
-                                        "type": "string",
-                                        "example": "ethereum"
-                                    },
-                                    "token": {
-                                        "description": "Token symbol",
-                                        "type": "string",
-                                        "example": "usdt"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "required": true
-                },
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
+                                  "hour": {
+                                    "description": "Hour (0~23)",
+                                    "type": "string",
+                                    "example": "12"
+                                  },
+                                  "inflow": {
+                                    "description": "Inflow",
                                     "type": "object",
+                                    "required": [
+                                      "amount",
+                                      "count"
+                                    ],
                                     "properties": {
-                                        "added": {
-                                            "description": "Number of addresses successfully added",
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "addresses": {
-                                            "description": "Newly created address entities",
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "required": [
-                                                    "address_id",
-                                                    "chain",
-                                                    "token",
-                                                    "address",
-                                                    "name",
-                                                    "status",
-                                                    "user_id",
-                                                    "created_at",
-                                                    "updated_at",
-                                                    "alert_count",
-                                                    "last_alert_at"
-                                                ],
-                                                "properties": {
-                                                    "address": {
-                                                        "description": "Address",
-                                                        "type": "string",
-                                                        "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
-                                                    },
-                                                    "address_id": {
-                                                        "description": "Address ID",
-                                                        "type": "string",
-                                                        "example": "550e8400-e29b-41d4-a716-446655440000"
-                                                    },
-                                                    "alert_count": {
-                                                        "description": "Number of alerts generated",
-                                                        "type": "integer",
-                                                        "example": 0
-                                                    },
-                                                    "chain": {
-                                                        "description": "Chain name",
-                                                        "type": "string",
-                                                        "example": "ethereum"
-                                                    },
-                                                    "created_at": {
-                                                        "description": "Creation time (RFC3339)",
-                                                        "type": "string",
-                                                        "example": "2023-10-27T10:00:00Z"
-                                                    },
-                                                    "last_alert_at": {
-                                                        "description": "Latest alert time (RFC3339, potentially empty)",
-                                                        "type": "string",
-                                                        "example": "2023-10-27T10:00:00Z"
-                                                    },
-                                                    "name": {
-                                                        "description": "Name (Display name)",
-                                                        "type": "string",
-                                                        "example": "Monitor1"
-                                                    },
-                                                    "status": {
-                                                        "description": "Status: 1-Enabled 2-Paused 3-Deleted",
-                                                        "type": "integer",
-                                                        "example": 1
-                                                    },
-                                                    "token": {
-                                                        "description": "Token symbol",
-                                                        "type": "string",
-                                                        "example": "usdt"
-                                                    },
-                                                    "updated_at": {
-                                                        "description": "Update time (RFC3339)",
-                                                        "type": "string",
-                                                        "example": "2023-10-27T10:00:00Z"
-                                                    },
-                                                    "user_id": {
-                                                        "description": "Created user",
-                                                        "type": "string",
-                                                        "example": "User1"
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        "failed": {
-                                            "description": "Invalid or failed addresses",
-                                            "type": "array",
-                                            "items": {
-                                                "type": "string",
-                                                "example": "[]"
-                                            }
-                                        },
-                                        "skipped": {
-                                            "description": "Number of addresses skipped (already exist)",
-                                            "type": "integer",
-                                            "example": 0
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "headers": {}
-                    }
-                }
-            }
-        },
-        "/v2/monitor/addresses/delete": {
-            "post": {
-                "summary": "Delete Monitored Addresses",
-                "deprecated": false,
-                "description": "",
-                "operationId": "open/V2/MonitorMonitorAddressesDelete",
-                "tags": [],
-                "parameters": [],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "address_ids"
-                                ],
-                                "properties": {
-                                    "address_ids": {
-                                        "description": "List of address IDs to be deleted",
-                                        "type": "array",
-                                        "items": {
-                                            "type": "string",
-                                            "example": "550e8400-e29b-41d4-a716-446655440000"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "required": true
-                },
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "deleted": {
-                                            "description": "Number of addresses actually deleted",
-                                            "type": "integer",
-                                            "example": 1
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "headers": {}
-                    }
-                }
-            }
-        },
-        "/v2/monitor/addresses/{addressId}": {
-            "post": {
-                "summary": "Update Monitored Address",
-                "deprecated": false,
-                "description": "",
-                "operationId": "open/V2/MonitorMonitorAddressUpdate",
-                "tags": [],
-                "parameters": [
-                    {
-                        "name": "addressId",
-                        "in": "path",
-                        "description": "Address ID",
-                        "required": true,
-                        "example": "",
-                        "schema": {
-                            "type": "string",
-                            "example": "550e8400-e29b-41d4-a716-446655440000"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "description": "New name",
+                                      "amount": {
+                                        "description": "Amount",
                                         "type": "string",
-                                        "example": "MonitorRenamed"
-                                    },
-                                    "status": {
-                                        "description": "New status (1-Enabled 2-Paused, 0 for no change)",
+                                        "example": "100.0"
+                                      },
+                                      "count": {
+                                        "description": "Count",
                                         "type": "integer",
-                                        "example": 1
+                                        "example": 10
+                                      }
                                     }
-                                }
-                            }
-                        }
-                    },
-                    "required": true
-                },
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
+                                  },
+                                  "outflow": {
+                                    "description": "Outflow",
                                     "type": "object",
+                                    "required": [
+                                      "amount",
+                                      "count"
+                                    ],
                                     "properties": {
-                                        "success": {
-                                            "description": "Whether the update was successful",
-                                            "type": "boolean",
-                                            "example": true
-                                        }
+                                      "amount": {
+                                        "description": "Amount",
+                                        "type": "string",
+                                        "example": "50.0"
+                                      },
+                                      "count": {
+                                        "description": "Count",
+                                        "type": "integer",
+                                        "example": 5
+                                      }
                                     }
+                                  }
                                 }
+                              }
                             }
+                          }
                         },
-                        "headers": {}
+                        "historical_balance": {
+                          "description": "Historical balance",
+                          "type": "object",
+                          "required": [
+                            "items"
+                          ],
+                          "properties": {
+                            "items": {
+                              "description": "List",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "date",
+                                  "balance"
+                                ],
+                                "properties": {
+                                  "balance": {
+                                    "description": "Balance",
+                                    "type": "string",
+                                    "example": "1000.0"
+                                  },
+                                  "date": {
+                                    "description": "Date (RFC3339)",
+                                    "type": "string",
+                                    "example": "2023-01-01"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "overview": {
+                          "description": "Address overview",
+                          "type": "object",
+                          "required": [
+                            "address",
+                            "balance",
+                            "balance_coin",
+                            "active",
+                            "in_info",
+                            "out_info",
+                            "total_info",
+                            "type",
+                            "exchange_name",
+                            "first_transfer_time",
+                            "first_transfer_address",
+                            "is_blocked",
+                            "is_sanction"
+                          ],
+                          "properties": {
+                            "active": {
+                              "description": "Whether active",
+                              "type": "boolean",
+                              "example": true
+                            },
+                            "address": {
+                              "description": "Address",
+                              "type": "string",
+                              "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+                            },
+                            "balance": {
+                              "description": "Balance",
+                              "type": "string",
+                              "example": "1000.0"
+                            },
+                            "balance_coin": {
+                              "description": "Balance currency",
+                              "type": "string",
+                              "example": "ETH"
+                            },
+                            "exchange_name": {
+                              "description": "Exchange name",
+                              "type": "string",
+                              "example": "Binance"
+                            },
+                            "first_transfer_address": {
+                              "description": "First counterparty address",
+                              "type": "string",
+                              "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+                            },
+                            "first_transfer_time": {
+                              "description": "First transfer time (RFC3339)",
+                              "type": "string",
+                              "example": "2023-01-01T00:00:00Z"
+                            },
+                            "in_info": {
+                              "description": "Inflow information",
+                              "type": "object",
+                              "required": [
+                                "data",
+                                "latest"
+                              ],
+                              "properties": {
+                                "data": {
+                                  "description": "Data",
+                                  "type": "object",
+                                  "required": [
+                                    "amount",
+                                    "count"
+                                  ],
+                                  "properties": {
+                                    "amount": {
+                                      "description": "Amount",
+                                      "type": "string",
+                                      "example": "100.0"
+                                    },
+                                    "count": {
+                                      "description": "Count",
+                                      "type": "integer",
+                                      "example": 10
+                                    }
+                                  }
+                                },
+                                "latest": {
+                                  "description": "Latest time (RFC3339)",
+                                  "type": "string",
+                                  "example": "2023-10-27T10:00:00Z"
+                                }
+                              }
+                            },
+                            "is_blocked": {
+                              "description": "Whether blocked",
+                              "type": "boolean",
+                              "example": true
+                            },
+                            "is_sanction": {
+                              "description": "Whether sanctioned",
+                              "type": "boolean",
+                              "example": false
+                            },
+                            "out_info": {
+                              "description": "Outflow information",
+                              "type": "object",
+                              "required": [
+                                "data",
+                                "latest"
+                              ],
+                              "properties": {
+                                "data": {
+                                  "description": "Data",
+                                  "type": "object",
+                                  "required": [
+                                    "amount",
+                                    "count"
+                                  ],
+                                  "properties": {
+                                    "amount": {
+                                      "description": "Amount",
+                                      "type": "string",
+                                      "example": "100.0"
+                                    },
+                                    "count": {
+                                      "description": "Count",
+                                      "type": "integer",
+                                      "example": 10
+                                    }
+                                  }
+                                },
+                                "latest": {
+                                  "description": "Latest time (RFC3339)",
+                                  "type": "string",
+                                  "example": "2023-10-27T10:00:00Z"
+                                }
+                              }
+                            },
+                            "total_info": {
+                              "description": "Summary information",
+                              "type": "object",
+                              "required": [
+                                "data",
+                                "latest"
+                              ],
+                              "properties": {
+                                "data": {
+                                  "description": "Data",
+                                  "type": "object",
+                                  "required": [
+                                    "amount",
+                                    "count"
+                                  ],
+                                  "properties": {
+                                    "amount": {
+                                      "description": "Amount",
+                                      "type": "string",
+                                      "example": "100.0"
+                                    },
+                                    "count": {
+                                      "description": "Count",
+                                      "type": "integer",
+                                      "example": 10
+                                    }
+                                  }
+                                },
+                                "latest": {
+                                  "description": "Latest time (RFC3339)",
+                                  "type": "string",
+                                  "example": "2023-10-27T10:00:00Z"
+                                }
+                              }
+                            },
+                            "type": {
+                              "description": "Address type",
+                              "type": "integer",
+                              "example": 1
+                            }
+                          }
+                        },
+                        "risk_address_data": {
+                          "description": "Risk address summary",
+                          "type": "object",
+                          "required": [
+                            "data",
+                            "address_count"
+                          ],
+                          "properties": {
+                            "address_count": {
+                              "description": "Address count",
+                              "type": "integer",
+                              "example": 5
+                            },
+                            "data": {
+                              "description": "Data",
+                              "type": "object",
+                              "required": [
+                                "amount",
+                                "count"
+                              ],
+                              "properties": {
+                                "amount": {
+                                  "description": "Amount",
+                                  "type": "string",
+                                  "example": "200.0"
+                                },
+                                "count": {
+                                  "description": "Count",
+                                  "type": "integer",
+                                  "example": 20
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "risk_level": {
+                          "description": "Risk level",
+                          "type": "integer",
+                          "example": 2
+                        },
+                        "risk_type": {
+                          "description": "Risk type statistics",
+                          "type": "object",
+                          "required": [
+                            "items"
+                          ],
+                          "properties": {
+                            "items": {
+                              "description": "List",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "type",
+                                  "data"
+                                ],
+                                "properties": {
+                                  "data": {
+                                    "description": "Data",
+                                    "type": "object",
+                                    "required": [
+                                      "amount",
+                                      "count"
+                                    ],
+                                    "properties": {
+                                      "amount": {
+                                        "description": "Amount",
+                                        "type": "string",
+                                        "example": "100.0"
+                                      },
+                                      "count": {
+                                        "description": "Count",
+                                        "type": "integer",
+                                        "example": 10
+                                      }
+                                    }
+                                  },
+                                  "type": {
+                                    "description": "Risk type",
+                                    "type": "string",
+                                    "example": "phishing"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "start_time": {
+                          "description": "Query start time (RFC3339)",
+                          "type": "string",
+                          "example": "2023-10-27T10:00:00Z"
+                        },
+                        "started_at": {
+                          "description": "Analysis start time (RFC3339)",
+                          "type": "string",
+                          "example": "2023-10-27T10:00:00Z"
+                        },
+                        "task_id": {
+                          "description": "Task ID",
+                          "type": "string",
+                          "example": "550e8400-e29b-41d4-a716-446655440000"
+                        },
+                        "token": {
+                          "description": "Token symbol",
+                          "type": "string",
+                          "example": "usdt",
+                          "enum": [
+                            "usdt"
+                          ]
+                        },
+                        "top_transaction": {
+                          "description": "Top counterparties",
+                          "type": "object",
+                          "required": [
+                            "items"
+                          ],
+                          "properties": {
+                            "items": {
+                              "description": "List",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "own_address",
+                                  "counterparty_address",
+                                  "total",
+                                  "last_transaction_time"
+                                ],
+                                "properties": {
+                                  "counterparty_address": {
+                                    "description": "Counterparty address",
+                                    "type": "string",
+                                    "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+                                  },
+                                  "last_transaction_time": {
+                                    "description": "Latest transaction time (RFC3339)",
+                                    "type": "string",
+                                    "example": "2023-10-27T10:00:00Z"
+                                  },
+                                  "own_address": {
+                                    "description": "Own address",
+                                    "type": "string",
+                                    "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+                                  },
+                                  "total": {
+                                    "description": "Summary",
+                                    "type": "object",
+                                    "required": [
+                                      "amount",
+                                      "count"
+                                    ],
+                                    "properties": {
+                                      "amount": {
+                                        "description": "Amount",
+                                        "type": "string",
+                                        "example": "300.0"
+                                      },
+                                      "count": {
+                                        "description": "Count",
+                                        "type": "integer",
+                                        "example": 30
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "tx_flow": {
+                          "description": "Fund flow",
+                          "type": "object",
+                          "required": [
+                            "nodes",
+                            "links"
+                          ],
+                          "properties": {
+                            "links": {
+                              "description": "Links",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "source",
+                                  "target",
+                                  "value"
+                                ],
+                                "properties": {
+                                  "source": {
+                                    "description": "Source node",
+                                    "type": "string",
+                                    "example": "node1"
+                                  },
+                                  "target": {
+                                    "description": "Target node",
+                                    "type": "string",
+                                    "example": "node2"
+                                  },
+                                  "value": {
+                                    "description": "Amount",
+                                    "type": "string",
+                                    "example": "50.0"
+                                  }
+                                }
+                              }
+                            },
+                            "nodes": {
+                              "description": "Nodes",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "id",
+                                  "label"
+                                ],
+                                "properties": {
+                                  "id": {
+                                    "description": "Node ID",
+                                    "type": "string",
+                                    "example": "node1"
+                                  },
+                                  "label": {
+                                    "description": "Label",
+                                    "type": "string",
+                                    "example": "Label"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
+                  }
                 }
+              }
+            },
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/v2/analysis/tasks/{taskId}/status": {
+      "get": {
+        "summary": "Get Analysis Task Status",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V2/AnalysisAnalysisTaskStatusGet",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "description": "Task ID",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string",
+              "example": "550e8400-e29b-41d4-a716-446655440000"
             }
-        },
-        "/v2/monitor/alerts": {
-            "get": {
-                "summary": "List Monitor Alerts",
-                "deprecated": false,
-                "description": "",
-                "operationId": "open/V2/MonitorMonitorAlertsList",
-                "tags": [],
-                "parameters": [
-                    {
-                        "name": "address_id",
-                        "in": "query",
-                        "description": "Address ID filter",
-                        "required": false,
-                        "schema": {
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "created_at": {
+                      "description": "Creation time (RFC3339)",
+                      "type": "string",
+                      "example": "2023-10-27T10:00:00Z"
+                    },
+                    "message": {
+                      "description": "Status description or error message",
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "metrics": {
+                      "description": "List of metrics analyzed in this task",
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "risk"
+                      }
+                    },
+                    "status": {
+                      "description": "Task status: 0-Pending, 1-Processing, 2-Completed, 3-Failed",
+                      "type": "integer",
+                      "example": 2
+                    },
+                    "updated_at": {
+                      "description": "Update time (RFC3339)",
+                      "type": "string",
+                      "example": "2023-10-27T10:00:00Z"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/v2/monitor/addresses": {
+      "get": {
+        "summary": "List Monitored Addresses",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V2/MonitorMonitorAddressesList",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "chain",
+            "in": "query",
+            "description": "Chain name",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "ethereum"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Token symbol",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "usdt"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Status filter: 1-Enabled 2-Paused (0 for no filter)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "example": 1
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Page size",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "addresses": {
+                      "description": "Address list",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "address_id",
+                          "chain",
+                          "token",
+                          "address",
+                          "name",
+                          "status",
+                          "user_id",
+                          "created_at",
+                          "updated_at",
+                          "alert_count",
+                          "last_alert_at"
+                        ],
+                        "properties": {
+                          "address": {
+                            "description": "Address",
+                            "type": "string",
+                            "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+                          },
+                          "address_id": {
+                            "description": "Address ID",
                             "type": "string",
                             "example": "550e8400-e29b-41d4-a716-446655440000"
+                          },
+                          "alert_count": {
+                            "description": "Number of alerts generated",
+                            "type": "integer",
+                            "example": 0
+                          },
+                          "chain": {
+                            "description": "Chain name",
+                            "type": "string",
+                            "example": "ethereum",
+                            "enum": [
+                              "tron",
+                              "bsc",
+                              "ethereum"
+                            ]
+                          },
+                          "created_at": {
+                            "description": "Creation time (RFC3339)",
+                            "type": "string",
+                            "example": "2023-10-27T10:00:00Z"
+                          },
+                          "last_alert_at": {
+                            "description": "Latest alert time (RFC3339, potentially empty)",
+                            "type": "string",
+                            "example": "2023-10-27T10:00:00Z"
+                          },
+                          "name": {
+                            "description": "Name (Display name)",
+                            "type": "string",
+                            "example": "Monitor1"
+                          },
+                          "status": {
+                            "description": "Status: 1-Enabled 2-Paused 3-Deleted",
+                            "type": "integer",
+                            "example": 1
+                          },
+                          "token": {
+                            "description": "Token symbol",
+                            "type": "string",
+                            "example": "usdt",
+                            "enum": [
+                              "usdt"
+                            ]
+                          },
+                          "updated_at": {
+                            "description": "Update time (RFC3339)",
+                            "type": "string",
+                            "example": "2023-10-27T10:00:00Z"
+                          },
+                          "user_id": {
+                            "description": "Created user",
+                            "type": "string",
+                            "example": "User1"
+                          }
                         }
+                      }
                     },
-                    {
-                        "name": "event_type",
-                        "in": "query",
-                        "description": "Event type filter: TRANSACTION_IN/TRANSACTION_OUT/TRANSACTION_RISK/ADDRESS_RISK_CHANGE",
-                        "required": false,
-                        "schema": {
+                    "total": {
+                      "description": "Total count",
+                      "type": "integer",
+                      "example": 100
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "summary": "Add Monitored Addresses",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V2/MonitorMonitorAddressesAdd",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "chain",
+                  "token",
+                  "addresses"
+                ],
+                "properties": {
+                  "addresses": {
+                    "description": "Address list",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "address"
+                      ],
+                      "properties": {
+                        "address": {
+                          "description": "Address",
+                          "type": "string",
+                          "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+                        },
+                        "name": {
+                          "description": "Name",
+                          "type": "string",
+                          "example": "Monitor1"
+                        }
+                      }
+                    }
+                  },
+                  "chain": {
+                    "description": "Chain name",
+                    "type": "string",
+                    "example": "ethereum",
+                    "enum": [
+                      "tron",
+                      "bsc",
+                      "ethereum"
+                    ]
+                  },
+                  "token": {
+                    "description": "Token symbol",
+                    "type": "string",
+                    "example": "usdt",
+                    "enum": [
+                      "usdt"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "added": {
+                      "description": "Number of addresses successfully added",
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "addresses": {
+                      "description": "Newly created address entities",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "address_id",
+                          "chain",
+                          "token",
+                          "address",
+                          "name",
+                          "status",
+                          "user_id",
+                          "created_at",
+                          "updated_at",
+                          "alert_count",
+                          "last_alert_at"
+                        ],
+                        "properties": {
+                          "address": {
+                            "description": "Address",
+                            "type": "string",
+                            "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+                          },
+                          "address_id": {
+                            "description": "Address ID",
+                            "type": "string",
+                            "example": "550e8400-e29b-41d4-a716-446655440000"
+                          },
+                          "alert_count": {
+                            "description": "Number of alerts generated",
+                            "type": "integer",
+                            "example": 0
+                          },
+                          "chain": {
+                            "description": "Chain name",
+                            "type": "string",
+                            "example": "ethereum",
+                            "enum": [
+                              "tron",
+                              "bsc",
+                              "ethereum"
+                            ]
+                          },
+                          "created_at": {
+                            "description": "Creation time (RFC3339)",
+                            "type": "string",
+                            "example": "2023-10-27T10:00:00Z"
+                          },
+                          "last_alert_at": {
+                            "description": "Latest alert time (RFC3339, potentially empty)",
+                            "type": "string",
+                            "example": "2023-10-27T10:00:00Z"
+                          },
+                          "name": {
+                            "description": "Name (Display name)",
+                            "type": "string",
+                            "example": "Monitor1"
+                          },
+                          "status": {
+                            "description": "Status: 1-Enabled 2-Paused 3-Deleted",
+                            "type": "integer",
+                            "example": 1
+                          },
+                          "token": {
+                            "description": "Token symbol",
+                            "type": "string",
+                            "example": "usdt",
+                            "enum": [
+                              "usdt"
+                            ]
+                          },
+                          "updated_at": {
+                            "description": "Update time (RFC3339)",
+                            "type": "string",
+                            "example": "2023-10-27T10:00:00Z"
+                          },
+                          "user_id": {
+                            "description": "Created user",
+                            "type": "string",
+                            "example": "User1"
+                          }
+                        }
+                      }
+                    },
+                    "failed": {
+                      "description": "Invalid or failed addresses",
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "[]"
+                      }
+                    },
+                    "skipped": {
+                      "description": "Number of addresses skipped (already exist)",
+                      "type": "integer",
+                      "example": 0
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/v2/monitor/addresses/delete": {
+      "post": {
+        "summary": "Delete Monitored Addresses",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V2/MonitorMonitorAddressesDelete",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "address_ids"
+                ],
+                "properties": {
+                  "address_ids": {
+                    "description": "List of address IDs to be deleted",
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": "550e8400-e29b-41d4-a716-446655440000"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "deleted": {
+                      "description": "Number of addresses actually deleted",
+                      "type": "integer",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/v2/monitor/addresses/{addressId}": {
+      "post": {
+        "summary": "Update Monitored Address",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V2/MonitorMonitorAddressUpdate",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "addressId",
+            "in": "path",
+            "description": "Address ID",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string",
+              "example": "550e8400-e29b-41d4-a716-446655440000"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "New name",
+                    "type": "string",
+                    "example": "MonitorRenamed"
+                  },
+                  "status": {
+                    "description": "New status (1-Enabled 2-Paused, 0 for no change)",
+                    "type": "integer",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "description": "Whether the update was successful",
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/v2/monitor/alerts": {
+      "get": {
+        "summary": "List Monitor Alerts",
+        "deprecated": false,
+        "description": "",
+        "operationId": "open/V2/MonitorMonitorAlertsList",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "address_id",
+            "in": "query",
+            "description": "Address ID filter",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "550e8400-e29b-41d4-a716-446655440000"
+            }
+          },
+          {
+            "name": "event_type",
+            "in": "query",
+            "description": "Event type filter: TRANSACTION_IN/TRANSACTION_OUT/TRANSACTION_RISK/ADDRESS_RISK_CHANGE",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "TRANSACTION_IN"
+            }
+          },
+          {
+            "name": "start_time",
+            "in": "query",
+            "description": "Start time (RFC3339)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "2023-10-27T10:00:00Z"
+            }
+          },
+          {
+            "name": "end_time",
+            "in": "query",
+            "description": "End time (RFC3339)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "2023-10-27T10:00:00Z"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Page size",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "alerts": {
+                      "description": "Alert list",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "alert_id",
+                          "address_id",
+                          "chain",
+                          "token",
+                          "monitored_address",
+                          "event_type",
+                          "event_id",
+                          "details",
+                          "monitor_label",
+                          "push_results",
+                          "created_at"
+                        ],
+                        "properties": {
+                          "address_id": {
+                            "description": "Associated address ID",
+                            "type": "string",
+                            "example": "550e8400-e29b-41d4-a716-446655440000"
+                          },
+                          "alert_id": {
+                            "description": "Alert ID",
+                            "type": "string",
+                            "example": "550e8400-e29b-41d4-a716-446655440000"
+                          },
+                          "chain": {
+                            "description": "Chain name",
+                            "type": "string",
+                            "example": "ethereum",
+                            "enum": [
+                              "tron",
+                              "bsc",
+                              "ethereum"
+                            ]
+                          },
+                          "created_at": {
+                            "description": "Creation time (RFC3339)",
+                            "type": "string",
+                            "example": "2023-10-27T10:00:00Z"
+                          },
+                          "details": {
+                            "description": "Event details (structured JSON, no plain text)",
+                            "type": "object",
+                            "required": [
+                              "type",
+                              "timestamp",
+                              "data"
+                            ],
+                            "properties": {
+                              "data": {
+                                "description": "Event data (varies by type, see schema above)",
+                                "type": "object",
+                                "additionalProperties": {},
+                                "properties": {}
+                              },
+                              "timestamp": {
+                                "description": "RFC3339",
+                                "type": "string",
+                                "example": "2023-10-27T10:00:00Z"
+                              },
+                              "type": {
+                                "description": "Event type enum",
+                                "type": "string",
+                                "example": "TRANSACTION_IN"
+                              }
+                            }
+                          },
+                          "event_id": {
+                            "description": "Unique event identifier",
+                            "type": "string",
+                            "example": "550e8400-e29b-41d4-a716-446655440000"
+                          },
+                          "event_type": {
+                            "description": "Event type: TRANSACTION_IN/TRANSACTION_OUT/TRANSACTION_RISK/ADDRESS_RISK_CHANGE",
                             "type": "string",
                             "example": "TRANSACTION_IN"
-                        }
-                    },
-                    {
-                        "name": "start_time",
-                        "in": "query",
-                        "description": "Start time (RFC3339)",
-                        "required": false,
-                        "schema": {
+                          },
+                          "monitor_label": {
+                            "description": "Monitored address label",
                             "type": "string",
-                            "example": "2023-10-27T10:00:00Z"
-                        }
-                    },
-                    {
-                        "name": "end_time",
-                        "in": "query",
-                        "description": "End time (RFC3339)",
-                        "required": false,
-                        "schema": {
+                            "example": "HighRisk"
+                          },
+                          "monitored_address": {
+                            "description": "Monitored address",
                             "type": "string",
-                            "example": "2023-10-27T10:00:00Z"
-                        }
-                    },
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "description": "Page number",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "default": 1
-                        }
-                    },
-                    {
-                        "name": "page_size",
-                        "in": "query",
-                        "description": "Page size",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "default": 20
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "alerts": {
-                                            "description": "Alert list",
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "required": [
-                                                    "alert_id",
-                                                    "address_id",
-                                                    "chain",
-                                                    "token",
-                                                    "monitored_address",
-                                                    "event_type",
-                                                    "event_id",
-                                                    "details",
-                                                    "monitor_label",
-                                                    "push_results",
-                                                    "created_at"
-                                                ],
-                                                "properties": {
-                                                    "address_id": {
-                                                        "description": "Associated address ID",
-                                                        "type": "string",
-                                                        "example": "550e8400-e29b-41d4-a716-446655440000"
-                                                    },
-                                                    "alert_id": {
-                                                        "description": "Alert ID",
-                                                        "type": "string",
-                                                        "example": "550e8400-e29b-41d4-a716-446655440000"
-                                                    },
-                                                    "chain": {
-                                                        "description": "Chain name",
-                                                        "type": "string",
-                                                        "example": "ethereum"
-                                                    },
-                                                    "created_at": {
-                                                        "description": "Creation time (RFC3339)",
-                                                        "type": "string",
-                                                        "example": "2023-10-27T10:00:00Z"
-                                                    },
-                                                    "details": {
-                                                        "description": "Event details (structured JSON, no plain text)",
-                                                        "type": "object",
-                                                        "required": [
-                                                            "type",
-                                                            "timestamp",
-                                                            "data"
-                                                        ],
-                                                        "properties": {
-                                                            "data": {
-                                                                "description": "Event data (varies by type, see schema above)",
-                                                                "type": "object",
-                                                                "additionalProperties": {},
-                                                                "properties": {}
-                                                            },
-                                                            "timestamp": {
-                                                                "description": "RFC3339",
-                                                                "type": "string",
-                                                                "example": "2023-10-27T10:00:00Z"
-                                                            },
-                                                            "type": {
-                                                                "description": "Event type enum",
-                                                                "type": "string",
-                                                                "example": "TRANSACTION_IN"
-                                                            }
-                                                        }
-                                                    },
-                                                    "event_id": {
-                                                        "description": "Unique event identifier",
-                                                        "type": "string",
-                                                        "example": "550e8400-e29b-41d4-a716-446655440000"
-                                                    },
-                                                    "event_type": {
-                                                        "description": "Event type: TRANSACTION_IN/TRANSACTION_OUT/TRANSACTION_RISK/ADDRESS_RISK_CHANGE",
-                                                        "type": "string",
-                                                        "example": "TRANSACTION_IN"
-                                                    },
-                                                    "monitor_label": {
-                                                        "description": "Monitored address label",
-                                                        "type": "string",
-                                                        "example": "HighRisk"
-                                                    },
-                                                    "monitored_address": {
-                                                        "description": "Monitored address",
-                                                        "type": "string",
-                                                        "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
-                                                    },
-                                                    "push_results": {
-                                                        "description": "Channel push results",
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "email_status": {
-                                                                "description": "Email push status: pending/sending/partial/success/failed/none",
-                                                                "type": "string",
-                                                                "example": "success"
-                                                            },
-                                                            "lark_status": {
-                                                                "description": "Lark push status",
-                                                                "type": "string",
-                                                                "example": "success"
-                                                            },
-                                                            "webhook_status": {
-                                                                "description": "Webhook push status: pending/sending/partial/success/failed/none",
-                                                                "type": "string",
-                                                                "example": "success"
-                                                            },
-                                                            "wecom_status": {
-                                                                "description": "WeCom push status",
-                                                                "type": "string",
-                                                                "example": "success"
-                                                            }
-                                                        }
-                                                    },
-                                                    "token": {
-                                                        "description": "Token symbol",
-                                                        "type": "string",
-                                                        "example": "usdt"
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        "total": {
-                                            "description": "Total count",
-                                            "type": "integer",
-                                            "example": 100
-                                        }
-                                    }
-                                }
+                            "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+                          },
+                          "push_results": {
+                            "description": "Channel push results",
+                            "type": "object",
+                            "properties": {
+                              "email_status": {
+                                "description": "Email push status: pending/sending/partial/success/failed/none",
+                                "type": "string",
+                                "example": "success"
+                              },
+                              "lark_status": {
+                                "description": "Lark push status",
+                                "type": "string",
+                                "example": "success"
+                              },
+                              "webhook_status": {
+                                "description": "Webhook push status: pending/sending/partial/success/failed/none",
+                                "type": "string",
+                                "example": "success"
+                              },
+                              "wecom_status": {
+                                "description": "WeCom push status",
+                                "type": "string",
+                                "example": "success"
+                              }
                             }
-                        },
-                        "headers": {}
+                          },
+                          "token": {
+                            "description": "Token symbol",
+                            "type": "string",
+                            "example": "usdt",
+                            "enum": [
+                              "usdt"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "total": {
+                      "description": "Total count",
+                      "type": "integer",
+                      "example": 100
                     }
+                  }
                 }
-            }
+              }
+            },
+            "headers": {}
+          }
         }
+      }
     }
+  }
 }
