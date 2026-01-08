@@ -332,8 +332,8 @@
     ]
   },
   "logo": {
-    "light": "/logo/Arisk logo_黑色透明底.png",
-    "dark": "/logo/Arisk logo_白色透明底.png",
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
     "href": "https://arisk.io"
   },
   "contextual": {
