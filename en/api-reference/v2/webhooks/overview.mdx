@@ -47,6 +47,13 @@ awIDAQAB
 
 ## Best Practices
 
-- **Fast Response**: Your server should return `200 OK` immediately upon receiving the notification to avoid timeouts.
-- **Idempotency**: Network issues may cause duplicate notifications; please use `alert.id` for idempotency checks.
-- **Asynchronous Processing**: It is recommended to handle the subsequent business logic asynchronously after returning the HTTP response.
+- **Fast Response (Required)**
+  Your server should return an HTTP 200 OK status code immediately upon receiving a Webhook request.
+  - **Response Data**: The response body can be empty or a simple JSON (e.g., `{"message": "received"}`). Our service only validates the HTTP status code and does not parse the response body content.
+  - **Timeout Risk**: Please avoid performing time-consuming operations in the synchronous request, otherwise, it may trigger the sender's timeout retry mechanism (default timeout is usually short).
+
+- **Asynchronous Processing (Recommended)**
+  We recommend adopting a **"acknowledge first, process later"** strategy. That is, after validating the signature and receiving the data, immediately return an HTTP 200 response, and then place time-consuming business logic (such as database writes, cascading notifications, etc.) into a background queue for asynchronous processing to ensure high availability of the interface.
+
+- **Idempotency Guarantee (Critical)**
+  Due to network fluctuations or retry mechanisms, you may receive duplicate Webhook notifications. Please ensure to use the `alert.id` field in the Payload as a unique key for idempotency checks in your business layer. 
