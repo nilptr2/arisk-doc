@@ -3,25 +3,25 @@ title: "地址風險等級變動"
 description: "當監控地址的風險等級發生變化時觸發的 Webhook 通知。"
 ---
 
-當您監控的地址的風險等級發生改變時（例如從低風險變為中風險），Arisk 會發送此通知。
+當您監控的地址的風險等級發生改變時（例如從低風險變為中風險），Arisk 會傳送此通知。
 
-### 推送類型
+### 推送型別
 `type`: `address_risk_change`
 
-### 請求參數
+### 請求引數
 
-| 參數名 | 類型 | 說明 |
+| 引數名 | 型別 | 說明 |
 | :--- | :--- | :--- |
-| `type` | `string` | 推送類型，固定為 `address_risk_change` |
+| `type` | `string` | 推送型別，固定為 `address_risk_change` |
 | `timestamp` | `number` | 推送時的 Unix 時間戳（秒） |
-| `alert` | `object` | 告警詳情對象 |
+| `alert` | `object` | 告警詳情物件 |
 | `alert.id` | `string` | 告警唯一標識 ID |
-| `alert.chain` | `string` | 鏈類型（如：`bsc`, `ethereum`, `tron`） |
+| `alert.chain` | `string` | 鏈型別（如：`bsc`, `ethereum`, `tron`） |
 | `alert.token` | `string` | 代幣符號（如：`usdt`, `usdc`） |
 | `alert.address` | `string` | 被監控的地址 |
-| `alert.previous_level` | `number` | **[新增]** 上次變動的風險等級。第一次推送時沒有此字段。 |
+| `alert.previous_level` | `number` | **[新增]** 上次變動的風險等級。第一次推送時沒有此欄位。 |
 | `alert.new_level` | `number` | **[新增]** 本次變動的風險等級。 |
-| `alert.risk_types` | `array` | 風險類型標籤數組 |
+| `alert.risk_types` | `array` | 風險型別標籤陣列 |
 
 ### 請求體示例
 

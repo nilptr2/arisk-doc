@@ -6,32 +6,31 @@ icon: "triangle-exclamation"
 
 ### 響應結構
 
-當 API 調用發生錯誤時，將返回包含以下字段的 JSON 響應：
+當 API 呼叫發生錯誤時，將返回包含以下欄位的 JSON 響應：
 
 - `code`: 6 位數字的業務錯誤碼。
-- `message`: 錯誤的具体描述信息。
+- `message`: 錯誤的具體描述資訊。
 
-範例：
+示例：
 ```json
 {
   "code": "104001",
-  "message": "Invalid request parameters (請求參數無效)"
+  "message": "Invalid request parameters (請求引數無效)"
 }
 ```
 
-
 ### 錯誤碼格式
 
-業務錯誤碼的第一位數字代表錯誤的級別或類型：
+業務錯誤碼的第一位數字代表錯誤的級別或型別：
 
-- **1**: 參數或輸入錯誤。
+- **1**: 引數或輸入錯誤。
 - **2**: 業務邏輯錯誤。
 - **3**: 系統或內部錯誤。
 
 ---
 
 <ResponseField name="104001" type="InvalidArgument">
-  Invalid request parameters (請求參數無效)
+  Invalid request parameters (請求引數無效)
 </ResponseField>
 
 <ResponseField name="204001" type="NotFound">
@@ -43,7 +42,7 @@ icon: "triangle-exclamation"
 </ResponseField>
 
 <ResponseField name="204003" type="InvalidArgument">
-  Unsupported chain or token combination (不支持的鏈或代幣組合)
+  Unsupported chain or token combination (不支援的鏈或代幣組合)
 </ResponseField>
 
 <ResponseField name="204007" type="InvalidArgument">
@@ -51,7 +50,7 @@ icon: "triangle-exclamation"
 </ResponseField>
 
 <ResponseField name="204008" type="NotFound">
-  No transaction data found (未發現交易數據)
+  No transaction data found (未發現交易資料)
 </ResponseField>
 
 <ResponseField name="304003" type="Internal">

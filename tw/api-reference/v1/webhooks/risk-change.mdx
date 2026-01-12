@@ -1,28 +1,28 @@
 ---
-title: "风险变动通知"
-description: "当监控地址的风险状态发生变化时触发的 Webhook 通知。"
+title: "風險變動通知"
+description: "當監控地址的風險狀態發生變化時觸發的 Webhook 通知。"
 ---
 
-当您监控的地址由于各种原因（如被标记为高风险、关联黑名单等）导致其风险状态发生改变时，Arisk 会发送此通知。
+當您監控的地址由於各種原因（如被標記為高風險、關聯黑名單等）導致其風險狀態發生改變時，Arisk 會傳送此通知。
 
-### 推送类型
+### 推送型別
 `type`: `risk_change`
 
-### 请求参数
+### 請求引數
 
-| 参数名 | 类型 | 说明 |
+| 引數名 | 型別 | 說明 |
 | :--- | :--- | :--- |
-| `type` | `string` | 推送类型，固定为 `risk_change` |
-| `timestamp` | `number` | 推送时的 Unix 时间戳（秒） |
-| `alert` | `object` | 告警详情对象 |
-| `alert.chain` | `string` | 链类型（如：`bsc`, `ethereum`, `tron`） |
-| `alert.token` | `string` | 代币符号（如：`usdt`, `usdc`） |
-| `alert.monitoring_address` | `string` | 被监控的地址 |
-| `alert.details` | `array` | 风险详情列表 |
-| `alert.details[].risk_level` | `number` | 风险等级：`0`-低, `1`-中低, `2`-中, `3`-中高, `4`-高 |
-| `alert.details[].risk_type` | `array` | 风险类型标签数组 |
+| `type` | `string` | 推送型別，固定為 `risk_change` |
+| `timestamp` | `number` | 推送時的 Unix 時間戳（秒） |
+| `alert` | `object` | 告警詳情物件 |
+| `alert.chain` | `string` | 鏈型別（如：`bsc`, `ethereum`, `tron`） |
+| `alert.token` | `string` | 代幣符號（如：`usdt`, `usdc`） |
+| `alert.monitoring_address` | `string` | 被監控的地址 |
+| `alert.details` | `array` | 風險詳情列表 |
+| `alert.details[].risk_level` | `number` | 風險等級：`0`-低, `1`-中低, `2`-中, `3`-中高, `4`-高 |
+| `alert.details[].risk_type` | `array` | 風險型別標籤陣列 |
 
-### 请求体示例
+### 請求體示例
 
 ```json
 {

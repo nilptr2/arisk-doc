@@ -6,25 +6,25 @@ icon: "triangle-exclamation"
 
 ### 響應結構
 
-當 API 調用發生錯誤時，將返回包含以下字段的 JSON 響應：
+當 API 呼叫發生錯誤時，將返回包含以下欄位的 JSON 響應：
 
 - `code`: 6 位數字的業務錯誤碼。
-- `message`: 錯誤的具体描述信息。
+- `message`: 錯誤的具體描述資訊。
 
-範例：
+示例：
 ```json
 {
   "code": "104001",
-  "message": "Invalid request parameters (請求參數無效)"
+  "message": "Invalid request parameters (請求引數無效)"
 }
 ```
 
 
 ### 錯誤碼格式
 
-業務錯誤碼的第一位數字代表錯誤的級別或類型：
+業務錯誤碼的第一位數字代表錯誤的級別或型別：
 
-- **1**: 參數或輸入錯誤。
+- **1**: 引數或輸入錯誤。
 - **2**: 業務邏輯錯誤。
 - **3**: 系統或內部錯誤。
 
@@ -35,11 +35,11 @@ icon: "triangle-exclamation"
 </ResponseField>
 
 <ResponseField name="105003" type="InvalidArgument">
-  Invalid pagination parameter (分頁參數無效)
+  Invalid pagination parameter (分頁引數無效)
 </ResponseField>
 
 <ResponseField name="105004" type="InvalidArgument">
-  Event type is invalid (事件類型無效)
+  Event type is invalid (事件型別無效)
 </ResponseField>
 
 <ResponseField name="105005" type="InvalidArgument">
@@ -67,7 +67,7 @@ icon: "triangle-exclamation"
 </ResponseField>
 
 <ResponseField name="205011" type="FailedPrecondition">
-  Credits insufficient for overage slots (額度不足以支持額外的監控位)
+  Credits insufficient for overage slots (額度不足以支援額外的監控位)
 </ResponseField>
 
 <ResponseField name="305010" type="Unavailable">

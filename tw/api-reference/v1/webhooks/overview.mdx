@@ -1,32 +1,32 @@
 ---
-title: "概览与安全验证"
-description: "了解 Arisk Webhook 的基本原理以及如何验证推送消息的安全性。"
+title: "概覽與安全驗證"
+description: "瞭解 Arisk Webhook 的基本原理以及如何驗證推送訊息的安全性。"
 ---
 
-Arisk 通过 Webhook 向您配置的服务器发送实时 HTTP POST 请求，通知监控地址的风险变动或风险交易。
+Arisk 透過 Webhook 向您配置的伺服器傳送實時 HTTP POST 請求，通知監控地址的風險變動或風險交易。
 
-## 安全性验证
+## 安全性驗證
 
-为确保消息来源的真实性和完整性，Arisk 发送的每个 Webhook 请求都包含数字签名。我们强烈建议您在处理请求前进行验证。
+為確保訊息來源的真實性和完整性，Arisk 傳送的每個 Webhook 請求都包含數字簽名。我們強烈建議您在處理請求前進行驗證。
 
-### HTTP 请求头
+### HTTP 請求頭
 
-每个 Webhook 请求都会包含以下关键 Header：
+每個 Webhook 請求都會包含以下關鍵 Header：
 
-| Header | 说明 | 示例 |
+| Header | 說明 | 示例 |
 | :--- | :--- | :--- |
-| **X-Arisk-Signature** | RSA-PSS 数字签名（Base64 编码） | `aGVsbG8gd29ybGQ=...` |
-| **Authorization** | Bearer Token（仅在配置了 `auth_key` 时存在） | `Bearer your-secret-token` |
+| **X-Arisk-Signature** | RSA-PSS 數字簽名（Base64 編碼） | `aGVsbG8gd29ybGQ=...` |
+| **Authorization** | Bearer Token（僅在配置了 `auth_key` 時存在） | `Bearer your-secret-token` |
 
-### 验证步骤
+### 驗證步驟
 
-1.  **验证签名（必须）**
-    *   **算法**: RSA-PSS with SHA-256
-    *   **签名内容**: 请求 Body 的原始 JSON 字符串
-    *   **公钥**: 使用下方的 Arisk RSA 公钥验证 `X-Arisk-Signature` 中的签名。
+1.  **驗證簽名（必須）**
+    *   **演算法**: RSA-PSS with SHA-256
+    *   **簽名內容**: 請求 Body 的原始 JSON 字串
+    *   **公鑰**: 使用下方的 Arisk RSA 公鑰驗證 `X-Arisk-Signature` 中的簽名。
 
 <CodeGroup>
-```text 公钥 (PEM)
+```text 公鑰 (PEM)
 -----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAy4SlJTdScP1YAtUqJ1Kz
 vB7isAMYd5oeAUqtraQ2UeLTz8EnPAVgob88NwxnXENd/GWkzas18bjkEbZuPcYA
@@ -39,14 +39,14 @@ awIDAQAB
 ```
 </CodeGroup>
 
-2.  **验证 Authorization（可选）**
-    如果您在 Webhook 配置中设置了 `auth_key`，Arisk 会在 Header 中添加：
+2.  **驗證 Authorization（可選）**
+    如果您在 Webhook 配置中設定了 `auth_key`，Arisk 會在 Header 中新增：
     `Authorization: Bearer <您的 auth_key>`
 
 ---
 
-## 最佳实践
+## 最佳實踐
 
-- **快速响应**：您的服务器应在接收到通知后立即返回 `200 OK`，避免因逻辑耗时导致连接超时。
-- **幂等处理**：由于网络原因，可能会收到重复的通知，请进行幂等检查。
-- **异步处理**：建议在返回 HTTP 响应后，再异步处理后续业务逻辑。
+- **快速響應**：您的伺服器應在接收到通知後立即返回 `200 OK`，避免因邏輯耗時導致連線超時。
+- **冪等處理**：由於網路原因，可能會收到重複的通知，請進行冪等檢查。
+- **非同步處理**：建議在返回 HTTP 響應後，再非同步處理後續業務邏輯。

@@ -2,30 +2,30 @@
 openapi: /tw/api-reference/v2/open-v2.json post /v2/analysis/tasks
 ---
 
-### 字段說明
+### 欄位說明
 
 <ParamField body="metrics" type="string[]" optional>
-  分析指標列表。若不傳該字段或傳空數組，則默認返回所有支持的指標。
+  分析指標列表。若不傳該欄位或傳空陣列，則預設返回所有支援的指標。
   
   **校驗規則**:
-  *   傳入值必須在支持的指標列表內，否則返回 `400 Invalid Params` 錯誤。
-  *   數組中若有重複項會自動去重，且響應結果將儘量保持請求中的指標順序。
+  *   傳入值必須在支援的指標列表內，否則返回 `400 Invalid Params` 錯誤。
+  *   陣列中若有重複項會自動去重，且響應結果將盡量保持請求中的指標順序。
 
-  <Expandable title="支持的指標枚舉值">
+  <Expandable title="支援的指標列舉值">
     <ResponseField name="OVERVIEW" type="Metric">
-      **地址總覽** - 包含餘額、地址類型（交易所/合約等）、首次轉賬時間及對手方、封禁/制裁狀態。
+      **地址總覽** - 包含餘額、地址型別（交易所/合約等）、首次轉賬時間及對手方、封禁/制裁狀態。
     </ResponseField>
     <ResponseField name="TXFLOW" type="Metric">
-      **資金流向** - 包含資金流出的拓撲圖數據（節點 nodes 與連線 links）。
+      **資金流向** - 包含資金流出的拓撲圖資料（節點 nodes 與連線 links）。
     </ResponseField>
     <ResponseField name="HABIT" type="Metric">
-      **交易習慣** - 包含按小時（0-23）分布的流入/流出金額與筆數統計。
+      **交易習慣** - 包含按小時（0-23）分佈的流入/流出金額與筆數統計。
     </ResponseField>
     <ResponseField name="HISTORICAL_BALANCE" type="Metric">
-      **歷史餘額** - 包含每日歷史餘額變動曲線數據。
+      **歷史餘額** - 包含每日曆史餘額變動曲線資料。
     </ResponseField>
     <ResponseField name="RISK_TYPE" type="Metric">
-      **風險類型統計** - 包含按風險標籤類型（如 Scam, Hacker, Mixer 等）分類的交易彙總。
+      **風險型別統計** - 包含按風險標籤型別（如 Scam, Hacker, Mixer 等）分類的交易彙總。
     </ResponseField>
     <ResponseField name="TOP_TRANSACTION" type="Metric">
       **Top 交易對手** - 包含交易金額或頻率最高的對手方地址列表。

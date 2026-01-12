@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "默认模块",
+    "title": "預設模組",
     "description": "",
     "version": "1.0.0"
   },
@@ -31,7 +31,7 @@
             ]
           },
           "token": {
-            "description": "代币符号",
+            "description": "代幣符號",
             "type": "string",
             "example": "usdt",
             "enum": [
@@ -64,7 +64,7 @@
   "paths": {
     "/v1/monitor/address/add": {
       "post": {
-        "summary": "添加監控地址",
+        "summary": "新增監控地址",
         "deprecated": false,
         "description": "",
         "operationId": "open/V1/MonitorOpenV1MonitorAddressAdd",
@@ -143,7 +143,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "页码",
+            "description": "頁碼",
             "required": true,
             "schema": {
               "type": "integer",
@@ -153,7 +153,7 @@
           {
             "name": "page_size",
             "in": "query",
-            "description": "每页数量",
+            "description": "每頁數量",
             "required": true,
             "schema": {
               "type": "integer",
@@ -200,7 +200,7 @@
                             ]
                           },
                           "created_at": {
-                            "description": "创建时间",
+                            "description": "建立時間",
                             "type": "string",
                             "example": "2023-10-27T10:00:00Z"
                           },
@@ -215,7 +215,7 @@
                             "example": 1
                           },
                           "token": {
-                            "description": "代币符号",
+                            "description": "代幣符號",
                             "type": "string",
                             "example": "usdt",
                             "enum": [
@@ -223,7 +223,7 @@
                             ]
                           },
                           "updated_at": {
-                            "description": "更新时间",
+                            "description": "更新時間",
                             "type": "string",
                             "example": "2023-10-27T10:00:00Z"
                           }
@@ -241,7 +241,7 @@
                       "example": 20
                     },
                     "total": {
-                      "description": "总数",
+                      "description": "總數",
                       "type": "integer",
                       "example": 100
                     }
@@ -335,7 +335,7 @@
                     "example": 1
                   },
                   "token": {
-                    "description": "代币符号",
+                    "description": "代幣符號",
                     "type": "string",
                     "example": "usdt",
                     "enum": [
@@ -381,7 +381,7 @@
           {
             "name": "monitor_type",
             "in": "query",
-            "description": "事件類型過濾: normal_transaction/known_risk/risk_change",
+            "description": "事件型別過濾: normal_transaction/known_risk/risk_change",
             "required": false,
             "schema": {
               "type": "string",
@@ -391,7 +391,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "页码",
+            "description": "頁碼",
             "required": true,
             "schema": {
               "type": "integer",
@@ -401,7 +401,7 @@
           {
             "name": "page_size",
             "in": "query",
-            "description": "每页数量",
+            "description": "每頁數量",
             "required": true,
             "schema": {
               "type": "integer",
@@ -453,12 +453,12 @@
                             ]
                           },
                           "counterparty_address": {
-                            "description": "对手方地址",
+                            "description": "對手方地址",
                             "type": "string",
                             "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
                           },
                           "created_at": {
-                            "description": "创建时间",
+                            "description": "建立時間",
                             "type": "string",
                             "example": "2023-10-27T10:00:00Z"
                           },
@@ -473,12 +473,12 @@
                             "example": "550e8400-e29b-41d4-a716-446655440000"
                           },
                           "monitor_type": {
-                            "description": "告警類型",
+                            "description": "告警型別",
                             "type": "string",
                             "example": "normal_transaction"
                           },
                           "monitoring_address": {
-                            "description": "监控地址",
+                            "description": "監控地址",
                             "type": "string",
                             "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
                           },
@@ -488,7 +488,7 @@
                             "example": "550e8400-e29b-41d4-a716-446655440000"
                           },
                           "token": {
-                            "description": "代币符号",
+                            "description": "代幣符號",
                             "type": "string",
                             "example": "usdt",
                             "enum": [
@@ -496,12 +496,12 @@
                             ]
                           },
                           "tx_hash": {
-                            "description": "交易哈希",
+                            "description": "交易雜湊",
                             "type": "string",
                             "example": "0x7b6134b17df88579d1a388b39417855b7662c1450207e4c6c06b744f47ddc5c4"
                           },
                           "user_id": {
-                            "description": "用戶 ID（無數據則為空）",
+                            "description": "使用者 ID（無資料則為空）",
                             "type": "string",
                             "example": "550e8400-e29b-41d4-a716-446655440000"
                           }
@@ -533,7 +533,7 @@
                       "example": 20
                     },
                     "total": {
-                      "description": "总数",
+                      "description": "總數",
                       "type": "string",
                       "example": "100"
                     }
@@ -548,7 +548,7 @@
     },
     "/v1/monitor/config/default": {
       "get": {
-        "summary": "查詢默認監控配置",
+        "summary": "查詢預設監控配置",
         "deprecated": false,
         "description": "",
         "operationId": "open/V1/MonitorOpenV1MonitorConfigGet",
@@ -613,7 +613,7 @@
                                   "example": true
                                 },
                                 "recipients": {
-                                  "description": "收件人列表（僅保存首個）",
+                                  "description": "收件人列表（僅儲存首個）",
                                   "type": "array",
                                   "items": {
                                     "type": "string",
@@ -632,7 +632,7 @@
                               ],
                               "properties": {
                                 "auth_key": {
-                                  "description": "鑑權 Key（兼容字段）",
+                                  "description": "鑑權 Key（相容欄位）",
                                   "type": "string",
                                   "example": "ak_058e909ee5caa839da02c421142e2b0d90f917953bece13f4166a204669f5eb6"
                                 },
@@ -642,7 +642,7 @@
                                   "example": true
                                 },
                                 "urls": {
-                                  "description": "Webhook 地址列表（僅保存首個）",
+                                  "description": "Webhook 地址列表（僅儲存首個）",
                                   "type": "array",
                                   "items": {
                                     "type": "string",
@@ -664,7 +664,7 @@
         }
       },
       "post": {
-        "summary": "設置默認監控配置",
+        "summary": "設定預設監控配置",
         "deprecated": false,
         "description": "",
         "operationId": "open/V1/MonitorOpenV1MonitorConfigSet",
@@ -730,7 +730,7 @@
                                 "example": true
                               },
                               "recipients": {
-                                "description": "收件人列表（僅保存首個）",
+                                "description": "收件人列表（僅儲存首個）",
                                 "type": "array",
                                 "items": {
                                   "type": "string",
@@ -749,7 +749,7 @@
                             ],
                             "properties": {
                               "auth_key": {
-                                "description": "鑑權 Key（兼容字段）",
+                                "description": "鑑權 Key（相容欄位）",
                                 "type": "string",
                                 "example": "ak_058e909ee5caa839da02c421142e2b0d90f917953bece13f4166a204669f5eb6"
                               },
@@ -759,7 +759,7 @@
                                 "example": true
                               },
                               "urls": {
-                                "description": "Webhook 地址列表（僅保存首個）",
+                                "description": "Webhook 地址列表（僅儲存首個）",
                                 "type": "array",
                                 "items": {
                                   "type": "string",
@@ -837,7 +837,7 @@
                                   "example": true
                                 },
                                 "recipients": {
-                                  "description": "收件人列表（僅保存首個）",
+                                  "description": "收件人列表（僅儲存首個）",
                                   "type": "array",
                                   "items": {
                                     "type": "string",
@@ -856,7 +856,7 @@
                               ],
                               "properties": {
                                 "auth_key": {
-                                  "description": "鑑權 Key（兼容字段）",
+                                  "description": "鑑權 Key（相容欄位）",
                                   "type": "string",
                                   "example": "ak_058e909ee5caa839da02c421142e2b0d90f917953bece13f4166a204669f5eb6"
                                 },
@@ -866,7 +866,7 @@
                                   "example": true
                                 },
                                 "urls": {
-                                  "description": "Webhook 地址列表（僅保存首個）",
+                                  "description": "Webhook 地址列表（僅儲存首個）",
                                   "type": "array",
                                   "items": {
                                     "type": "string",
@@ -906,7 +906,7 @@
                 ],
                 "properties": {
                   "id": {
-                    "description": "监控地址 ID（兼容字段）",
+                    "description": "監控地址 ID（相容欄位）",
                     "type": "string",
                     "example": "550e8400-e29b-41d4-a716-446655440000"
                   }
@@ -949,7 +949,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "页码",
+            "description": "頁碼",
             "required": true,
             "schema": {
               "type": "integer",
@@ -959,7 +959,7 @@
           {
             "name": "page_size",
             "in": "query",
-            "description": "每页数量",
+            "description": "每頁數量",
             "required": true,
             "schema": {
               "type": "integer",
@@ -1002,7 +1002,7 @@
                             ]
                           },
                           "created_at": {
-                            "description": "创建时间",
+                            "description": "建立時間",
                             "type": "string",
                             "example": "2023-10-27T10:00:00Z"
                           },
@@ -1012,7 +1012,7 @@
                             "example": "550e8400-e29b-41d4-a716-446655440000"
                           },
                           "monitoring_address": {
-                            "description": "监控地址",
+                            "description": "監控地址",
                             "type": "string",
                             "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
                           },
@@ -1027,7 +1027,7 @@
                             "example": 2
                           },
                           "risk_types": {
-                            "description": "風險類型",
+                            "description": "風險型別",
                             "type": "array",
                             "items": {
                               "type": "string",
@@ -1035,7 +1035,7 @@
                             }
                           },
                           "token": {
-                            "description": "代币符号",
+                            "description": "代幣符號",
                             "type": "string",
                             "example": "usdt",
                             "enum": [
@@ -1056,7 +1056,7 @@
                       "example": 20
                     },
                     "total": {
-                      "description": "总数",
+                      "description": "總數",
                       "type": "string",
                       "example": "100"
                     }
@@ -1071,7 +1071,7 @@
     },
     "/v1/query/create": {
       "post": {
-        "summary": "創建查詢任務",
+        "summary": "建立查詢任務",
         "deprecated": false,
         "description": "",
         "operationId": "open/V1/QueryOpenV1QueryCreate",
@@ -1089,7 +1089,7 @@
                 ],
                 "properties": {
                   "address": {
-                    "description": "查询地址",
+                    "description": "查詢地址",
                     "type": "string",
                     "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
                   },
@@ -1119,7 +1119,7 @@
                     "example": 1698314400
                   },
                   "token": {
-                    "description": "代币符号",
+                    "description": "代幣符號",
                     "type": "string",
                     "example": "usdt",
                     "enum": [
@@ -1165,7 +1165,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "页码",
+            "description": "頁碼",
             "required": true,
             "schema": {
               "type": "integer",
@@ -1175,7 +1175,7 @@
           {
             "name": "page_size",
             "in": "query",
-            "description": "每页数量",
+            "description": "每頁數量",
             "required": true,
             "schema": {
               "type": "integer",
@@ -1243,12 +1243,12 @@
                             ]
                           },
                           "cost_quota": {
-                            "description": "消耗額度（兼容字段，無數據則為 0）",
+                            "description": "消耗額度（相容欄位，無資料則為 0）",
                             "type": "integer",
                             "example": 10
                           },
                           "created_at": {
-                            "description": "创建时间(RFC3339)",
+                            "description": "建立時間(RFC3339)",
                             "type": "string",
                             "example": "2023-10-27T10:00:00Z"
                           },
@@ -1258,12 +1258,12 @@
                             "example": "2023-10-27T10:00:00Z"
                           },
                           "id": {
-                            "description": "任務 ID（兼容 UUID）",
+                            "description": "任務 ID（相容 UUID）",
                             "type": "string",
                             "example": "550e8400-e29b-41d4-a716-446655440000"
                           },
                           "query_hash": {
-                            "description": "查詢哈希",
+                            "description": "查詢雜湊",
                             "type": "string",
                             "example": "550e8400-e29b-41d4-a716-446655440000"
                           },
@@ -1283,7 +1283,7 @@
                             "example": 1
                           },
                           "token": {
-                            "description": "代币符号",
+                            "description": "代幣符號",
                             "type": "string",
                             "example": "usdt",
                             "enum": [
@@ -1291,7 +1291,7 @@
                             ]
                           },
                           "updated_at": {
-                            "description": "更新时间(RFC3339)",
+                            "description": "更新時間(RFC3339)",
                             "type": "string",
                             "example": "2023-10-27T10:00:00Z"
                           }
@@ -1299,7 +1299,7 @@
                       }
                     },
                     "total_count": {
-                      "description": "总数",
+                      "description": "總數",
                       "type": "integer",
                       "example": 100
                     }
@@ -1323,7 +1323,7 @@
           {
             "name": "query_hash",
             "in": "query",
-            "description": "查詢哈希（任務 ID）",
+            "description": "查詢雜湊（任務 ID）",
             "required": true,
             "schema": {
               "type": "string",
@@ -1340,7 +1340,7 @@
                   "type": "object",
                   "properties": {
                     "address": {
-                      "description": "查询地址",
+                      "description": "查詢地址",
                       "type": "string",
                       "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
                     },
@@ -1355,12 +1355,12 @@
                       ]
                     },
                     "created_at": {
-                      "description": "创建时间",
+                      "description": "建立時間",
                       "type": "string",
                       "example": "2023-10-27T10:00:00Z"
                     },
                     "end_time": {
-                      "description": "结束时间",
+                      "description": "結束時間",
                       "type": "string",
                       "example": "2023-10-27T10:00:00Z"
                     },
@@ -1482,7 +1482,7 @@
                           "example": "2023-01-01T00:00:00Z"
                         },
                         "in_info": {
-                          "description": "流入信息",
+                          "description": "流入資訊",
                           "type": "object",
                           "required": [
                             "count",
@@ -1491,7 +1491,7 @@
                           ],
                           "properties": {
                             "amount": {
-                              "description": "金额",
+                              "description": "金額",
                               "type": "string",
                               "example": "5000.00"
                             },
@@ -1508,12 +1508,12 @@
                           }
                         },
                         "is_frozen": {
-                          "description": "是否凍結（暫無數據時為 false）",
+                          "description": "是否凍結（暫無資料時為 false）",
                           "type": "boolean",
                           "example": false
                         },
                         "out_info": {
-                          "description": "流出信息",
+                          "description": "流出資訊",
                           "type": "object",
                           "required": [
                             "count",
@@ -1522,7 +1522,7 @@
                           ],
                           "properties": {
                             "amount": {
-                              "description": "金额",
+                              "description": "金額",
                               "type": "string",
                               "example": "200.00"
                             },
@@ -1539,7 +1539,7 @@
                           }
                         },
                         "total_info": {
-                          "description": "彙總信息",
+                          "description": "彙總資訊",
                           "type": "object",
                           "required": [
                             "count",
@@ -1548,7 +1548,7 @@
                           ],
                           "properties": {
                             "amount": {
-                              "description": "金额",
+                              "description": "金額",
                               "type": "string",
                               "example": "1000.00"
                             },
@@ -1565,14 +1565,14 @@
                           }
                         },
                         "type": {
-                          "description": "地址類型",
+                          "description": "地址型別",
                           "type": "integer",
                           "example": 1
                         }
                       }
                     },
                     "query_hash": {
-                      "description": "查詢哈希",
+                      "description": "查詢雜湊",
                       "type": "string",
                       "example": "550e8400-e29b-41d4-a716-446655440000"
                     },
@@ -1591,12 +1591,12 @@
                           "example": 5
                         },
                         "amount": {
-                          "description": "总金额",
+                          "description": "總金額",
                           "type": "string",
                           "example": "100.00"
                         },
                         "amount_count": {
-                          "description": "涉及交易笔数",
+                          "description": "涉及交易筆數",
                           "type": "integer",
                           "example": 10
                         }
@@ -1608,7 +1608,7 @@
                       "example": 3
                     },
                     "risk_type": {
-                      "description": "风险类型列表",
+                      "description": "風險型別列表",
                       "type": "array",
                       "items": {
                         "type": "object",
@@ -1619,17 +1619,17 @@
                         ],
                         "properties": {
                           "amount": {
-                            "description": "涉及金额",
+                            "description": "涉及金額",
                             "type": "string",
                             "example": "50.00"
                           },
                           "count": {
-                            "description": "涉及笔数",
+                            "description": "涉及筆數",
                             "type": "integer",
                             "example": 2
                           },
                           "type": {
-                            "description": "風險類型",
+                            "description": "風險型別",
                             "type": "string",
                             "example": "phishing"
                           }
@@ -1637,12 +1637,12 @@
                       }
                     },
                     "start_time": {
-                      "description": "起始时间",
+                      "description": "起始時間",
                       "type": "string",
                       "example": "2023-10-27T10:00:00Z"
                     },
                     "token": {
-                      "description": "代币符号",
+                      "description": "代幣符號",
                       "type": "string",
                       "example": "usdt",
                       "enum": [
@@ -1650,7 +1650,7 @@
                       ]
                     },
                     "top_transaction": {
-                      "description": "主要交易对手",
+                      "description": "主要交易對手",
                       "type": "array",
                       "items": {
                         "type": "object",
@@ -1663,12 +1663,12 @@
                         ],
                         "properties": {
                           "counterparty_address": {
-                            "description": "对手方地址",
+                            "description": "對手方地址",
                             "type": "string",
                             "example": "0x..."
                           },
                           "last_transaction_time": {
-                            "description": "最近交易时间",
+                            "description": "最近交易時間",
                             "type": "string",
                             "example": "2023-10-27T10:00:00Z"
                           },
@@ -1678,12 +1678,12 @@
                             "example": "0x..."
                           },
                           "total_amount": {
-                            "description": "累计金额",
+                            "description": "累計金額",
                             "type": "string",
                             "example": "1000.00"
                           },
                           "total_count": {
-                            "description": "累计笔数",
+                            "description": "累計筆數",
                             "type": "integer",
                             "example": 20
                           }
@@ -1691,7 +1691,7 @@
                       }
                     },
                     "tx_flow": {
-                      "description": "资金流向",
+                      "description": "資金流向",
                       "type": "object",
                       "required": [
                         "nodes",
@@ -1699,7 +1699,7 @@
                       ],
                       "properties": {
                         "links": {
-                          "description": "边",
+                          "description": "邊",
                           "type": "array",
                           "items": {
                             "type": "object",
@@ -1710,17 +1710,17 @@
                             ],
                             "properties": {
                               "source": {
-                                "description": "源节点",
+                                "description": "源節點",
                                 "type": "string",
                                 "example": "node1"
                               },
                               "target": {
-                                "description": "目标节点",
+                                "description": "目標節點",
                                 "type": "string",
                                 "example": "node2"
                               },
                               "value": {
-                                "description": "金额",
+                                "description": "金額",
                                 "type": "string",
                                 "example": "100.00"
                               }
@@ -1728,7 +1728,7 @@
                           }
                         },
                         "nodes": {
-                          "description": "节点",
+                          "description": "節點",
                           "type": "array",
                           "items": {
                             "type": "object",
@@ -1738,12 +1738,12 @@
                             ],
                             "properties": {
                               "id": {
-                                "description": "节点 ID",
+                                "description": "節點 ID",
                                 "type": "string",
                                 "example": "node1"
                               },
                               "label": {
-                                "description": "标签",
+                                "description": "標籤",
                                 "type": "string",
                                 "example": "Label1"
                               }
@@ -1763,7 +1763,7 @@
     },
     "/v1/query/status": {
       "get": {
-        "summary": "查询任务状态",
+        "summary": "查詢任務狀態",
         "deprecated": false,
         "description": "",
         "operationId": "open/V1/QueryOpenV1QueryStatus",
@@ -1772,7 +1772,7 @@
           {
             "name": "query_hash",
             "in": "query",
-            "description": "查詢哈希（任務 ID）",
+            "description": "查詢雜湊（任務 ID）",
             "required": true,
             "schema": {
               "type": "string",
@@ -1789,17 +1789,17 @@
                   "type": "object",
                   "properties": {
                     "created_at": {
-                      "description": "创建时间",
+                      "description": "建立時間",
                       "type": "string",
                       "example": "2023-10-27T10:00:00Z"
                     },
                     "message": {
-                      "description": "说明信息",
+                      "description": "說明資訊",
                       "type": "string",
                       "example": "Success"
                     },
                     "query_hash": {
-                      "description": "查詢哈希",
+                      "description": "查詢雜湊",
                       "type": "string",
                       "example": "550e8400-e29b-41d4-a716-446655440000"
                     },
@@ -1809,12 +1809,12 @@
                       "example": 1
                     },
                     "status_text": {
-                      "description": "状态文本",
+                      "description": "狀態文字",
                       "type": "string",
                       "example": "Completed"
                     },
                     "updated_at": {
-                      "description": "更新时间",
+                      "description": "更新時間",
                       "type": "string",
                       "example": "2023-10-27T10:00:00Z"
                     }
