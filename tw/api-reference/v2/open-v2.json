@@ -70,21 +70,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "task_id",
-                          "chain",
-                          "token",
-                          "address",
-                          "status",
-                          "risk_level",
-                          "created_at",
-                          "updated_at",
-                          "start_time",
-                          "end_time",
-                          "count_limit",
-                          "started_at",
-                          "completed_at"
-                        ],
                         "properties": {
                           "address": {
                             "description": "查詢地址",
@@ -330,26 +315,6 @@
                     "result": {
                       "description": "分析結果",
                       "type": "object",
-                      "required": [
-                        "chain",
-                        "token",
-                        "address",
-                        "created_at",
-                        "start_time",
-                        "end_time",
-                        "task_id",
-                        "count_limit",
-                        "started_at",
-                        "completed_at",
-                        "risk_level",
-                        "risk_address_data",
-                        "risk_type",
-                        "overview",
-                        "tx_flow",
-                        "habit",
-                        "historical_balance",
-                        "top_transaction"
-                      ],
                       "properties": {
                         "address": {
                           "description": "地址",
@@ -389,20 +354,12 @@
                         "habit": {
                           "description": "交易習慣",
                           "type": "object",
-                          "required": [
-                            "items"
-                          ],
                           "properties": {
                             "items": {
                               "description": "列表",
                               "type": "array",
                               "items": {
                                 "type": "object",
-                                "required": [
-                                  "hour",
-                                  "inflow",
-                                  "outflow"
-                                ],
                                 "properties": {
                                   "hour": {
                                     "description": "小時(0~23)",
@@ -412,10 +369,6 @@
                                   "inflow": {
                                     "description": "流入",
                                     "type": "object",
-                                    "required": [
-                                      "amount",
-                                      "count"
-                                    ],
                                     "properties": {
                                       "amount": {
                                         "description": "金額",
@@ -432,10 +385,6 @@
                                   "outflow": {
                                     "description": "流出",
                                     "type": "object",
-                                    "required": [
-                                      "amount",
-                                      "count"
-                                    ],
                                     "properties": {
                                       "amount": {
                                         "description": "金額",
@@ -457,19 +406,12 @@
                         "historical_balance": {
                           "description": "歷史餘額",
                           "type": "object",
-                          "required": [
-                            "items"
-                          ],
                           "properties": {
                             "items": {
                               "description": "列表",
                               "type": "array",
                               "items": {
                                 "type": "object",
-                                "required": [
-                                  "date",
-                                  "balance"
-                                ],
                                 "properties": {
                                   "balance": {
                                     "description": "餘額",
@@ -489,21 +431,6 @@
                         "overview": {
                           "description": "地址總覽",
                           "type": "object",
-                          "required": [
-                            "address",
-                            "balance",
-                            "balance_coin",
-                            "active",
-                            "in_info",
-                            "out_info",
-                            "total_info",
-                            "type",
-                            "exchange_name",
-                            "first_transfer_time",
-                            "first_transfer_address",
-                            "is_blocked",
-                            "is_sanction"
-                          ],
                           "properties": {
                             "active": {
                               "description": "是否活躍",
@@ -543,18 +470,10 @@
                             "in_info": {
                               "description": "流入資訊",
                               "type": "object",
-                              "required": [
-                                "data",
-                                "latest"
-                              ],
                               "properties": {
                                 "data": {
                                   "description": "資料",
                                   "type": "object",
-                                  "required": [
-                                    "amount",
-                                    "count"
-                                  ],
                                   "properties": {
                                     "amount": {
                                       "description": "金額",
@@ -588,18 +507,10 @@
                             "out_info": {
                               "description": "流出資訊",
                               "type": "object",
-                              "required": [
-                                "data",
-                                "latest"
-                              ],
                               "properties": {
                                 "data": {
                                   "description": "資料",
                                   "type": "object",
-                                  "required": [
-                                    "amount",
-                                    "count"
-                                  ],
                                   "properties": {
                                     "amount": {
                                       "description": "金額",
@@ -623,18 +534,10 @@
                             "total_info": {
                               "description": "彙總資訊",
                               "type": "object",
-                              "required": [
-                                "data",
-                                "latest"
-                              ],
                               "properties": {
                                 "data": {
                                   "description": "資料",
                                   "type": "object",
-                                  "required": [
-                                    "amount",
-                                    "count"
-                                  ],
                                   "properties": {
                                     "amount": {
                                       "description": "金額",
@@ -665,10 +568,6 @@
                         "risk_address_data": {
                           "description": "風險地址彙總",
                           "type": "object",
-                          "required": [
-                            "data",
-                            "address_count"
-                          ],
                           "properties": {
                             "address_count": {
                               "description": "地址數量",
@@ -678,10 +577,6 @@
                             "data": {
                               "description": "資料",
                               "type": "object",
-                              "required": [
-                                "amount",
-                                "count"
-                              ],
                               "properties": {
                                 "amount": {
                                   "description": "金額",
@@ -705,27 +600,16 @@
                         "risk_type": {
                           "description": "風險型別統計",
                           "type": "object",
-                          "required": [
-                            "items"
-                          ],
                           "properties": {
                             "items": {
                               "description": "列表",
                               "type": "array",
                               "items": {
                                 "type": "object",
-                                "required": [
-                                  "type",
-                                  "data"
-                                ],
                                 "properties": {
                                   "data": {
                                     "description": "資料",
                                     "type": "object",
-                                    "required": [
-                                      "amount",
-                                      "count"
-                                    ],
                                     "properties": {
                                       "amount": {
                                         "description": "金額",
@@ -775,21 +659,12 @@
                         "top_transaction": {
                           "description": "Top 交易對手",
                           "type": "object",
-                          "required": [
-                            "items"
-                          ],
                           "properties": {
                             "items": {
                               "description": "列表",
                               "type": "array",
                               "items": {
                                 "type": "object",
-                                "required": [
-                                  "own_address",
-                                  "counterparty_address",
-                                  "total",
-                                  "last_transaction_time"
-                                ],
                                 "properties": {
                                   "counterparty_address": {
                                     "description": "對手方地址",
@@ -809,10 +684,6 @@
                                   "total": {
                                     "description": "彙總",
                                     "type": "object",
-                                    "required": [
-                                      "amount",
-                                      "count"
-                                    ],
                                     "properties": {
                                       "amount": {
                                         "description": "金額",
@@ -834,21 +705,12 @@
                         "tx_flow": {
                           "description": "資金流向",
                           "type": "object",
-                          "required": [
-                            "nodes",
-                            "links"
-                          ],
                           "properties": {
                             "links": {
                               "description": "連線",
                               "type": "array",
                               "items": {
                                 "type": "object",
-                                "required": [
-                                  "source",
-                                  "target",
-                                  "value"
-                                ],
                                 "properties": {
                                   "source": {
                                     "description": "源節點",
@@ -873,10 +735,6 @@
                               "type": "array",
                               "items": {
                                 "type": "object",
-                                "required": [
-                                  "id",
-                                  "label"
-                                ],
                                 "properties": {
                                   "id": {
                                     "description": "節點ID",
@@ -1040,19 +898,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "address_id",
-                          "chain",
-                          "token",
-                          "address",
-                          "name",
-                          "status",
-                          "user_id",
-                          "created_at",
-                          "updated_at",
-                          "alert_count",
-                          "last_alert_at"
-                        ],
                         "properties": {
                           "address": {
                             "description": "地址",
@@ -1215,19 +1060,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "address_id",
-                          "chain",
-                          "token",
-                          "address",
-                          "name",
-                          "status",
-                          "user_id",
-                          "created_at",
-                          "updated_at",
-                          "alert_count",
-                          "last_alert_at"
-                        ],
                         "properties": {
                           "address": {
                             "description": "地址",
@@ -1523,19 +1355,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "alert_id",
-                          "address_id",
-                          "chain",
-                          "token",
-                          "monitored_address",
-                          "event_type",
-                          "event_id",
-                          "details",
-                          "monitor_label",
-                          "push_results",
-                          "created_at"
-                        ],
                         "properties": {
                           "address_id": {
                             "description": "關聯地址 ID",
@@ -1565,11 +1384,6 @@
                           "details": {
                             "description": "事件詳情（結構化 JSON，無純文案）",
                             "type": "object",
-                            "required": [
-                              "type",
-                              "timestamp",
-                              "data"
-                            ],
                             "properties": {
                               "data": {
                                 "description": "事件資料（隨 type 變化，詳見上方 schema）",

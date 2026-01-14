@@ -174,15 +174,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "id",
-                          "address",
-                          "chain",
-                          "token",
-                          "status",
-                          "created_at",
-                          "updated_at"
-                        ],
                         "properties": {
                           "address": {
                             "description": "地址",
@@ -422,20 +413,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "id",
-                          "user_id",
-                          "monitoring_address_id",
-                          "monitoring_address",
-                          "counterparty_address",
-                          "chain",
-                          "token",
-                          "amount",
-                          "tx_hash",
-                          "monitor_type",
-                          "details",
-                          "created_at"
-                        ],
                         "properties": {
                           "amount": {
                             "description": "交易金額",
@@ -565,10 +542,6 @@
                     "config": {
                       "description": "當前配置",
                       "type": "object",
-                      "required": [
-                        "detection",
-                        "notification"
-                      ],
                       "properties": {
                         "detection": {
                           "description": "監控檢測配置",
@@ -594,18 +567,10 @@
                         "notification": {
                           "description": "通知配置",
                           "type": "object",
-                          "required": [
-                            "webhook",
-                            "email"
-                          ],
                           "properties": {
                             "email": {
                               "description": "郵件配置",
                               "type": "object",
-                              "required": [
-                                "enabled",
-                                "recipients"
-                              ],
                               "properties": {
                                 "enabled": {
                                   "description": "是否啟用",
@@ -625,11 +590,6 @@
                             "webhook": {
                               "description": "Webhook 配置",
                               "type": "object",
-                              "required": [
-                                "enabled",
-                                "urls",
-                                "auth_key"
-                              ],
                               "properties": {
                                 "auth_key": {
                                   "description": "鑑權 Key（相容欄位）",
@@ -789,10 +749,6 @@
                     "config": {
                       "description": "更新後的配置",
                       "type": "object",
-                      "required": [
-                        "detection",
-                        "notification"
-                      ],
                       "properties": {
                         "detection": {
                           "description": "監控檢測配置",
@@ -818,18 +774,10 @@
                         "notification": {
                           "description": "通知配置",
                           "type": "object",
-                          "required": [
-                            "webhook",
-                            "email"
-                          ],
                           "properties": {
                             "email": {
                               "description": "郵件配置",
                               "type": "object",
-                              "required": [
-                                "enabled",
-                                "recipients"
-                              ],
                               "properties": {
                                 "enabled": {
                                   "description": "是否啟用",
@@ -849,11 +797,6 @@
                             "webhook": {
                               "description": "Webhook 配置",
                               "type": "object",
-                              "required": [
-                                "enabled",
-                                "urls",
-                                "auth_key"
-                              ],
                               "properties": {
                                 "auth_key": {
                                   "description": "鑑權 Key（相容欄位）",
@@ -980,16 +923,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "id",
-                          "monitoring_address_id",
-                          "monitoring_address",
-                          "chain",
-                          "token",
-                          "risk_types",
-                          "created_at",
-                          "risk_level"
-                        ],
                         "properties": {
                           "chain": {
                             "description": "鏈標識",
@@ -1206,21 +1139,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "id",
-                          "chain",
-                          "token",
-                          "address",
-                          "start_time",
-                          "end_time",
-                          "query_hash",
-                          "risk_level",
-                          "status",
-                          "created_at",
-                          "updated_at",
-                          "cost_quota",
-                          "api_key_id"
-                        ],
                         "properties": {
                           "address": {
                             "description": "地址",
@@ -1369,13 +1287,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "hour",
-                          "inflow_amount",
-                          "inflow_count",
-                          "outflow_amount",
-                          "outflow_count"
-                        ],
                         "properties": {
                           "hour": {
                             "description": "小時(0-23)",
@@ -1410,10 +1321,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "date",
-                          "balance"
-                        ],
                         "properties": {
                           "balance": {
                             "description": "餘額",
@@ -1431,20 +1338,6 @@
                     "overview": {
                       "description": "地址概覽",
                       "type": "object",
-                      "required": [
-                        "address",
-                        "balance",
-                        "balance_coin",
-                        "active",
-                        "in_info",
-                        "out_info",
-                        "total_info",
-                        "type",
-                        "exchange_name",
-                        "first_transfer_time",
-                        "first_transfer_address",
-                        "is_frozen"
-                      ],
                       "properties": {
                         "active": {
                           "description": "是否活躍",
@@ -1484,11 +1377,6 @@
                         "in_info": {
                           "description": "流入資訊",
                           "type": "object",
-                          "required": [
-                            "count",
-                            "amount",
-                            "latest"
-                          ],
                           "properties": {
                             "amount": {
                               "description": "金額",
@@ -1515,11 +1403,6 @@
                         "out_info": {
                           "description": "流出資訊",
                           "type": "object",
-                          "required": [
-                            "count",
-                            "amount",
-                            "latest"
-                          ],
                           "properties": {
                             "amount": {
                               "description": "金額",
@@ -1541,11 +1424,6 @@
                         "total_info": {
                           "description": "彙總資訊",
                           "type": "object",
-                          "required": [
-                            "count",
-                            "amount",
-                            "latest"
-                          ],
                           "properties": {
                             "amount": {
                               "description": "金額",
@@ -1579,11 +1457,6 @@
                     "risk_address_total": {
                       "description": "風險地址統計",
                       "type": "object",
-                      "required": [
-                        "amount",
-                        "address_count",
-                        "amount_count"
-                      ],
                       "properties": {
                         "address_count": {
                           "description": "風險地址數",
@@ -1612,11 +1485,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "type",
-                          "amount",
-                          "count"
-                        ],
                         "properties": {
                           "amount": {
                             "description": "涉及金額",
@@ -1654,13 +1522,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "own_address",
-                          "counterparty_address",
-                          "total_amount",
-                          "total_count",
-                          "last_transaction_time"
-                        ],
                         "properties": {
                           "counterparty_address": {
                             "description": "對手方地址",
@@ -1693,21 +1554,12 @@
                     "tx_flow": {
                       "description": "資金流向",
                       "type": "object",
-                      "required": [
-                        "nodes",
-                        "links"
-                      ],
                       "properties": {
                         "links": {
                           "description": "邊",
                           "type": "array",
                           "items": {
                             "type": "object",
-                            "required": [
-                              "source",
-                              "target",
-                              "value"
-                            ],
                             "properties": {
                               "source": {
                                 "description": "源節點",
@@ -1732,10 +1584,6 @@
                           "type": "array",
                           "items": {
                             "type": "object",
-                            "required": [
-                              "id",
-                              "label"
-                            ],
                             "properties": {
                               "id": {
                                 "description": "節點 ID",

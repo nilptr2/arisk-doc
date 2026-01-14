@@ -70,21 +70,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "task_id",
-                          "chain",
-                          "token",
-                          "address",
-                          "status",
-                          "risk_level",
-                          "created_at",
-                          "updated_at",
-                          "start_time",
-                          "end_time",
-                          "count_limit",
-                          "started_at",
-                          "completed_at"
-                        ],
                         "properties": {
                           "address": {
                             "description": "Query address",
@@ -325,26 +310,6 @@
                     "result": {
                       "description": "Analysis result",
                       "type": "object",
-                      "required": [
-                        "chain",
-                        "token",
-                        "address",
-                        "created_at",
-                        "start_time",
-                        "end_time",
-                        "task_id",
-                        "count_limit",
-                        "started_at",
-                        "completed_at",
-                        "risk_level",
-                        "risk_address_data",
-                        "risk_type",
-                        "overview",
-                        "tx_flow",
-                        "habit",
-                        "historical_balance",
-                        "top_transaction"
-                      ],
                       "properties": {
                         "address": {
                           "description": "Address",
@@ -384,20 +349,12 @@
                         "habit": {
                           "description": "Trading habits",
                           "type": "object",
-                          "required": [
-                            "items"
-                          ],
                           "properties": {
                             "items": {
                               "description": "List",
                               "type": "array",
                               "items": {
                                 "type": "object",
-                                "required": [
-                                  "hour",
-                                  "inflow",
-                                  "outflow"
-                                ],
                                 "properties": {
                                   "hour": {
                                     "description": "Hour (0~23)",
@@ -407,10 +364,6 @@
                                   "inflow": {
                                     "description": "Inflow",
                                     "type": "object",
-                                    "required": [
-                                      "amount",
-                                      "count"
-                                    ],
                                     "properties": {
                                       "amount": {
                                         "description": "Amount",
@@ -427,10 +380,6 @@
                                   "outflow": {
                                     "description": "Outflow",
                                     "type": "object",
-                                    "required": [
-                                      "amount",
-                                      "count"
-                                    ],
                                     "properties": {
                                       "amount": {
                                         "description": "Amount",
@@ -452,19 +401,12 @@
                         "historical_balance": {
                           "description": "Historical balance",
                           "type": "object",
-                          "required": [
-                            "items"
-                          ],
                           "properties": {
                             "items": {
                               "description": "List",
                               "type": "array",
                               "items": {
                                 "type": "object",
-                                "required": [
-                                  "date",
-                                  "balance"
-                                ],
                                 "properties": {
                                   "balance": {
                                     "description": "Balance",
@@ -484,21 +426,6 @@
                         "overview": {
                           "description": "Address overview",
                           "type": "object",
-                          "required": [
-                            "address",
-                            "balance",
-                            "balance_coin",
-                            "active",
-                            "in_info",
-                            "out_info",
-                            "total_info",
-                            "type",
-                            "exchange_name",
-                            "first_transfer_time",
-                            "first_transfer_address",
-                            "is_blocked",
-                            "is_sanction"
-                          ],
                           "properties": {
                             "active": {
                               "description": "Whether active",
@@ -538,18 +465,10 @@
                             "in_info": {
                               "description": "Inflow information",
                               "type": "object",
-                              "required": [
-                                "data",
-                                "latest"
-                              ],
                               "properties": {
                                 "data": {
                                   "description": "Data",
                                   "type": "object",
-                                  "required": [
-                                    "amount",
-                                    "count"
-                                  ],
                                   "properties": {
                                     "amount": {
                                       "description": "Amount",
@@ -583,18 +502,10 @@
                             "out_info": {
                               "description": "Outflow information",
                               "type": "object",
-                              "required": [
-                                "data",
-                                "latest"
-                              ],
                               "properties": {
                                 "data": {
                                   "description": "Data",
                                   "type": "object",
-                                  "required": [
-                                    "amount",
-                                    "count"
-                                  ],
                                   "properties": {
                                     "amount": {
                                       "description": "Amount",
@@ -618,18 +529,10 @@
                             "total_info": {
                               "description": "Summary information",
                               "type": "object",
-                              "required": [
-                                "data",
-                                "latest"
-                              ],
                               "properties": {
                                 "data": {
                                   "description": "Data",
                                   "type": "object",
-                                  "required": [
-                                    "amount",
-                                    "count"
-                                  ],
                                   "properties": {
                                     "amount": {
                                       "description": "Amount",
@@ -660,10 +563,6 @@
                         "risk_address_data": {
                           "description": "Risk address summary",
                           "type": "object",
-                          "required": [
-                            "data",
-                            "address_count"
-                          ],
                           "properties": {
                             "address_count": {
                               "description": "Address count",
@@ -673,10 +572,6 @@
                             "data": {
                               "description": "Data",
                               "type": "object",
-                              "required": [
-                                "amount",
-                                "count"
-                              ],
                               "properties": {
                                 "amount": {
                                   "description": "Amount",
@@ -700,27 +595,16 @@
                         "risk_type": {
                           "description": "Risk type statistics",
                           "type": "object",
-                          "required": [
-                            "items"
-                          ],
                           "properties": {
                             "items": {
                               "description": "List",
                               "type": "array",
                               "items": {
                                 "type": "object",
-                                "required": [
-                                  "type",
-                                  "data"
-                                ],
                                 "properties": {
                                   "data": {
                                     "description": "Data",
                                     "type": "object",
-                                    "required": [
-                                      "amount",
-                                      "count"
-                                    ],
                                     "properties": {
                                       "amount": {
                                         "description": "Amount",
@@ -770,21 +654,12 @@
                         "top_transaction": {
                           "description": "Top counterparties",
                           "type": "object",
-                          "required": [
-                            "items"
-                          ],
                           "properties": {
                             "items": {
                               "description": "List",
                               "type": "array",
                               "items": {
                                 "type": "object",
-                                "required": [
-                                  "own_address",
-                                  "counterparty_address",
-                                  "total",
-                                  "last_transaction_time"
-                                ],
                                 "properties": {
                                   "counterparty_address": {
                                     "description": "Counterparty address",
@@ -804,10 +679,6 @@
                                   "total": {
                                     "description": "Summary",
                                     "type": "object",
-                                    "required": [
-                                      "amount",
-                                      "count"
-                                    ],
                                     "properties": {
                                       "amount": {
                                         "description": "Amount",
@@ -829,21 +700,12 @@
                         "tx_flow": {
                           "description": "Fund flow",
                           "type": "object",
-                          "required": [
-                            "nodes",
-                            "links"
-                          ],
                           "properties": {
                             "links": {
                               "description": "Links",
                               "type": "array",
                               "items": {
                                 "type": "object",
-                                "required": [
-                                  "source",
-                                  "target",
-                                  "value"
-                                ],
                                 "properties": {
                                   "source": {
                                     "description": "Source node",
@@ -868,10 +730,6 @@
                               "type": "array",
                               "items": {
                                 "type": "object",
-                                "required": [
-                                  "id",
-                                  "label"
-                                ],
                                 "properties": {
                                   "id": {
                                     "description": "Node ID",
@@ -1037,19 +895,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "address_id",
-                          "chain",
-                          "token",
-                          "address",
-                          "name",
-                          "status",
-                          "user_id",
-                          "created_at",
-                          "updated_at",
-                          "alert_count",
-                          "last_alert_at"
-                        ],
                         "properties": {
                           "address": {
                             "description": "Address",
@@ -1212,19 +1057,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "address_id",
-                          "chain",
-                          "token",
-                          "address",
-                          "name",
-                          "status",
-                          "user_id",
-                          "created_at",
-                          "updated_at",
-                          "alert_count",
-                          "last_alert_at"
-                        ],
                         "properties": {
                           "address": {
                             "description": "Address",
@@ -1519,19 +1351,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "alert_id",
-                          "address_id",
-                          "chain",
-                          "token",
-                          "monitored_address",
-                          "event_type",
-                          "event_id",
-                          "details",
-                          "monitor_label",
-                          "push_results",
-                          "created_at"
-                        ],
                         "properties": {
                           "address_id": {
                             "description": "Associated address ID",
@@ -1561,11 +1380,6 @@
                           "details": {
                             "description": "Event details (structured JSON, no plain text)",
                             "type": "object",
-                            "required": [
-                              "type",
-                              "timestamp",
-                              "data"
-                            ],
                             "properties": {
                               "data": {
                                 "description": "Event data (varies by type, see schema above)",

@@ -174,15 +174,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "id",
-                          "address",
-                          "chain",
-                          "token",
-                          "status",
-                          "created_at",
-                          "updated_at"
-                        ],
                         "properties": {
                           "address": {
                             "description": "地址",
@@ -422,20 +413,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "id",
-                          "user_id",
-                          "monitoring_address_id",
-                          "monitoring_address",
-                          "counterparty_address",
-                          "chain",
-                          "token",
-                          "amount",
-                          "tx_hash",
-                          "monitor_type",
-                          "details",
-                          "created_at"
-                        ],
                         "properties": {
                           "amount": {
                             "description": "交易金额",
@@ -551,10 +528,6 @@
                     "config": {
                       "description": "Current configuration",
                       "type": "object",
-                      "required": [
-                        "detection",
-                        "notification"
-                      ],
                       "properties": {
                         "detection": {
                           "description": "Detection configuration",
@@ -580,18 +553,10 @@
                         "notification": {
                           "description": "通知配置",
                           "type": "object",
-                          "required": [
-                            "webhook",
-                            "email"
-                          ],
                           "properties": {
                             "email": {
                               "description": "邮件配置",
                               "type": "object",
-                              "required": [
-                                "enabled",
-                                "recipients"
-                              ],
                               "properties": {
                                 "enabled": {
                                   "description": "Enabled",
@@ -611,11 +576,6 @@
                             "webhook": {
                               "description": "Webhook 配置",
                               "type": "object",
-                              "required": [
-                                "enabled",
-                                "urls",
-                                "auth_key"
-                              ],
                               "properties": {
                                 "auth_key": {
                                   "description": "鉴权 Key（兼容字段）",
@@ -775,10 +735,6 @@
                     "config": {
                       "description": "更新后的配置",
                       "type": "object",
-                      "required": [
-                        "detection",
-                        "notification"
-                      ],
                       "properties": {
                         "detection": {
                           "description": "Detection configuration",
@@ -804,18 +760,10 @@
                         "notification": {
                           "description": "通知配置",
                           "type": "object",
-                          "required": [
-                            "webhook",
-                            "email"
-                          ],
                           "properties": {
                             "email": {
                               "description": "邮件配置",
                               "type": "object",
-                              "required": [
-                                "enabled",
-                                "recipients"
-                              ],
                               "properties": {
                                 "enabled": {
                                   "description": "Enabled",
@@ -835,11 +783,6 @@
                             "webhook": {
                               "description": "Webhook 配置",
                               "type": "object",
-                              "required": [
-                                "enabled",
-                                "urls",
-                                "auth_key"
-                              ],
                               "properties": {
                                 "auth_key": {
                                   "description": "Auth Key",
@@ -966,16 +909,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "id",
-                          "monitoring_address_id",
-                          "monitoring_address",
-                          "chain",
-                          "token",
-                          "risk_types",
-                          "created_at",
-                          "risk_level"
-                        ],
                         "properties": {
                           "chain": {
                             "description": "链标识",
@@ -1192,21 +1125,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "id",
-                          "chain",
-                          "token",
-                          "address",
-                          "start_time",
-                          "end_time",
-                          "query_hash",
-                          "risk_level",
-                          "status",
-                          "created_at",
-                          "updated_at",
-                          "cost_quota",
-                          "api_key_id"
-                        ],
                         "properties": {
                           "address": {
                             "description": "地址",
@@ -1355,13 +1273,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "hour",
-                          "inflow_amount",
-                          "inflow_count",
-                          "outflow_amount",
-                          "outflow_count"
-                        ],
                         "properties": {
                           "hour": {
                             "description": "Hour (0-23)",
@@ -1396,10 +1307,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "date",
-                          "balance"
-                        ],
                         "properties": {
                           "balance": {
                             "description": "Balance",
@@ -1417,20 +1324,6 @@
                     "overview": {
                       "description": "地址概览",
                       "type": "object",
-                      "required": [
-                        "address",
-                        "balance",
-                        "balance_coin",
-                        "active",
-                        "in_info",
-                        "out_info",
-                        "total_info",
-                        "type",
-                        "exchange_name",
-                        "first_transfer_time",
-                        "first_transfer_address",
-                        "is_frozen"
-                      ],
                       "properties": {
                         "active": {
                           "description": "Is active",
@@ -1470,11 +1363,6 @@
                         "in_info": {
                           "description": "流入信息",
                           "type": "object",
-                          "required": [
-                            "count",
-                            "amount",
-                            "latest"
-                          ],
                           "properties": {
                             "amount": {
                               "description": "Amount",
@@ -1501,11 +1389,6 @@
                         "out_info": {
                           "description": "流出信息",
                           "type": "object",
-                          "required": [
-                            "count",
-                            "amount",
-                            "latest"
-                          ],
                           "properties": {
                             "amount": {
                               "description": "金额",
@@ -1527,11 +1410,6 @@
                         "total_info": {
                           "description": "汇总信息",
                           "type": "object",
-                          "required": [
-                            "count",
-                            "amount",
-                            "latest"
-                          ],
                           "properties": {
                             "amount": {
                               "description": "金额",
@@ -1565,11 +1443,6 @@
                     "risk_address_total": {
                       "description": "风险地址统计",
                       "type": "object",
-                      "required": [
-                        "amount",
-                        "address_count",
-                        "amount_count"
-                      ],
                       "properties": {
                         "address_count": {
                           "description": "Risk address count",
@@ -1598,11 +1471,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "type",
-                          "amount",
-                          "count"
-                        ],
                         "properties": {
                           "amount": {
                             "description": "Amount involved",
@@ -1640,13 +1508,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": [
-                          "own_address",
-                          "counterparty_address",
-                          "total_amount",
-                          "total_count",
-                          "last_transaction_time"
-                        ],
                         "properties": {
                           "counterparty_address": {
                             "description": "Counterparty address",
@@ -1679,21 +1540,12 @@
                     "tx_flow": {
                       "description": "资金流向",
                       "type": "object",
-                      "required": [
-                        "nodes",
-                        "links"
-                      ],
                       "properties": {
                         "links": {
                           "description": "边",
                           "type": "array",
                           "items": {
                             "type": "object",
-                            "required": [
-                              "source",
-                              "target",
-                              "value"
-                            ],
                             "properties": {
                               "source": {
                                 "description": "Source node",
@@ -1718,10 +1570,6 @@
                           "type": "array",
                           "items": {
                             "type": "object",
-                            "required": [
-                              "id",
-                              "label"
-                            ],
                             "properties": {
                               "id": {
                                 "description": "Node ID",
