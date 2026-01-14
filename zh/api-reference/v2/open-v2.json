@@ -229,15 +229,15 @@
                     "items": {
                       "type": "string",
                       "enum": [
-                        "OVERVIEW",
-                        "TXFLOW",
-                        "HABIT",
-                        "HISTORICAL_BALANCE",
-                        "RISK_TYPE",
-                        "TOP_TRANSACTION",
-                        "RISK_ADDRESS_TOTAL"
+                        "overview",
+                        "txflow",
+                        "habit",
+                        "historical_balance",
+                        "risk_type",
+                        "top_transaction",
+                        "risk_address_total"
                       ],
-                      "example": "OVERVIEW"
+                      "example": "overview"
                     }
                   },
                   "start_time": {
@@ -277,7 +277,7 @@
                       "type": "array",
                       "items": {
                         "type": "string",
-                        "example": "OVERVIEW"
+                        "example": "overview"
                       }
                     },
                     "task_id": {
