@@ -1370,7 +1370,7 @@
         }
       }
     },
-    "/v2/monitor/addresses/{addressId}": {
+    "/v2/monitor/addresses/{addressId}/update": {
       "post": {
         "summary": "更新监控地址",
         "deprecated": false,
@@ -1454,10 +1454,16 @@
           {
             "name": "event_type",
             "in": "query",
-            "description": "事件类型过滤: TRANSACTION_IN/TRANSACTION_OUT/TRANSACTION_RISK/ADDRESS_RISK_CHANGE",
+            "description": "事件类型筛选",
             "required": false,
             "schema": {
               "type": "string",
+              "enum": [
+                "TRANSACTION_IN",
+                "TRANSACTION_OUT",
+                "TRANSACTION_RISK",
+                "ADDRESS_RISK_CHANGE"
+              ],
               "example": "TRANSACTION_IN"
             }
           },
@@ -1589,8 +1595,14 @@
                             "example": "550e8400-e29b-41d4-a716-446655440000"
                           },
                           "event_type": {
-                            "description": "事件类型: TRANSACTION_IN/TRANSACTION_OUT/TRANSACTION_RISK/ADDRESS_RISK_CHANGE",
+                            "description": "事件类型",
                             "type": "string",
+                            "enum": [
+                              "TRANSACTION_IN",
+                              "TRANSACTION_OUT",
+                              "TRANSACTION_RISK",
+                              "ADDRESS_RISK_CHANGE"
+                            ],
                             "example": "TRANSACTION_IN"
                           },
                           "monitor_label": {

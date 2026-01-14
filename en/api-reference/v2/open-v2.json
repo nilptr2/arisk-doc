@@ -1367,7 +1367,7 @@
         }
       }
     },
-    "/v2/monitor/addresses/{addressId}": {
+    "/v2/monitor/addresses/{addressId}/update": {
       "post": {
         "summary": "Update Monitored Address",
         "deprecated": false,
@@ -1452,10 +1452,16 @@
           {
             "name": "event_type",
             "in": "query",
-            "description": "Event type filter: TRANSACTION_IN/TRANSACTION_OUT/TRANSACTION_RISK/ADDRESS_RISK_CHANGE",
+            "description": "Event type filter",
             "required": false,
             "schema": {
               "type": "string",
+              "enum": [
+                "TRANSACTION_IN",
+                "TRANSACTION_OUT",
+                "TRANSACTION_RISK",
+                "ADDRESS_RISK_CHANGE"
+              ],
               "example": "TRANSACTION_IN"
             }
           },
@@ -1585,8 +1591,14 @@
                             "example": "550e8400-e29b-41d4-a716-446655440000"
                           },
                           "event_type": {
-                            "description": "Event type: TRANSACTION_IN/TRANSACTION_OUT/TRANSACTION_RISK/ADDRESS_RISK_CHANGE",
+                            "description": "Event type",
                             "type": "string",
+                            "enum": [
+                              "TRANSACTION_IN",
+                              "TRANSACTION_OUT",
+                              "TRANSACTION_RISK",
+                              "ADDRESS_RISK_CHANGE"
+                            ],
                             "example": "TRANSACTION_IN"
                           },
                           "monitor_label": {
