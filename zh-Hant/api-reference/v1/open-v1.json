@@ -144,7 +144,7 @@
             "name": "page",
             "in": "query",
             "description": "頁碼",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "integer",
               "example": 1
@@ -154,7 +154,7 @@
             "name": "page_size",
             "in": "query",
             "description": "每頁數量",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "integer",
               "example": 20
@@ -383,7 +383,7 @@
             "name": "page",
             "in": "query",
             "description": "頁碼",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "integer",
               "example": 1
@@ -393,7 +393,7 @@
             "name": "page_size",
             "in": "query",
             "description": "每頁數量",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "integer",
               "example": 20
@@ -893,7 +893,7 @@
             "name": "page",
             "in": "query",
             "description": "頁碼",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "integer",
               "example": 1
@@ -903,7 +903,7 @@
             "name": "page_size",
             "in": "query",
             "description": "每頁數量",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "integer",
               "example": 20
@@ -1099,7 +1099,7 @@
             "name": "page",
             "in": "query",
             "description": "頁碼",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "integer",
               "example": 1
@@ -1109,7 +1109,7 @@
             "name": "page_size",
             "in": "query",
             "description": "每頁數量",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "integer",
               "example": 20

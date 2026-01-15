@@ -144,7 +144,7 @@
             "name": "page",
             "in": "query",
             "description": "Page number",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "integer",
               "example": 1
@@ -154,7 +154,7 @@
             "name": "page_size",
             "in": "query",
             "description": "Page size",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "integer",
               "example": 20
@@ -383,7 +383,7 @@
             "name": "page",
             "in": "query",
             "description": "页码",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "integer",
               "example": 1
@@ -393,7 +393,7 @@
             "name": "page_size",
             "in": "query",
             "description": "每页数量",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "integer",
               "example": 20
@@ -879,7 +879,7 @@
             "name": "page",
             "in": "query",
             "description": "页码",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "integer",
               "example": 1
@@ -889,7 +889,7 @@
             "name": "page_size",
             "in": "query",
             "description": "每页数量",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "integer",
               "example": 20
@@ -1085,7 +1085,7 @@
             "name": "page",
             "in": "query",
             "description": "页码",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "integer",
               "example": 1
@@ -1095,7 +1095,7 @@
             "name": "page_size",
             "in": "query",
             "description": "Items per page",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "integer",
               "example": 20
