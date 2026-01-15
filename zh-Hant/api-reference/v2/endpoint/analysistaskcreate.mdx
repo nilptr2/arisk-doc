@@ -1,0 +1,37 @@
+---
+openapi: /zh-Hant/api-reference/v2/open-v2.json post /v2/analysis/tasks
+---
+
+### 欄位說明
+
+<ParamField body="metrics" type="string[]" optional>
+  分析指標列表。若不傳該欄位或傳空陣列，則預設返回所有支援的指標。
+  
+  **校驗規則**:
+  *   傳入值必須在支援的指標列表內，否則返回 `400 Invalid Params` 錯誤。
+  *   陣列中若有重複項會自動去重，且響應結果將盡量保持請求中的指標順序。
+
+  <Expandable title="支援的指標列舉值">
+    <ResponseField name="overview" type="Metric">
+      **地址總覽** - 包含餘額、地址型別（交易所/合約等）、首次轉賬時間及對手方、封禁/制裁狀態。
+    </ResponseField>
+    <ResponseField name="txflow" type="Metric">
+      **資金流向** - 包含資金流出的拓撲圖資料（節點 nodes 與連線 links）。
+    </ResponseField>
+    <ResponseField name="HABIT" type="Metric">
+      **交易習慣** - 包含按小時（0-23）分佈的流入/流出金額與筆數統計。
+    </ResponseField>
+    <ResponseField name="historical_balance" type="Metric">
+      **歷史餘額** - 包含每日曆史餘額變動曲線資料。
+    </ResponseField>
+    <ResponseField name="risk_type" type="Metric">
+      **風險型別統計** - 包含按風險標籤型別（如 Scam, Hacker, Mixer 等）分類的交易彙總。
+    </ResponseField>
+    <ResponseField name="top_transaction" type="Metric">
+      **Top 交易對手** - 包含交易金額或頻率最高的對手方地址列表。
+    </ResponseField>
+    <ResponseField name="risk_address_total" type="Metric">
+      **風險地址彙總** - 包含涉及已知風險地址的交易金額、筆數及地址總數合計。
+    </ResponseField>
+  </Expandable>
+</ParamField>

@@ -2,6 +2,7 @@
 title: "监控服务错误码"
 description: "监控地址及告警推送相关的业务错误码及其含义。"
 icon: "triangle-exclamation"
+slug: "monitor-errors"
 ---
 
 ### 响应结构
@@ -15,7 +16,7 @@ icon: "triangle-exclamation"
 ```json
 {
   "code": "104001",
-  "message": "Invalid request parameters (请求参数无效)"
+  "message": "Invalid request parameters"
 }
 ```
 
@@ -31,45 +32,45 @@ icon: "triangle-exclamation"
 ---
 
 <ResponseField name="105002" type="InvalidArgument">
-  Chain or token is required (链或代币必填)
+  Chain or token is required - 链或代币必填
 </ResponseField>
 
 <ResponseField name="105003" type="InvalidArgument">
-  Invalid pagination parameter (分页参数无效)
+  Invalid pagination parameter - 分页参数无效
 </ResponseField>
 
 <ResponseField name="105004" type="InvalidArgument">
-  Event type is invalid (事件类型无效)
+  Event type is invalid - 事件类型无效
 </ResponseField>
 
 <ResponseField name="105005" type="InvalidArgument">
-  Addresses cannot be empty (地址列表不能为空)
+  Addresses cannot be empty - 地址列表不能为空
 </ResponseField>
 
 <ResponseField name="105006" type="InvalidArgument">
-  Too many addresses in a single request (单次请求地址过多)
+  Too many addresses in a single request - 单次请求地址过多
 </ResponseField>
 
 <ResponseField name="205001" type="NotFound">
-  Monitor address not found (未找到监控地址)
+  Monitor address not found - 未找到监控地址
 </ResponseField>
 
 <ResponseField name="205002" type="NotFound">
-  Alert not found (未找到告警记录)
+  Alert not found - 未找到告警记录
 </ResponseField>
 
 <ResponseField name="205003" type="AlreadyExists">
-  Monitor address already exists (监控地址已存在)
+  Monitor address already exists - 监控地址已存在
 </ResponseField>
 
 <ResponseField name="205010" type="NotFound">
-  No matched monitored address (未匹配到监控地址)
+  No matched monitored address - 未匹配到监控地址
 </ResponseField>
 
 <ResponseField name="205011" type="FailedPrecondition">
-  Credits insufficient for overage slots (额度不足以支持额外的监控位)
+  Credits insufficient for overage slots - 额度不足以支持额外的监控位
 </ResponseField>
 
 <ResponseField name="305010" type="Unavailable">
-  System busy, please try again later (系统繁忙，请稍后再试)
+  System busy, please try again later - 系统繁忙，请稍后再试
 </ResponseField>

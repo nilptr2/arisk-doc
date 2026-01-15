@@ -2,6 +2,7 @@
 title: "分析服务错误码"
 description: "分析任务相关的业务错误码及其含义。"
 icon: "triangle-exclamation"
+slug: "analysis-errors"
 ---
 
 ### 响应结构
@@ -15,7 +16,7 @@ icon: "triangle-exclamation"
 ```json
 {
   "code": "104001",
-  "message": "Invalid request parameters (请求参数无效)"
+  "message": "Invalid request parameters"
 }
 ```
 
@@ -30,29 +31,29 @@ icon: "triangle-exclamation"
 ---
 
 <ResponseField name="104001" type="InvalidArgument">
-  Invalid request parameters (请求参数无效)
+  Invalid request parameters - 请求参数无效
 </ResponseField>
 
 <ResponseField name="204001" type="NotFound">
-  Analysis task not found (未找到分析任务)
+  Analysis task not found - 未找到分析任务
 </ResponseField>
 
 <ResponseField name="204002" type="NotFound">
-  Analysis result not found (未找到分析结果)
+  Analysis result not found - 未找到分析结果
 </ResponseField>
 
 <ResponseField name="204003" type="InvalidArgument">
-  Unsupported chain or token combination (不支持的链或代币组合)
+  Unsupported chain or token combination - 不支持的链或代币组合
 </ResponseField>
 
 <ResponseField name="204007" type="InvalidArgument">
-  Exchange address is not allowed for analysis (该交易所地址不允许进行分析)
+  Exchange address is not allowed for analysis - 该交易所地址不允许进行分析
 </ResponseField>
 
 <ResponseField name="204008" type="NotFound">
-  No transaction data found (未发现交易数据)
+  No transaction data found - 未发现交易数据
 </ResponseField>
 
 <ResponseField name="304003" type="Internal">
-  Internal processing error (内部处理错误)
+  Internal processing error - 内部处理错误
 </ResponseField>

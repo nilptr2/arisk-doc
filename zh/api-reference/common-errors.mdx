@@ -2,6 +2,7 @@
 title: "通用错误码"
 description: "系统通用的基础业务错误码及其含义。"
 icon: "triangle-exclamation"
+slug: "common-errors"
 ---
 
 ### 响应结构
@@ -15,7 +16,7 @@ icon: "triangle-exclamation"
 ```json
 {
   "code": "104001",
-  "message": "Invalid request parameters (请求参数无效)"
+  "message": "Invalid request parameters"
 }
 ```
 
@@ -31,25 +32,25 @@ icon: "triangle-exclamation"
 ---
 
 <ResponseField name="399101" type="Internal">
-  Internal error (内部错误)
+  Internal error - 内部错误
 </ResponseField>
 
 <ResponseField name="399201" type="Unauthenticated">
-  Missing authorization header (缺少授权请求头)
+  Missing authorization header - 缺少授权请求头
 </ResponseField>
 
 <ResponseField name="399202" type="Unauthenticated">
-  Invalid authorization header format (授权请求头格式错误)
+  Invalid authorization header format - 授权请求头格式错误
 </ResponseField>
 
 <ResponseField name="399207" type="InvalidArgument">
-  Unsupported chain (不支持的链)
+  Unsupported chain - 不支持的链
 </ResponseField>
 
 <ResponseField name="399208" type="InvalidArgument">
-  Unsupported token (不支持的代币)
+  Unsupported token - 不支持的代币
 </ResponseField>
 
 <ResponseField name="399209" type="InvalidArgument">
-  Unsupported chain or token (不支持的链或代币组合)
+  Unsupported chain or token - 不支持的链或代币组合
 </ResponseField>

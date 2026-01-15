@@ -136,38 +136,38 @@
                     "group": "分析任務",
                     "icon": "magnifying-glass-chart",
                     "pages": [
-                      "tw/api-reference/v2/endpoint/analysistasklist",
-                      "tw/api-reference/v2/endpoint/analysistaskcreate",
-                      "tw/api-reference/v2/endpoint/analysistaskstatusget",
-                      "tw/api-reference/v2/endpoint/analysistaskresultget",
-                      "tw/api-reference/analysis-errors"
+                      "zh-Hant/api-reference/v2/endpoint/analysistasklist",
+                      "zh-Hant/api-reference/v2/endpoint/analysistaskcreate",
+                      "zh-Hant/api-reference/v2/endpoint/analysistaskstatusget",
+                      "zh-Hant/api-reference/v2/endpoint/analysistaskresultget",
+                      "zh-Hant/api-reference/analysis-errors"
                     ]
                   },
                   {
                     "group": "地址監控",
                     "icon": "shield-check",
                     "pages": [
-                      "tw/api-reference/v2/endpoint/monitoraddresseslist",
-                      "tw/api-reference/v2/endpoint/monitoraddressesadd",
-                      "tw/api-reference/v2/endpoint/monitoraddressupdate",
-                      "tw/api-reference/v2/endpoint/monitoraddressesdelete",
-                      "tw/api-reference/v2/endpoint/monitoralertslist",
-                      "tw/api-reference/monitor-errors"
+                      "zh-Hant/api-reference/v2/endpoint/monitoraddresseslist",
+                      "zh-Hant/api-reference/v2/endpoint/monitoraddressesadd",
+                      "zh-Hant/api-reference/v2/endpoint/monitoraddressupdate",
+                      "zh-Hant/api-reference/v2/endpoint/monitoraddressesdelete",
+                      "zh-Hant/api-reference/v2/endpoint/monitoralertslist",
+                      "zh-Hant/api-reference/monitor-errors"
                     ]
                   },
                   {
                     "group": "通用說明",
                     "icon": "book-open",
                     "pages": [
-                      "tw/api-reference/common-errors"
+                      "zh-Hant/api-reference/common-errors"
                     ]
                   },
                   {
                     "group": "Webhook 推送",
                     "pages": [
-                      "tw/api-reference/v2/webhooks/overview",
-                      "tw/api-reference/v2/webhooks/address-risk-change",
-                      "tw/api-reference/v2/webhooks/transaction-detection"
+                      "zh-Hant/api-reference/v2/webhooks/overview",
+                      "zh-Hant/api-reference/v2/webhooks/address-risk-change",
+                      "zh-Hant/api-reference/v2/webhooks/transaction-detection"
                     ]
                   }
                 ]
@@ -183,40 +183,40 @@
                   {
                     "group": "地址監控",
                     "pages": [
-                      "tw/api-reference/v1/endpoint/monitoraddresslist",
-                      "tw/api-reference/v1/endpoint/monitoraddressadd",
-                      "tw/api-reference/v1/endpoint/monitoraddressstatusupdate",
-                      "tw/api-reference/v1/endpoint/monitoraddressremove",
-                      "tw/api-reference/v1/endpoint/monitoralerts",
-                      "tw/api-reference/v1/endpoint/riskchangealerts",
-                      "tw/api-reference/v1/endpoint/monitorconfigget",
-                      "tw/api-reference/v1/endpoint/monitorconfigset",
-                      "tw/api-reference/v1/endpoint/monitorconfigupdate",
-                      "tw/api-reference/monitor-errors"
+                      "zh-Hant/api-reference/v1/endpoint/monitoraddresslist",
+                      "zh-Hant/api-reference/v1/endpoint/monitoraddressadd",
+                      "zh-Hant/api-reference/v1/endpoint/monitoraddressstatusupdate",
+                      "zh-Hant/api-reference/v1/endpoint/monitoraddressremove",
+                      "zh-Hant/api-reference/v1/endpoint/monitoralerts",
+                      "zh-Hant/api-reference/v1/endpoint/riskchangealerts",
+                      "zh-Hant/api-reference/v1/endpoint/monitorconfigget",
+                      "zh-Hant/api-reference/v1/endpoint/monitorconfigset",
+                      "zh-Hant/api-reference/v1/endpoint/monitorconfigupdate",
+                      "zh-Hant/api-reference/monitor-errors"
                     ]
                   },
                   {
                     "group": "分析任務",
                     "pages": [
-                      "tw/api-reference/v1/endpoint/querycreate",
-                      "tw/api-reference/v1/endpoint/queryhistories",
-                      "tw/api-reference/v1/endpoint/queryresult",
-                      "tw/api-reference/v1/endpoint/querystatus",
-                      "tw/api-reference/analysis-errors"
+                      "zh-Hant/api-reference/v1/endpoint/querycreate",
+                      "zh-Hant/api-reference/v1/endpoint/queryhistories",
+                      "zh-Hant/api-reference/v1/endpoint/queryresult",
+                      "zh-Hant/api-reference/v1/endpoint/querystatus",
+                      "zh-Hant/api-reference/analysis-errors"
                     ]
                   },
                   {
                     "group": "通用說明",
                     "pages": [
-                      "tw/api-reference/common-errors"
+                      "zh-Hant/api-reference/common-errors"
                     ]
                   },
                   {
                     "group": "Webhook 推送",
                     "pages": [
-                      "tw/api-reference/v1/webhooks/overview",
-                      "tw/api-reference/v1/webhooks/risk-change",
-                      "tw/api-reference/v1/webhooks/known-risk"
+                      "zh-Hant/api-reference/v1/webhooks/overview",
+                      "zh-Hant/api-reference/v1/webhooks/risk-change",
+                      "zh-Hant/api-reference/v1/webhooks/known-risk"
                     ]
                   }
                 ]

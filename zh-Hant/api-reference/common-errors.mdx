@@ -1,0 +1,56 @@
+---
+title: "通用錯誤碼"
+description: "系統通用的基礎業務錯誤碼及其含義。"
+icon: "triangle-exclamation"
+slug: "common-errors"
+---
+
+### 響應結構
+
+當 API 呼叫發生錯誤時，將返回包含以下欄位的 JSON 響應：
+
+- `code`: 6 位數字的業務錯誤碼。
+- `message`: 錯誤的具體描述資訊。
+
+示例：
+```json
+{
+  "code": "104001",
+  "message": "Invalid request parameters"
+}
+```
+
+
+### 錯誤碼格式
+
+業務錯誤碼的第一位數字代表錯誤的級別或型別：
+
+- **1**: 引數或輸入錯誤。
+- **2**: 業務邏輯錯誤。
+- **3**: 系統或內部錯誤。
+
+---
+
+<ResponseField name="399101" type="Internal">
+  Internal error - 內部錯誤
+</ResponseField>
+
+<ResponseField name="399201" type="Unauthenticated">
+  Missing authorization header - 缺少授權請求頭
+</ResponseField>
+
+<ResponseField name="399202" type="Unauthenticated">
+  Invalid authorization header format - 授權請求頭格式錯誤
+</ResponseField>
+
+<ResponseField name="399207" type="InvalidArgument">
+  Unsupported chain - 不支援的鏈
+</ResponseField>
+
+<ResponseField name="399208" type="InvalidArgument">
+  Unsupported token - 不支援的代幣
+</ResponseField>
+
+<ResponseField name="399209" type="InvalidArgument">
+  Unsupported chain or token - 不支援的鏈或代幣組合
+</ResponseField>
